@@ -205,10 +205,21 @@
         private $productTable = "products";
         private $connection = false;
         private $avaible;
+        
+        private $product_id;
+        public $title;
+        public $description;
+        public $picture;
+        public $price;
+        public $amount;
+        public $specification;
+        public $opinions;
+        
 
-        public function __construct()
+        public function __construct($product_id)
         {
             $this -> avaible = true;
+            
             if (!$this -> connection)
             {
                 $database = new dbConfig();
@@ -226,6 +237,9 @@
                 {
                     $this -> connection = $conn;
                 }
+
+                $sql = "SELECT * FROM products WHERE id_prod = " . $product_id;
+                
             }
         }
 
