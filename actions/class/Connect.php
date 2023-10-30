@@ -23,7 +23,7 @@
             $this -> hostname = "localhost";
             $this -> username = "root";
             $this -> password = "";
-            $this -> dbname = "bookstore";
+            $this -> dbname = "TechStore";
 
         }
 
