@@ -5,25 +5,25 @@ The website is designed to enable the user to log in, who can thus place an orde
 related to customers, products and orders.
 
 
-**Technologies used**
--> HTML
--> CSS
--> JavaScript
--> PHP
--> SQL
+**Technologies used**\n
+-> HTML\n
+-> CSS\n
+-> JavaScript\n
+-> PHP\n
+-> SQL\n
 
 
-**Key functions**
-User:
-    -> Log in / registration
-    -> Browsing products
-    -> Searching for information about products
-    -> Placing orders
-Admin:
-    -> Log in
-    -> Clients: show, add, delete, modify data
-    -> Products: show, add, delete, modify data
-    -> Orders: show, delete
+**Key functions**\n
+User:\n
+    -> Log in / registration\n
+    -> Browsing products\n
+    -> Searching for information about products\n
+    -> Placing orders\n
+Admin:\n
+    -> Log in\n
+    -> Clients: show, add, delete, modify data\n
+    -> Products: show, add, delete, modify data\n
+    -> Orders: show, delete\n
 
 
 **How to run**
