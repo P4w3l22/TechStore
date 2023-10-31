@@ -10,7 +10,7 @@ related to customers, products and orders.
 -> CSS \
 -> JavaScript \
 -> PHP \
--> SQL \
+-> SQL
 
 
 **Key functions** \
@@ -23,7 +23,7 @@ Admin: \
     -> Log in \
     -> Clients: show, add, delete, modify data \
     -> Products: show, add, delete, modify data \
-    -> Orders: show, delete \
+    -> Orders: show, delete
 
 
 **How to run**
