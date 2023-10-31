@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS Opinions (
 INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date)
              VALUES ("Test", "Testowy", "test@gmail.com", "Testowa 99, Warszawa", "999888777", TODAY()),
                     ("Przyklad", "Przykladowy", "przyklad@gmail.com", "Przykladowa 99, Wrocław", "777888999", TODAY()),
-                    ("Mikołaj", "Mikołajowy", "mikolaj@gmail.com", "Mikołajowa 99, Gdańśk", "888999777", TODAY());
+                    ("Mikołaj", "Mikołajowy", "mikolaj@gmail.com", "Mikołajowa 99, Gdańsk", "888999777", TODAY());
 
 INSERT INTO Products(pr_title, pr_description, pr_category, pr_specification, pr_picture, pr_price, pr_amount)
              VALUES ("Gigabyte GeForce RTX 3060 Ti EAGLE OC 8GB GDDR6X",

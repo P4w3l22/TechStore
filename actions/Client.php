@@ -3,11 +3,6 @@
     $manage = new Manage();
     include('parts/header.php'); 
 ?>
-<script>
-    function confirmDelete() {
-        return confirm("Czy na pewno chcesz usunąć tego klienta?");
-    }
-</script>
 <title>Klienci</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>

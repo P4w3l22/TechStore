@@ -11,8 +11,6 @@ const addressErrorElement = document.getElementById('address_error')
 const numberErrorElement = document.getElementById('number_error')
 const emailErrorElement = document.getElementById('email_error')
 
-
-
 form.addEventListener('submit', (e) => {
     nameErrorElement.innerText = ""
     secondNameErrorElement.innerText = ""

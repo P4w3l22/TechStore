@@ -1,3 +1,4 @@
+
 <?php
     require('Connect.php');
     class Manage extends dbConfig
@@ -70,42 +71,69 @@
             $sql = "SELECT * FROM Clients";
 
             $result = mysqli_query($this -> connection, $sql);
-            $counter = 0;
+            $counter = 1;
             if (mysqli_num_rows($result) > 0)
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    echo '
-                          <tr>
-                              <th scope="row">' . ++$counter . '</th>
-                              <td>' . $row['cl_name'] . '</td>
-                              <td>' . $row['cl_second_name'] . '</td>
-                              <td>' . $row['cl_email'] . '</td>                                
-                              <td>' . $row['cl_address'] . '</td>
-                              <td>' . $row['cl_phone_number'] . '</td>
-                              <td>' . $row['cl_create_date'] . '</td>
-                              <td>
-                                  <form action="Client.php" method="post">
-                                      <input type="hidden" name="id" value="' . $row['cl_id'] . '">
-                                      <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-                                        </svg>
-                                      </button>
-                                  </form>
-                              </td>
-                              <td>
-                                  <form action="Client.php" method="get">
-                                    <button style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                        </svg>
-                                    </button>
-                                  </form>
-                              </td>
-                          </tr>
-                          ';
+
+                        echo '
+                                <div>
+                                    <tr id="view_' . $row['cl_id'] . '">
+                                        <th scope="row">' . $counter . '</th>
+                                        <td>' . $row['cl_name'] . '</td>
+                                        <td>' . $row['cl_second_name'] . '</td>
+                                        <td>' . $row['cl_email'] . '</td>                                
+                                        <td>' . $row['cl_address'] . '</td>
+                                        <td>' . $row['cl_phone_number'] . '</td>
+                                        <td>' . $row['cl_create_date'] . '</td>
+                                        <td>
+                                            <form action="Client.php" method="post">
+                                                <input type="hidden" name="id" value="' . $row['cl_id'] . '">
+                                                <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane" onclick="edit(' . $row['cl_id'] . ')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </div>
+
+                                <div>
+                                    <tr style="display: none;" id="edit_' . $row['cl_id'] . '">
+                                        <th >' . $counter . '</th>
+                                        <td><input class="form-control" id="name_' . $row['cl_id'] . '" type="text" value="' . $row['cl_name'] . '"></td>
+                                        <td><input class="form-control" id="second_name_' . $row['cl_id'] . '" type="text" value="' . $row['cl_second_name'] . '"></td>
+                                        <td><input class="form-control" id="email_' . $row['cl_id'] . '" type="text" value="' . $row['cl_email'] . '"></td>
+                                        <td><input class="form-control" id="address_' . $row['cl_id'] . '" type="text" value="' . $row['cl_address'] . '"></td>
+                                        <td><input class="form-control" id="phone_' . $row['cl_id'] . '" type="text" value="' . $row['cl_phone_number'] . '"></td>
+                                        <td>' . $row['cl_create_date'] . '</td>
+                                        <td>
+                                            <button disabled style="border-radius: 6px; background-color: gray; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" onclick="save(' . $row['cl_id'] . ')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </div>';
+                        $counter++;
                 }
             }
             else
@@ -122,7 +150,7 @@
 
                 if ($this -> connection->query($sql) === TRUE)
                 {
-                    echo "<meta http-equiv='refresh' content='0'>";                        
+                    echo "<meta http-equiv='refresh' content='0'>";
                 }
                 else
                 {
@@ -131,28 +159,25 @@
             }
         }
 
-        public function ModifyRow($i, $clName, $clSecondName, $clEmail, $clAddress, $clPhoneNumber, $clCreateDate)
+        public function EditRow($id, $name, $second_name, $email, $address, $phone)
         {
-            $modRow = ' <tr>
-                            <form id="modify" action="Client.php" method="get" onsubmit="modifyRow()">
-                                <th>' . $i . '</th>
-                                <td><input type="text" value="' . $clName . '"></td>
-                                <td><input type="text" value="' . $clSecondName . '"></td>
-                                <td><input type="text" value="' . $clEmail . '"></td>
-                                <td><input type="text" value="' . $clAddress . '"></td>
-                                <td><input type="text" value="' . $clPhoneNumber . '"></td>
-                                <td>' . $clCreateDate . '</td>
-                                <td>
-                                    <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                        </svg>
-                                    </button>
-                                </td>
-                            </form>
-                        </tr>';
-            echo $modRow;
+            $sql = 'UPDATE Clients 
+                    SET cl_name = "' . $name . '", 
+                        cl_second_name = "' . $second_name . '", 
+                        cl_email = "' . $email . '", 
+                        cl_address = "' . $address . '", 
+                        cl_phone_number = "' . $phone . '"
+                    WHERE cl_id = ' . $id . ';';
+            if ($this -> connection -> query($sql) === TRUE) {
+                echo "<meta http-equiv='refresh' content='0'>";
+            }
+            else
+            {
+                echo "Wystąpił błąd";
+            }
+            
         }
+
     }
 
     // PRODUCT CLASS
@@ -177,7 +202,7 @@
         public $opinions;
         
 
-        public function __construct($product_id)
+        public function __construct()
         {
             $this -> avaible = true;
             
@@ -199,7 +224,7 @@
                     $this -> connection = $conn;
                 }
 
-                $sql = "SELECT * FROM products WHERE id_prod = " . $product_id;
+                // $sql = "SELECT * FROM products WHERE id_prod = " . $product_id;
                 
             }
         }
