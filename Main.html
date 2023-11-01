@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/cpu.svg">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <title>TechStore</title>
 </head>
 <body>
-    <div class="first_view">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; width: 78%; z-index: 1;">
-            <div class="container">
+    <div class="first_view" style="display: flex; justify-content: center;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; width: 78%; z-index: 1; box-shadow: 0px 0px 2px gray;">
+            <div class="container" style="padding-right: 2px;">
                 <a href="#" class="navbar-brand">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16">
                         <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
@@ -47,10 +46,8 @@
                                 aria-expanded="false"
                             >Produkt</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Wyświetl produkty</a></li>
-                                <li><a class="dropdown-item" href="actions/AddProduct.php" target="_blank">Dodaj produkty</a></li>
-                                <li><a class="dropdown-item" href="#">Modyfikuj produkty</a></li>
-                                <li><a class="dropdown-item" href="#">Usuń produkt</a></li>
+                                <li><a class="dropdown-item" href="#">Lista produktów</a></li>
+                                <li><a class="dropdown-item" href="actions/AddProduct.php" target="_blank">Kategorie</a></li>
                                 <li><a class="dropdown-item" href="actions/ProductSite.html">Wyszukaj produkt</a></li>
                             </ul>
                         </li>
@@ -80,7 +77,8 @@
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
-                                style="border-radius: 14px 2px 2px 14px;"
+                                style="border-radius: 14px 2px 2px 14px;
+                                       background-color: #dbd5df;"
                             />
                             <button 
                                 class="btn btn-primary button-round" 
@@ -94,16 +92,13 @@
                     </form>
                     </ul>
                 </div>
-
             </div>
         </nav>
-
-        <h1>Witamy w naszym sklepie!</h1>
-        <h5 style="padding-top: 30px; font-weight: lighter; text-align: center;">Zajrzyj do naszej oferty i znajdź coś dla siebie - dobierz potrzebne komponenty i zbuduj komputer marzeń!</h5>
-        <p>tutaj będą banery</p>
+        <div class="fade-el">
+            <h1 style="font-size: 70px; font-weight:400;">Witamy w naszym sklepie!</h1>
+            <h4 style="font-weight: lighter; width: 100%; text-align: center; size: 90px;">Zajrzyj do naszej oferty i znajdź coś dla siebie - dobierz potrzebne komponenty i zbuduj komputer marzeń!</h4>
+        </div>
     </div>
-
-
 
     <!-- CAROUSEL VIEW -->
     <div class="second_view">
@@ -115,125 +110,150 @@
         >
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="cards-wrapper">
-                <div class="card">
-                    <img
-                    class="card-img-top"
-                    src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTUpWaN73QHSs7eRXPdOCAUH3DX72_TCLyyv1P4MGwawtXi2374wdq-Nvaq3AtEkC8bglzrU5RA0rOTLIsOo6HkTc1QtpbfsjlhZqP59aunVjd-gmKw9qAJOg&usqp=CAE"
-                    alt=""
-                    
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">199.99 zł</h5>
-                        <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                <div class="carousel-item active">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTUpWaN73QHSs7eRXPdOCAUH3DX72_TCLyyv1P4MGwawtXi2374wdq-Nvaq3AtEkC8bglzrU5RA0rOTLIsOo6HkTc1QtpbfsjlhZqP59aunVjd-gmKw9qAJOg&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTep6N1L0dZ37ik1nM9fu7YPV-P2-NRq-dWz0j58ttBLvM9pqPmF6rkcjnjrYQGgXuq9gGt_WwtngUNEevyCX7LAJWkNgiE_Uoui_xyP9WjC6fN7x-ggnkY&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card d-none d-md-block">
-                    <img
-                    class="card-img-top"
-                    src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTep6N1L0dZ37ik1nM9fu7YPV-P2-NRq-dWz0j58ttBLvM9pqPmF6rkcjnjrYQGgXuq9gGt_WwtngUNEevyCX7LAJWkNgiE_Uoui_xyP9WjC6fN7x-ggnkY&usqp=CAE"
-                    alt=""
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">539,00 zł</h5>
-                        <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card d-none d-md-block">
-                    <img
-                    class="card-img-top"
-                    src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
-                    alt=""
-                    
-
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">1699.99 zł</h5>
-                        <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-              </div>
-              <div class="carousel-item">
-                <div class="cards-wrapper">
-                  <div class="card">
-                    <img
-                        class="card-img-top"
-                        src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
-                        alt=""
-                        
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">199.99 zł</h5>
-                        <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
-                    </div>
-                  </div>
-                  <div class="card d-none d-md-block">
-                    <img
-                        class="card-img-top"
-                        src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
-                        alt=""
-                        
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">539,00 zł</h5>
-                        <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
-                    </div>
-                  </div>
-                  <div class="card d-none d-md-block">
-                    <img
-                        class="card-img-top"
-                        src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
-                        alt=""
-                        
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">1699.99 zł</h5>
-                        <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="cards-wrapper">
-                  <div class="card">
-                    <img
-                        class="card-img-top"
-                        src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
-                        alt=""
-
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">199.99 zł</h5>
-                        <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
-                    </div>
-                  </div>
-                  <div class="card d-none d-md-block">
-                    <img
-                        class="card-img-top"
-                        src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
-                        alt=""
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">539,00 zł</h5>
-                        <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
-                    </div>
-                  </div>
-                  <div class="card d-none d-md-block">
-                    <img
-                        class="card-img-top"
-                        src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
-                        alt=""
-
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title">1699.99 zł</h5>
-                        <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <button
                 class="carousel-control-prev"
@@ -257,8 +277,357 @@
         </div>
     </div>
 
+    <div class="second_view">
+        <h1 style="color: white; text-align: center; padding-top: 60px;">Najczęściej kupowane</h1>
+        <div
+            id="carouselExampleControls1"
+            class="carousel slide"
+            data-bs-ride = "carousel"
+        >
+        <div id="carouselExampleControls1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTUpWaN73QHSs7eRXPdOCAUH3DX72_TCLyyv1P4MGwawtXi2374wdq-Nvaq3AtEkC8bglzrU5RA0rOTLIsOo6HkTc1QtpbfsjlhZqP59aunVjd-gmKw9qAJOg&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTep6N1L0dZ37ik1nM9fu7YPV-P2-NRq-dWz0j58ttBLvM9pqPmF6rkcjnjrYQGgXuq9gGt_WwtngUNEevyCX7LAJWkNgiE_Uoui_xyP9WjC6fN7x-ggnkY&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls1"
+                data-bs-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls1"
+                data-bs-slide="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+    </div>
 
-
+    <div class="second_view" style="border-radius: 0 0 15px 15px;">
+        <h1>Ostatnio dodane</h1>
+        <div
+            id="carouselExampleControls2"
+            class="carousel slide"
+            data-bs-ride = "carousel"
+        >
+        <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTUpWaN73QHSs7eRXPdOCAUH3DX72_TCLyyv1P4MGwawtXi2374wdq-Nvaq3AtEkC8bglzrU5RA0rOTLIsOo6HkTc1QtpbfsjlhZqP59aunVjd-gmKw9qAJOg&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTep6N1L0dZ37ik1nM9fu7YPV-P2-NRq-dWz0j58ttBLvM9pqPmF6rkcjnjrYQGgXuq9gGt_WwtngUNEevyCX7LAJWkNgiE_Uoui_xyP9WjC6fN7x-ggnkY&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ3G1tUi7fCONRiyemmkjIv5uzjXLV4oHppw7PPXtZB70xKa_uLuq9M2VePoUw-3z78lQlIewKuBU1GuqNdq6UfN_b86n7IqGY7Yqurpw6Lh_iG2xD-TBsL&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="cards-wrapper">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">199.99 zł</h5>
+                                <p class="card-text">KProcesor AMD Ryzen 5 4500</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">539,00 zł</h5>
+                                <p class="card-text">Płyta Główna Msi Mpg B550 Gaming Plus, Atx, Am4</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                                class="card-img-top"
+                                src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRbtbVYiKKr3IYb9OAt_27JKk7xzY5BMqkhcoKC_2l5oCypEjkOASqBn0KsShMOhnXNgxUhTQMJsOMPsvqpSR2hMIPJK5T4PoILwiuugbtLAWnFmhDr0iHjAA&usqp=CAE"
+                                alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                        <div class="card d-none d-md-block">
+                            <img
+                            class="card-img-top"
+                            src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRjgb-sp41ti0zEvyp6n9dH0VXm3Q_9CcgLqA0nM03__F5IcDmp1MJP-RXVxJive7MrdkPbxrwuxMcDHXAB3UHl6MNOCp2ISxZMH0tV7axz&usqp=CAE"
+                            alt=""
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title">1699.99 zł</h5>
+                                <p class="card-text">Gigabyte Karta graficzna GeForce RTX 4070 WINDFORCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls2"
+                data-bs-slide="prev"
+            >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls2"
+                data-bs-slide="next"
+            >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+    </div>
 
     <div class="third_view">
         <h1 style="color: #303030;">Statystyki</h1>
@@ -333,12 +702,13 @@
 
     <div class="fourth_view">
         <h1 style="text-align: center; padding-top: 100px;">O nas</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore hic sunt delectus ipsum, modi, ut, pariatur corrupti expedita accusantium magni ipsam? Odio velit dignissimos ipsam, libero expedita officiis accusantium corrupti?</p>
         
     </div>
 
     <script src="script/barchart.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
-    
+
 </body>
 </html>

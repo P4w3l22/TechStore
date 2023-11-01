@@ -1,27 +1,39 @@
 body{
     margin: 6px 6px 0px 6px;
+    /* background-color: #121212; - dark mode*/
 }
 
 .first_view {
-    background-color: blueviolet;
-    height: 500px;
+    background-image: url('images/motherboard3.jpg');
+    background-size: cover;
+    filter: blur();
+    height: 800px;
     margin-bottom: 6px;
     border-radius: 15px 15px 0px 0px;
     color: white;
-    
+    border: 1px solid white;
 }
 
+
 .first_view h1 {
-    color: white; 
+    color: #dbd5df; 
     padding-top: 150px;
-    text-align: center;
+    font-size: 70px; 
+    font-weight:400;
 }
 
 .second_view {
     background-color: #303030;
     /* height: auto; */
     padding-bottom: 40px;
-    border-radius: 0 0 15px 15px;
+    margin-bottom: 6px;
+    /* border-radius: 0 0 15px 15px; */
+}
+
+.second_view h1 {
+    color: white; 
+    text-align: center; 
+    padding-top: 60px;
 }
 
 .third_view {
@@ -35,7 +47,7 @@ body{
 }
 
 .third_view nav {
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
     border-radius: 18px;
     background-color: inherit;
     width: auto;
@@ -58,7 +70,7 @@ body{
 .third_view .menu .nav {
     width: 100%;
     display: flex;
-    justify-content:flex-start;
+    justify-content:center;
     margin: 8px;
 }
 
@@ -79,8 +91,34 @@ body{
     height: 500px;
     border-radius: 15px 15px 0 0;
     margin-bottom: none;
-    background-color: grey;
+    background-color: #303030;
     color: white;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+      /* transform: translateX(-100%); */
+    }
+    to {
+        opacity: 1;
+      /* transform: translateX(0); */
+    }
+  }
+
+.fade-el {
+    animation: slideIn 2s ease-in-out;
+    text-shadow: 2px 2px 5px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    color: #f2ebf7;
+    text-align: center;
+}
+
+.fade-el h4 {
+    padding-top: 30px;
 }
 
 .first_view nav {
@@ -145,21 +183,34 @@ body{
 
 /* Carousel */
 .carousel {
-    margin: 50px 10%;
+    margin: 50px 5%;
+    /* height: 250px; */
 }
 .cards-wrapper {
     display: flex;
-    justify-content:space-evenly;
+    justify-content:center;
+    /* height: 250px; */
   }
 .card img {
     max-width: 100%;
     max-height: 100%;
+    /* height: 50%; */
 }
+
+.card body {
+    height: 20%;
+}
+
 .card {
     margin: 0 0.5em;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 5px;
+    /* min-width: 150px;
+    width: 20%;
+    height: 100%;
+    height: 300px;
+    overflow: hidden; */
 }
 .carousel-inner {
     padding: 1em;
