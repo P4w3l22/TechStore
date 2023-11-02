@@ -11,5 +11,4 @@
             return confirm("Czy na pewno chcesz usunąć tego użytkownika?");
         }
     </script>
-    <script src="../script/modifyRow.js"></script>
     <link rel="icon" href="../images/cpu.svg">

@@ -1,6 +1,8 @@
 body{
     margin: 6px 6px 0px 6px;
     /* background-color: #121212; - dark mode*/
+    /* background-color: #121212; */
+    /* background-color: blue; */
 }
 
 .first_view {
@@ -223,4 +225,12 @@ body{
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#description {
+    height: 100px;
+}
+
+.dis {
+    display: none;
 }

@@ -13,16 +13,16 @@
         </svg>
     </h3><br>
     <table class="table">
-        <thead>
-            <th scope="col" style="background-color: inherit; color: white;">#</th>
-            <th scope="col" style="background-color: inherit; color: white;">Imie</th>
-            <th scope="col" style="background-color: inherit; color: white;">Nazwisko</th>
-            <th scope="col" style="background-color: inherit; color: white;">Email</th>
-            <th scope="col" style="background-color: inherit; color: white;">Adres</th>
-            <th scope="col" style="background-color: inherit; color: white;">Numer Telefonu</th>
-            <th scope="col" style="background-color: inherit; color: white;">Data rejestracji</th>
-            <th scope="col" style="background-color: inherit; color: white;">Usuń</th>
-            <th scope="col" style="background-color: inherit; color: white;">Edytuj</th>
+        <thead style="border-bottom: 2px solid blueviolet;">
+            <th scope="col" style="background-color: inherit;">#</th>
+            <th scope="col" style="background-color: inherit;">Imie</th>
+            <th scope="col" style="background-color: inherit;">Nazwisko</th>
+            <th scope="col" style="background-color: inherit;">Email</th>
+            <th scope="col" style="background-color: inherit;">Adres</th>
+            <th scope="col" style="background-color: inherit;">Numer Telefonu</th>
+            <th scope="col" style="background-color: inherit;">Data rejestracji</th>
+            <th scope="col" style="background-color: inherit;">Usuń</th>
+            <th scope="col" style="background-color: inherit;">Edytuj</th>
         </thead>
         <tbody>
             <?php $manage -> Client(); ?>
@@ -35,7 +35,7 @@
 <?php             
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        $manage -> DeleteRow();
+        $manage -> DeleteRow("c");
     }
 ?>
 

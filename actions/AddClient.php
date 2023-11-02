@@ -77,9 +77,8 @@
 
         <label></label>
         <input class="submit_button" type="submit" style="margin-left: 8px;" value="Prześlij">
-
     </form>
 </div>
-<?php $manage -> Add(); ?>
+<?php $manage -> Add('c'); ?>
 
 <?php include('parts/footer.php'); ?>

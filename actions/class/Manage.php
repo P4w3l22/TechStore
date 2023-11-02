@@ -38,37 +38,110 @@
             }
         }
 
-        public function Add()
+        public function Add($pointer)
         {
             if ($_SERVER["REQUEST_METHOD"] == "POST") 
             {
-                $Imie =  $_POST['name'];
-                $Nazwisko= $_POST['second_name'];
-                $Email = $_POST['email'];
-                $Adres =  $_POST['address'];
-                $Telefon = $_POST['number'];
-                          
+                if ($pointer == 'c')
+                {
+                    $Imie =  $_POST['name'];
+                    $Nazwisko= $_POST['second_name'];
+                    $Email = $_POST['email'];
+                    $Adres =  $_POST['address'];
+                    $Telefon = $_POST['number'];
+                            
 
-                $sql = "INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date)
-                VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW())";
+                    $sql = "INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date)
+                    VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW())";
 
-                if ($this -> connection -> query($sql) === FALSE) {
-                    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Przepraszamy, wystąpił błąd</strong>
-                                <button
-                                    type="button"
-                                    class="btn-close"
-                                    data-bs-dismiss="alert"
-                                    aria-label="Close"
-                                ></button>
-                            </div>';
+                    if ($this -> connection -> query($sql) === FALSE) 
+                    {
+                        echo 'Przepraszamy, wystąpił błąd';
+                    }
                 }
+
+                else
+                {
+                    $Title = $_POST['title'];
+                    $Description = $_POST['description'];
+                    $Category = $_POST['category'];
+                    // $Specification = $_POST['specification'];
+                    $Picture = $_POST['photo'];
+                    $Price = $_POST['price'];
+                    $Amount = $_POST['amount'];
+
+                    $sql = "INSERT INTO Products(pr_title, pr_description, pr_category, pr_picture, pr_price, pr_amount)
+                                          VALUES('$Title', '$Description', '$Category', '$Picture', '$Price', '$Amount');";
+                    if ($this -> connection -> query($sql) === FALSE)
+                    {
+                        echo 'Przepraszamy, wystąpił błąd';
+                    }
+                }
+            }
+        }
+
+        public function Products()
+        {
+            $sql = "SELECT * FROM Products;";
+
+            $result = mysqli_query($this -> connection, $sql);
+            $counter = 1;
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    if (strlen($row['pr_description']) > 120)
+                    {
+                        $shortDescription = substr($row['pr_description'], 0, 120) . " ...";
+                    }
+                    else
+                    {
+                        $shortDescription = $row['pr_description'];
+                    }
+
+                    echo '  <div>
+                                <tr id="view_' . $row['pr_id'] . '">
+                                    <th scope="row">' . $counter . '</th>
+                                    <td style="max-height: 50px;">' . $row['pr_title'] . '</td>
+                                    <td style="max-height: 50px;">' . $shortDescription . '</td>
+                                    <td style="max-height: 50px;">' . $row['pr_category'] . '</td>                                
+                                    <td style="max-height: 50px;">' . $row['pr_specification'] . '</td>
+                                    <td style="max-height: 50px;">' . $row['pr_picture'] . '</td>
+                                    <td style="max-height: 50px;">' . $row['pr_price'] . '</td>
+                                    <td style="max-height: 50px;">' . $row['pr_amount'] . '</td>
+
+                                    <td>
+                                        <form action="ProductList.php" method="post">
+                                            <input type="hidden" name="id" value="' . $row['pr_id'] . '">
+                                            <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń produkt" type="submit" onclick="return confirmDelete()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                            </svg>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </div>';
+                    $counter++;
+                }
+            }
+            else
+            {
+                echo "Brak produktów";
             }
         }
 
         public function Client() 
         {
-            $sql = "SELECT * FROM Clients";
+            $sql = "SELECT * FROM Clients;";
 
             $result = mysqli_query($this -> connection, $sql);
             $counter = 1;
@@ -140,19 +213,39 @@
             }
         }
 
-        public function DeleteRow()
-        {
-            foreach ($_POST as $value)
-            {
-                $sql = "DELETE FROM Clients WHERE cl_id = " . $value;
 
-                if ($this -> connection->query($sql) === TRUE)
+        public function DeleteRow($table)
+        {
+            if ($table == "c")
+            {
+                foreach ($_POST as $value)
                 {
-                    echo "<meta http-equiv='refresh' content='0'>";
+                    $sql = "DELETE FROM Clients WHERE cl_id = " . $value;
+
+                    if ($this -> connection->query($sql) === TRUE)
+                    {
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    }
+                    else
+                    {
+                        echo "Wystąpił błąd";
+                    }
                 }
-                else
+            }
+            else
+            {
+                foreach ($_POST as $value)
                 {
-                    echo "Wystąpił błąd";
+                    $sql = "DELETE FROM Products WHERE pr_id = " . $value;
+
+                    if ($this -> connection->query($sql) === TRUE)
+                    {
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    }
+                    else
+                    {
+                        echo "Wystąpił błąd";
+                    }
                 }
             }
         }
