@@ -1,0 +1,80 @@
+
+/* DARK MODE */
+body {
+    background-color: #121212;
+    color: white;
+}
+
+.first_view {
+    border: 1px solid #7E7F84;
+}
+
+.collapse .d-flex .form-control {
+    border-radius: 14px 2px 2px 14px;
+    background-color: #3C383F;
+    color: #BABDC3;
+    border: 1px solid #7E7F84;
+}
+
+.d-flex input::placeholder {
+    color: #BABDC3;
+}
+
+
+
+.card {
+    background-color: #121212;
+    color: white;
+}
+
+.third_view .menu .nav .nav-item .nav-link {
+    color: white;
+}
+
+
+.table .dark {
+    border-bottom: 2px solid blueviolet;
+    color: white;
+}
+
+.table .dark .dark-row {
+    background-color: inherit;
+    color: white;
+} 
+
+
+.dropdown-menu{
+    background-color: #121212;
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #3C383F;
+}
+
+.form-select option:hover {
+    background-color: #3C383F;
+}
+
+.form-control, .form-select {
+    background-color: #121212;
+    color: white;
+    border: none;
+}
+
+.form-control:hover {
+    background-color: #121212;
+}
+
+.form-control:focus {
+    background-color: #121212;
+    color: white;
+    box-shadow: 0px 0px 8px blueviolet;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #7E7F84;
+}

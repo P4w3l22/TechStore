@@ -10,21 +10,8 @@
         $email = $_POST['email'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
-        echo $id . " - ";
-        echo $name . " - ";
-        echo $second_name . " - ";
-        echo $email . " - ";
-        echo $address . " - ";
-        echo $phone . " - ";
-
-        echo "łapie warunek";
 
         $manager -> EditRow($id, $name, $second_name, $email, $address, $phone);
-    }
-    else
-    {
-        echo "Nie łapie zmiennych";
-
     }
 
 ?>

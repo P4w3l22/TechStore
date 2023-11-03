@@ -1,9 +1,9 @@
     </div>
         <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
-        <script src=../script/edit.js></script>
         <script src="../script/prod_checker.js"></script>
-        <script src="../script/script.js"></script>
+        <script src="../script/cl_checker.js"></script>
+        <script src="../script/scripts.js"></script>
         <script>
             document.getElementById('category').addEventListener('change', function() {
                 var options = document.querySelectorAll('.dis')

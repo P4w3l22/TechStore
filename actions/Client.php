@@ -13,16 +13,16 @@
         </svg>
     </h3><br>
     <table class="table">
-        <thead style="border-bottom: 2px solid blueviolet;">
-            <th scope="col" style="background-color: inherit;">#</th>
-            <th scope="col" style="background-color: inherit;">Imie</th>
-            <th scope="col" style="background-color: inherit;">Nazwisko</th>
-            <th scope="col" style="background-color: inherit;">Email</th>
-            <th scope="col" style="background-color: inherit;">Adres</th>
-            <th scope="col" style="background-color: inherit;">Numer Telefonu</th>
-            <th scope="col" style="background-color: inherit;">Data rejestracji</th>
-            <th scope="col" style="background-color: inherit;">Usuń</th>
-            <th scope="col" style="background-color: inherit;">Edytuj</th>
+        <thead class="dark">
+            <th scope="col" class="dark-row">#</th>
+            <th scope="col" class="dark-row">Imie</th>
+            <th scope="col" class="dark-row">Nazwisko</th>
+            <th scope="col" class="dark-row">Email</th>
+            <th scope="col" class="dark-row">Adres</th>
+            <th scope="col" class="dark-row">Numer Telefonu</th>
+            <th scope="col" class="dark-row">Data rejestracji</th>
+            <th scope="col" class="dark-row">Usuń</th>
+            <th scope="col" class="dark-row">Edytuj</th>
         </thead>
         <tbody>
             <?php $manage -> Client(); ?>

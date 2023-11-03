@@ -1,5 +1,5 @@
 body{
-    margin: 6px 6px 0px 6px;
+    margin: 10px 10px 0px 10px;
     /* background-color: #121212; - dark mode*/
     /* background-color: #121212; */
     /* background-color: blue; */
@@ -10,10 +10,14 @@ body{
     background-size: cover;
     filter: blur();
     height: 800px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     border-radius: 15px 15px 0px 0px;
     color: white;
     border: 1px solid white;
+}
+
+.first_view .d-flex .theme {
+    padding-left: 15px;
 }
 
 
@@ -24,11 +28,15 @@ body{
     font-weight:400;
 }
 
+.collapse .d-flex .form-control {
+    border-radius: 14px 2px 2px 14px;
+}
+
 .second_view {
     background-color: #303030;
     /* height: auto; */
     padding-bottom: 40px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     /* border-radius: 0 0 15px 15px; */
 }
 
@@ -233,4 +241,17 @@ body{
 
 .dis {
     display: none;
+}
+
+#dark-button {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding-bottom: 5px;
+    border: none;
+    /* display: none; */
+}
+
+.dark-button:active {
+    background-color: darkblue;
 }

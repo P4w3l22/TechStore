@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_button.css">
+
+    <link id="stylesheet_dark" rel="stylesheet" href="style_dark.css" disabled>
     <link rel="icon" href="images/cpu.svg">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>TechStore</title>
@@ -47,7 +50,7 @@
                                 aria-expanded="false"
                             >Produkt</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="actions/ProductList.php">Lista produktów</a></li>
+                                <li><a class="dropdown-item" href="actions/Product.php">Lista produktów</a></li>
                                 <li><a class="dropdown-item" href="actions/AddProduct.php" target="_blank">Kategorie</a></li>
                                 <li><a class="dropdown-item" href="actions/ProductSite.html">Wyszukaj produkt</a></li>
                             </ul>
@@ -70,7 +73,12 @@
                                 <li><a class="dropdown-item" href="#">Wyszukaj zamówienie</a></li>
                             </ul>
                         </li>
+                        
+                        <li class="nav-item dropdown" style="margin-top: 4px;">
+                            
+                        </li>
                     </ul>
+                    
                     <form class="d-flex">
                         <div class="d-flex">
                             <input
@@ -78,8 +86,6 @@
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
-                                style="border-radius: 14px 2px 2px 14px;
-                                       background-color: #dbd5df;"
                             />
                             <button 
                                 class="btn btn-primary button-round" 
@@ -89,6 +95,30 @@
                                        background-color: blueviolet;">
                                 Search
                             </button>
+                            <label for="theme" class="theme">
+                                <span class="theme__toggle-wrap">
+                                  <input
+                                    type="checkbox"
+                                    class="theme__toggle"
+                                    id="theme"
+                                    role="switch"
+                                    name="theme"
+                                    value="dark"
+                                  />
+                                  <span class="theme__fill"></span>
+                                  <span class="theme__icon">
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                    <span class="theme__icon-part"></span>
+                                  </span>
+                                </span>
+                            </label>
                         </div>
                     </form>
                     </ul>
@@ -631,7 +661,9 @@
     </div>
 
     <div class="third_view">
-        <h1 style="color: #303030;">Statystyki</h1>
+        <!-- <h1 style="color: #303030;">Statystyki</h1> -->
+        <h1>Statystyki</h1>
+
         <div class="menu">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
@@ -648,7 +680,7 @@
                 </li>
                 <li class="nav-item">
                     <button
-                        class="nav-link active"
+                        class="nav-link active dark_mode"
                         id="pills-home-tab"
                         data-bs-toggle="pill"
                         data-bs-target="#pills-home"
@@ -710,6 +742,19 @@
     <script src="script/barchart.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="script/scripts.js"></script>
+    <script>
+        var stylesheet = document.getElementById('stylesheet_dark')
+        document.getElementById('theme').addEventListener('click', (e) => {
+            if (stylesheet.disabled) {
+                stylesheet.disabled = false
+            }
+            else {
+                stylesheet.disabled = true
+            }
+        })
+    </script>
+    
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-<body style="margin: 6px;">
+<body style="margin: 10px;">
     <div class="addClientFirst">
         <div class="logo">
             <a href="../Main.html" class="navbar-brand" style="text-decoration: none; color: white;">

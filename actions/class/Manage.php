@@ -38,6 +38,17 @@
             }
         }
 
+        public function AddProd($title, $select, $message, $photo, $price, $amount, $description)
+        {
+            $sql = "INSERT INTO Products(pr_title, pr_description, pr_category, pr_specification, pr_picture, pr_price, pr_amount)
+                                  VALUES('$title', '$description', '$select', '$message', '$photo', '$price', '$amount');";
+            
+            if ($this -> connection -> query($sql) === FALSE)
+            {
+                echo 'Przepraszamy, wystąpił błąd';
+            }
+        }
+
         public function Add($pointer)
         {
             if ($_SERVER["REQUEST_METHOD"] == "POST") 
@@ -60,23 +71,23 @@
                     }
                 }
 
-                else
-                {
-                    $Title = $_POST['title'];
-                    $Description = $_POST['description'];
-                    $Category = $_POST['category'];
-                    // $Specification = $_POST['specification'];
-                    $Picture = $_POST['photo'];
-                    $Price = $_POST['price'];
-                    $Amount = $_POST['amount'];
+                // else
+                // {
+                //     $Title = $_POST['title'];
+                //     $Description = $_POST['description'];
+                //     $Category = $_POST['category'];
+                //     // $Specification = $_POST['specification'];
+                //     $Picture = $_POST['photo'];
+                //     $Price = $_POST['price'];
+                //     $Amount = $_POST['amount'];
 
-                    $sql = "INSERT INTO Products(pr_title, pr_description, pr_category, pr_picture, pr_price, pr_amount)
-                                          VALUES('$Title', '$Description', '$Category', '$Picture', '$Price', '$Amount');";
-                    if ($this -> connection -> query($sql) === FALSE)
-                    {
-                        echo 'Przepraszamy, wystąpił błąd';
-                    }
-                }
+                //     $sql = "INSERT INTO Products(pr_title, pr_description, pr_category, pr_picture, pr_price, pr_amount)
+                //                           VALUES('$Title', '$Description', '$Category', '$Picture', '$Price', '$Amount');";
+                //     if ($this -> connection -> query($sql) === FALSE)
+                //     {
+                //         echo 'Przepraszamy, wystąpił błąd';
+                //     }
+                // }
             }
         }
 
@@ -111,7 +122,7 @@
                                     <td style="max-height: 50px;">' . $row['pr_amount'] . '</td>
 
                                     <td>
-                                        <form action="ProductList.php" method="post">
+                                        <form action="Product.php" method="post">
                                             <input type="hidden" name="id" value="' . $row['pr_id'] . '">
                                             <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń produkt" type="submit" onclick="return confirmDelete()">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">

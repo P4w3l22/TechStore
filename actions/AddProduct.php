@@ -13,7 +13,7 @@
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
         </svg>
     </h3><br>
-    <form class="row g-3 needs-validation" action="AddProduct.php" method="post" id="prodForm" style="display: block; min-width: 50px;">
+    <!-- <form class="row g-3 needs-validation" action="AddProduct.php" method="post" id="prodForm" style="display: block; min-width: 50px;"> -->
         <div class="col-md-4">
             <label for="title" class="form-label">Tytuł</label>
             <input
@@ -35,249 +35,334 @@
                 name="category"
                 required>
                 <option>...</option>
-                <option value="Dyski twarde HDD i SSD">Dyski twarde HDD i SSD</option>
-                <option value="Karty graficzne">Karty graficzne</option>
-                <option value="Procesory">Procesory</option>
-                <option value="Płyty główne">Płyty główne</option>
-                <option value="Obudowy komputera">Obudowy komputera</option>
-                <option value="Pamięci RAM">Pamięci RAM</option>
-                <option value="Zasilacze komputerowe">Zasilacze komputerowe</option>
-                <option value="Chłodzenie komputerowe">Chłodzenie komputerowe</option>
+                <option value="drives">Dyski twarde HDD i SSD</option>
+                <option value="graphics">Karty graficzne</option>
+                <option value="processors">Procesory</option>
+                <option value="motherboards">Płyty główne</option>
+                <option value="cases">Obudowy komputera</option>
+                <option value="ram">Pamięci RAM</option>
+                <option value="charger">Zasilacze komputerowe</option>
+                <option value="cooling">Chłodzenie komputerowe</option>
             </select>
             <div id="category_error"></div>
         </div>
 
         <div style="margin-left: 50px; padding-right: 20px;">
-            <div class="row dis" id="Dyski twarde HDD i SSD">
+            <div class="row dis" id="drives">
                 <form action="AddProduct.php" method="post">
                     <div class="col-md-4">
-                        <label for="capacity" class="form-label">Pojemność</label>
+                        <label for="d_capacity" class="form-label">Pojemność</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="capacity"
-                            name="capacity"
+                            id="d_capacity"
+                            name="d_capacity"
                             required
                         >
-                        <div id="capacity_error"></div>
+                        <div id="d_capacity_error"></div>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="format" class="form-label">Format</label>
+                        <label for="d_read_speed" class="form-label">Prędkość odczytu</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="format"
-                            name="format"
+                            id="d_read_speed"
+                            name="d_read_speed"
                             required
                         >
-                        <div id="format_error"></div>
+                        <div id="d_read_speed_error"></div>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="interface" class="form-label">Interfejs</label>
+                        <label for="d_save_speed" class="form-label">Prędkość zapisu</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="interface"
-                            name="interface"
+                            id="d_save_speed"
+                            name="d_save_speed"
                             required
                         >
-                        <div id="interface_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="read_speed" class="form-label">Prędkość odczytu</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="read_speed"
-                            name="read_speed"
-                            required
-                        >
-                        <div id="read_speed_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="save_speed" class="form-label">Prędkość zapisu</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="save_speed"
-                            name="save_speed"
-                            required
-                        >
-                        <div id="save_speed_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="bone_type" class="form-label">Rodzaj kości pamięci</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="bone_type"
-                            name="bone_type"
-                            required
-                        >
-                        <div id="bone_type_error"></div>
+                        <div id="d_save_speed_error"></div>
                     </div>
                 </form>
             </div>
 
-            <div class="row dis" id="Karty graficzne">
+            <div class="row dis" id="graphics">
                 <form action="AddProduct.php" method="post">
                     <div class="col-md-4">
-                        <label for="memory" class="form-label">Pamięć</label>
+                        <label for="g_memory" class="form-label">Pamięć</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="memory"
-                            name="memory"
+                            id="g_memory"
+                            name="g_memory"
                             required
                         >
-                        <div id="memory_error"></div>
+                        <div id="g_memory_error"></div>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="memory_act" class="form-label">Szyna pamięci</label>
+                        <label for="g_type" class="form-label">Rodzaj pamięci</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="memory_act"
-                            name="memory_act"
+                            id="g_type"
+                            name="g_type"
                             required
                         >
-                        <div id="memory_act_error"></div>
+                        <div id="g_type_error"></div>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="type" class="form-label">Rodzaj pamięci</label>
+                        <label for="g_memory_capacity" class="form-label">Przepustowość pamięci</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="type"
-                            name="type"
+                            id="g_memory_capacity"
+                            name="g_memory_capacity"
                             required
                         >
-                        <div id="type_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="memory_capacity" class="form-label">Przepustowość pamięci</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="memory_capacity"
-                            name="memory_capacity"
-                            required
-                        >
-                        <div id="memory_capacity_error"></div>
+                        <div id="g_memory_capacity_error"></div>
                     </div>
                 </form>
             </div>
 
-            <div class="row dis" id="Procesory">
+            <div class="row dis" id="processors">
                 <form action="AddProduct.php" method="post">
                     <div class="col-md-4">
-                        <label for="type" class="form-label">Rodzina procesorów</label>
+                        <label for="p_socket" class="form-label">Gniazdo procesora</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="type"
-                            name="type"
+                            id="p_socket"
+                            name="p_socket"
                             required
                         >
-                        <div id="type_error"></div>
+                        <div id="p_socket_error"></div>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="series" class="form-label">Seria procesora</label>
+                        <label for="p_clock_speed" class="form-label">Taktowanie procesora</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="series"
-                            name="series"
+                            id="p_clock_speed"
+                            name="p_clock_speed"
                             required
                         >
-                        <div id="series_error"></div>
+                        <div id="p_clock_speed_error"></div>
                     </div>
 
                     <div class="col-md-4">
-                        <label for="socket" class="form-label">Gniazdo procesora</label>
+                        <label for="p_cores" class="form-label">Liczba rdzeni</label>
                         <input
                             type="text"
                             class="form-control"
-                            id="socket"
-                            name="socket"
+                            id="p_cores"
+                            name="p_cores"
                             required
                         >
-                        <div id="socket_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="clock_speed" class="form-label">Taktowanie procesora</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="clock_speed"
-                            name="clock_speed"
-                            required
-                        >
-                        <div id="clock_speed_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="cores" class="form-label">Liczba rdzeni</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="cores"
-                            name="cores"
-                            required
-                        >
-                        <div id="cores_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="threads" class="form-label">Liczba wątków</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="threads"
-                            name="threads"
-                            required
-                        >
-                        <div id="threads_error"></div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="memory" class="form-label">Pamięć podręczna</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="memory"
-                            name="memory"
-                            required
-                        >
-                        <div id="memory_error"></div>
+                        <div id="p_cores_error"></div>
                     </div>
                 </form>
             </div>
-            <div class="col-md-4 dis" id="Płyty główne">Opcja 4</div>
+            <div class="row dis" id="motherboards">
+                <form action="AddProduct.php" method="post">
+                    <div class="col-md-4">
+                        <label for="m_fam" class="form-label">Obsługiwane rodziny procesorów</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="m_fam"
+                            name="m_fam"
+                            required
+                        >
+                        <div id="m_fam_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="m_socket" class="form-label">Gniazdo procesora</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="m_socket"
+                            name="m_socket"
+                            required
+                        >
+                        <div id="m_socket_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="m_chipset" class="form-label">Chipset</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="m_chipset"
+                            name="m_chipset"
+                            required
+                        >
+                        <div id="m_chipset_error"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="row dis" id="cases">
+                <form action="AddProduct.php" method="post">
+                    <div class="col-md-4">
+                        <label for="c_type" class="form-label">Typ obudowy</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="c_type"
+                            name="c_type"
+                            required
+                        >
+                        <div id="c_type_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="c_standard" class="form-label">Standard płyty głównej</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="c_standard"
+                            name="c_standard"
+                            required
+                        >
+                        <div id="c_standard_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="c_backlight" class="form-label">Podświetlenie</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="c_backlight"
+                            name="c_backlight"
+                            required
+                        >
+                        <div id="c_backlight_error"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="row dis" id="ram">
+                <form action="AddProduct.php" method="post">
+                    <div class="col-md-4">
+                        <label for="r_series" class="form-label">Seria</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="r_series"
+                            name="r_series"
+                            required
+                        >
+                        <div id="r_series_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="r_type" class="form-label">Rodzaj pamięci</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="r_type"
+                            name="r_type"
+                            required
+                        >
+                        <div id="r_type_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="r_capacity" class="form-label">Pojemność całkowita</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="r_capacity"
+                            name="r_capacity"
+                            required
+                        >
+                        <div id="r_capacity_error"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="row dis" id="charger">
+                <form action="AddProduct.php" method="post">
+                    <div class="col-md-4">
+                        <label for="ch_power" class="form-label">Moc maksymalna</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="ch_power"
+                            name="ch_power"
+                            required
+                        >
+                        <div id="ch_power_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="ch_standard" class="form-label">Standard</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="ch_standard"
+                            name="ch_standard"
+                            required
+                        >
+                        <div id="ch_standard_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="ch_color" class="form-label">Kolor</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="ch_color"
+                            name="ch_color"
+                            required
+                        >
+                        <div id="ch_color_error"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="row dis" id="cooling">
+                <form action="AddProduct.php" method="post">
+                    <div class="col-md-4">
+                        <label for="co_type" class="form-label">Rodzaj chłodzenia</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="co_type"
+                            name="co_type"
+                            required
+                        >
+                        <div id="co_type_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="co_material" class="form-label">Materiał radiatora</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="co_material"
+                            name="co_material"
+                            required
+                        >
+                        <div id="co_material_error"></div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="co_backlight" class="form-label">Podświetlenie</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="co_backlight"
+                            name="co_backlight"
+                            required
+                        >
+                        <div id="co_backlight_error"></div>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <!-- <div class="col-md-4">
-            <label for="specification" class="form-label">Specyfikacja</label>
-            <input
-                type="text"
-                class="form-control"
-                id="specification"
-                name="specification"
-                required
-            >
-            <div id="specification_error"></div>
-        </div> -->
-        <!-- <div> -->
 
         <div class="row my-4">
             <div class="col-md-4">
@@ -331,10 +416,10 @@
         </div>
 
         <label></label>
-        <input class="submit_button" type="submit" style="margin-left: 8px;" value="Prześlij">
+        <input class="submit_button m-4" onclick="addProd()" type="submit" style="margin-left: 8px;" value="Prześlij">
        
 
-    </form>
+    <!-- </form> -->
 </div>
 <?php $manage -> Add('p'); ?>
 

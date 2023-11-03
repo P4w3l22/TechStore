@@ -13,17 +13,17 @@
         </svg>
     </h3><br>
     <table class="table">
-        <thead style="border-bottom: 2px solid blueviolet;">
-            <th scope="col" style="background-color: inherit; color: white;">#</th>
-            <th scope="col" style="background-color: inherit; color: white;">Tytuł</th>
-            <th scope="col" style="background-color: inherit; color: white;">Opis</th>
-            <th scope="col" style="background-color: inherit; color: white;">Kategoria</th>
-            <th scope="col" style="background-color: inherit; color: white;">Specyfikacja</th>
-            <th scope="col" style="background-color: inherit; color: white;">Zdjęcie</th>
-            <th scope="col" style="background-color: inherit; color: white;">Cena</th>
-            <th scope="col" style="background-color: inherit; color: white;">Ilość sztuk</th>
-            <th scope="col" style="background-color: inherit; color: white;">Usuń</th>
-            <th scope="col" style="background-color: inherit; color: white;">Edytuj</th>
+        <thead class="dark">
+            <th scope="col" class="dark-row">#</th>
+            <th scope="col" class="dark-row">Tytuł</th>
+            <th scope="col" class="dark-row">Opis</th>
+            <th scope="col" class="dark-row">Kategoria</th>
+            <th scope="col" class="dark-row">Specyfikacja</th>
+            <th scope="col" class="dark-row">Zdjęcie</th>
+            <th scope="col" class="dark-row">Cena</th>
+            <th scope="col" class="dark-row">Ilość sztuk</th>
+            <th scope="col" class="dark-row">Usuń</th>
+            <th scope="col" class="dark-row">Edytuj</th>
         </thead>
         <tbody>
             <?php $manage -> Products(); ?>
