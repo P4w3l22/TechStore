@@ -17,5 +17,19 @@
 
             })
         </script>
+        <script>
+            var elements = document.querySelectorAll('ul.navbar-nav li.cat_choice')
+            var contents = document.querySelectorAll('.dis')
+
+            elements.forEach(function (element, id) {
+                element.addEventListener('click', function() {
+                    contents.forEach(function (content) {
+                        content.style.display = 'none'
+                    })
+                    contents[id].style.display = 'flex'
+                })
+
+            })
+        </script>
     </body>
 </html>

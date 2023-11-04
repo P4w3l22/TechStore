@@ -3,6 +3,7 @@ body{
     /* background-color: #121212; - dark mode*/
     /* background-color: #121212; */
     /* background-color: blue; */
+    
 }
 
 .first_view {
@@ -95,6 +96,21 @@ body{
 .third_view .menu .nav .nav-item .nav-link:hover {
     background-color: blueviolet;
     color: white;
+}
+
+.cat_choice {
+    /* border-bottom: 1px solid blueviolet;  */
+    /* width: 70%;  */
+    /* text-align: center;  */
+    padding: 10px 0px 10px 10px;
+    /* padding-left: 10px; */
+    
+}
+
+.cat_choice:hover {
+    border-radius: 7px;
+    background-color: #121212;
+    transition: background-color 0.3s ease;
 }
 
 .fourth_view {
@@ -255,3 +271,16 @@ body{
 .dark-button:active {
     background-color: darkblue;
 }
+
+/* 
+.card img {
+    max-width: 25%;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 0.7em;
+  }
+
+  .card {
+    flex-direction: row;
+    max-width: 30em;
+  } */

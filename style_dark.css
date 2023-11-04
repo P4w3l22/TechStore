@@ -3,6 +3,7 @@
 body {
     background-color: #121212;
     color: white;
+    /* background-color: red; */
 }
 
 .first_view {
@@ -77,4 +78,8 @@ body {
 
 .table tbody tr {
     border-bottom: 1px solid #7E7F84;
+}
+
+.cat_choice:hover .dropdown-item {
+    color: blueviolet;
 }

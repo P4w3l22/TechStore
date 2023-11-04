@@ -8,7 +8,7 @@
     <link id="stylesheet_dark" rel="stylesheet" href="../style_dark.css">
     <script>
         function confirmDelete() {
-            return confirm("Czy na pewno chcesz usunąć tego użytkownika?");
+            return confirm("Czy na pewno chcesz usunąć?");
         }
     </script>
     <link rel="icon" href="../images/cpu.svg">
