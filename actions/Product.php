@@ -21,7 +21,7 @@
             <th scope="col" class="dark-row">Specyfikacja</th>
             <th scope="col" class="dark-row">Zdjęcie</th>
             <th scope="col" class="dark-row">Cena</th>
-            <th scope="col" class="dark-row">Ilość sztuk</th>
+            <th scope="col" class="dark-row">Ilość</th>
             <th scope="col" class="dark-row">Usuń</th>
             <th scope="col" class="dark-row">Edytuj</th>
         </thead>

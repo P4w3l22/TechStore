@@ -70,24 +70,6 @@
                         echo 'Przepraszamy, wystąpił błąd';
                     }
                 }
-
-                // else
-                // {
-                //     $Title = $_POST['title'];
-                //     $Description = $_POST['description'];
-                //     $Category = $_POST['category'];
-                //     // $Specification = $_POST['specification'];
-                //     $Picture = $_POST['photo'];
-                //     $Price = $_POST['price'];
-                //     $Amount = $_POST['amount'];
-
-                //     $sql = "INSERT INTO Products(pr_title, pr_description, pr_category, pr_picture, pr_price, pr_amount)
-                //                           VALUES('$Title', '$Description', '$Category', '$Picture', '$Price', '$Amount');";
-                //     if ($this -> connection -> query($sql) === FALSE)
-                //     {
-                //         echo 'Przepraszamy, wystąpił błąd';
-                //     }
-                // }
             }
         }
 
@@ -294,7 +276,7 @@
         private $connection = false;
         private $avaible;
         
-        private $product_id;
+        private $user;
         public $title;
         public $description;
         public $picture;
@@ -302,9 +284,8 @@
         public $amount;
         public $specification;
         public $opinions;
-        
 
-        public function __construct()
+        public function __construct($id)
         {
             $this -> avaible = true;
             
@@ -316,7 +297,7 @@
                 $this -> password = $database -> password;
                 $this -> dbname = $database -> dbname;
 
-                $conn = mysqli_connect($this -> hostname, "root", $this -> password, "bookstore");
+                $conn = mysqli_connect($this -> hostname, "root", $this -> password, "TechStore");
                 if ($conn -> connect_error)
                 {
                     die ("Błąd łączenia z bazą danych" . $conn -> connect_error);
@@ -326,21 +307,29 @@
                     $this -> connection = $conn;
                 }                
             }
+
+            $sql = "SELECT * FROM Products WHERE pr_id = '" . $id . "';";
+
+            $result = mysqli_query($this -> connection, $sql);
+            $row = mysqli_fetch_assoc($result);
+
+            $this -> user = $row;
+
         }
 
         public function Title()
         {
-            echo "Gigabyte GeForce RTX 3060 Ti EAGLE OC 8GB GDDR6X";
+            echo $this -> user['pr_title'];
         }
 
         public function Picture()
         {
-            echo "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/3/pr_2023_3_31_14_15_20_474_00.jpg";
+            echo $this -> user['pr_picture'];
         }
 
         public function Price()
         {
-            echo "1 899,00 zł";
+            echo $this -> user['pr_price'];
         }
 
         public function IfAvaible()
@@ -365,7 +354,7 @@
 
         public function Amount()
         {
-            $amount = "34";
+            $amount = $this -> user['pr_amount'];
 
             if ($this -> avaible)
             {
@@ -379,31 +368,18 @@
         
         public function Description()
         {
-            echo '<h3>System chłodzenia WINDFORCE 3X</h3>
-            System chłodzenia WINDFORCE 3X obejmuje trzy 80-milimetrowe unikalne wentylatory łopatkowe, obracające się naprzemiennie, 4 kompozytowe miedziane rurki cieplne, bezpośredni dotyk GPU, aktywny wentylator 3D i chłodzenie ekranu, które razem zapewniają wysoką wydajność rozpraszania ciepła.
-    
-            <br><br><br><h3>Płynny przepływ powietrza</h3>
-            Alternatywne wirowanie może zmniejszyć turbulencje sąsiednich wentylatorów i zwiększyć ciśnienie powietrza. GIGABYTE obraca sąsiednie wentylatory w przeciwnym kierunku, dzięki czemu kierunek przepływu powietrza między dwoma wentylatorami jest taki sam, zmniejszając turbulencje i zwiększając ciśnienie przepływu powietrza. Aktywny wentylator 3D zapewnia półpasywne chłodzenie, a wentylatory pozostaną wyłączone, gdy GPU jest w trybie niskiego obciążenia lub niskiego poboru mocy. Strumień powietrza jest rozlewany przez trójkątną krawędź wentylatora i płynnie prowadzony przez krzywą paska 3D na powierzchni wentylatora. Nanosmar grafenowy może wydłużyć żywotność wentylatora łożyska ślizgowego 2,1 razy, blisko żywotności podwójnego łożyska kulkowego i jest cichszy.
-    
-            <br><br><br><h3>Przemyślana konstrukcja radiatora</h3>
-            Rozszerzona konstrukcja radiatora umożliwia przepływ powietrza, zapewniając lepsze odprowadzanie ciepła. Kształt rurki cieplnej z czystej miedzi maksymalizuje powierzchnię bezpośredniego kontaktu z GPU. Rura cieplna obejmuje również pamięć VRAM przez duży styk metalowej płytki, aby zapewnić odpowiednie chłodzenie.
-    
-            <br><br><br><h3>Metalowy backplate</h3>
-            Metalowa płyta tylna zapewnia nie tylko estetyczny kształt, ale także wzmacnia strukturę karty graficznej, zapewniając pełną ochronę.
-    
-            <br><br><br><h3>Wysokiej jakości komponenty</h3>
-            Najwyższej jakości metalowe dławiki z certyfikatem Ultra Durable, kondensatory stałe o niższym ESR, miedziana płytka drukowana o pojemności 2 uncji i tranzystory MOSFET o niższym RDS(on), a także konstrukcja chroniąca przed przegrzaniem, zapewniająca doskonałą wydajność i dłuższą żywotność systemu.
-    
-            <br><br><br><h3>Przyjazny projekt PCB</h3>
-            W pełni zautomatyzowany proces produkcyjny zapewnia najwyższą jakość płytek drukowanych i eliminuje ostre wystające złącza lutownicze widoczne na konwencjonalnej powierzchni PCB. Ta przyjazna konstrukcja zapobiega skaleczeniu dłoni lub przypadkowemu uszkodzeniu komponentów podczas tworzenia konstrukcji.
-    
-            Gigabyte Control Center
-            Gigabyte Control Center (GCC) to ujednolicone oprogramowanie dla wszystkich obsługiwanych produktów GIGABYTE. Zapewnia intuicyjny interfejs, który pozwala użytkownikom dostosować częstotliwość zegara, napięcie, tryb wentylatora i docelową moc w czasie rzeczywistym.';
+            echo $this -> user['pr_description'];
         }
 
         public function Specification()
         {
-            echo 'Specyfikacja';
+            $decodeSpec = json_decode($this -> user['pr_specification'], true);
+
+            foreach ($decodeSpec as $key => $value)
+            {
+                echo $key . " : " . $value . '<br>';
+
+            }
         }
 
         public function Opinions()

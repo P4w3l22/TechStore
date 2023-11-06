@@ -1,11 +1,8 @@
 body{
     margin: 10px 10px 0px 10px;
-    /* background-color: #121212; - dark mode*/
-    /* background-color: #121212; */
-    /* background-color: blue; */
-    
 }
 
+/* Main.html */
 .first_view {
     background-image: url('images/motherboard3.jpg');
     background-size: cover;
@@ -15,35 +12,50 @@ body{
     border-radius: 15px 15px 0px 0px;
     color: white;
     border: 1px solid white;
+    display: flex;
+    justify-content: center;
+}
+
+.first_view .navbar {
+    width: 78%; 
+    box-shadow: 0px 0px 2px gray;
+}
+
+.first_view .d-flex .form-control {
+    border-radius: 14px 2px 2px 14px;
 }
 
 .first_view .d-flex .theme {
     padding-left: 15px;
 }
 
+.first_view .d-flex .btn {
+    border-radius: 2px 14px 14px 2px;
+    border: none;
+    background-color: blueviolet;
+}
 
-.first_view h1 {
+.first_view .fade-el h1 {
     color: #dbd5df; 
     padding-top: 150px;
     font-size: 70px; 
     font-weight:400;
 }
 
-.collapse .d-flex .form-control {
-    border-radius: 14px 2px 2px 14px;
+.first_view .fade-el h4 {
+    font-weight: lighter; 
+    width: 100%; 
+    size: 90px;
 }
 
 .second_view {
     background-color: #303030;
-    /* height: auto; */
     padding-bottom: 40px;
     margin-bottom: 10px;
-    /* border-radius: 0 0 15px 15px; */
 }
 
 .second_view h1 {
     color: white; 
-    text-align: center; 
     padding-top: 60px;
 }
 
@@ -53,7 +65,6 @@ body{
     width: 90%;
     padding-bottom: 200px;
     display: block;
-    text-align: center;
     margin: auto;
 }
 
@@ -98,13 +109,71 @@ body{
     color: white;
 }
 
+.fourth_view {
+    padding-top: 100px;
+    height: 500px;
+    border-radius: 15px 15px 0 0;
+    margin-bottom: none;
+    background-color: #303030;
+    color: white;
+}
+
+/* actions */
+.m-3 {
+    overflow-x: auto;
+}
+
+.cate {
+    display: flex; 
+}
+
+.m-3 h3 {
+    margin-top: 30px;
+}
+
+/* AddProduct.php */
+.m-3 .dropdown-content .row {
+    margin-left: 5%;
+}
+
+.m-3 .submit_button {
+    margin-top: 20px;
+}
+
+.m-3 button {
+    background-color:blueviolet; 
+    border-radius: 8px;
+    border: none; 
+    padding: 10px 20px;
+}
+
+.cate .navbar-expand-lg .container .navbar-toggler {
+    border-radius: 10px; 
+    color: blueviolet; 
+    padding-right: 30px;
+}
+
+.cate .navbar-expand-lg .container .collapse .navbar-nav {
+    width: 250px;
+    /* position: relative;
+    z-index: 1; */
+}
+
+.cate .dis .card {
+    width: 35rem; 
+    height: 12rem; 
+    flex-direction: row; 
+    display: flex;
+}
+
+.m-3 .redirect_button a,
+.cate .dis .card .card-body .card-title a {
+    text-decoration: none; 
+    color: white;
+}
+
 .cat_choice {
-    /* border-bottom: 1px solid blueviolet;  */
-    /* width: 70%;  */
-    /* text-align: center;  */
     padding: 10px 0px 10px 10px;
-    /* padding-left: 10px; */
-    
 }
 
 .cat_choice:hover {
@@ -113,13 +182,9 @@ body{
     transition: background-color 0.3s ease;
 }
 
-.fourth_view {
-    height: 500px;
-    border-radius: 15px 15px 0 0;
-    margin-bottom: none;
-    background-color: #303030;
-    color: white;
-}
+
+
+
 
 @keyframes slideIn {
     from {
@@ -178,7 +243,7 @@ body{
     border-radius: 10px; 
     height: auto; 
     overflow: hidden;
-    color: white
+    color: white;
 }
 
 .submit_button {

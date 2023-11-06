@@ -8,9 +8,8 @@
 <?php include('parts/contentBackground.php'); ?>
         
 <div class="m-3">
-    <h3 style="margin-top: 30px">Podaj dane
+    <h3>Podaj dane
     </h3><br>
-    <!-- <form class="row g-3 needs-validation" action="AddProduct.php" method="post" id="prodForm" style="display: block; min-width: 50px;"> -->
         <div class="col-md-4">
             <label for="title" class="form-label">Tytuł</label>
             <input
@@ -44,7 +43,7 @@
             <div id="category_error"></div>
         </div>
 
-        <div style="margin-left: 50px; padding-right: 20px;">
+        <div class="dropdown-content">
             <div class="row dis" id="drives">
                 <form action="AddProduct.php" method="post">
                     <div class="col-md-4">
@@ -413,7 +412,7 @@
         </div>
 
         <label></label>
-        <input class="submit_button" onclick="addProd()" type="submit" style="margin-top: 20px;" value="Prześlij">
+        <input class="submit_button" onclick="addProd()" type="submit" value="Prześlij">
        
 
     <!-- </form> -->

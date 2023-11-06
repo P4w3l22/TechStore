@@ -1,13 +1,14 @@
 <?php 
     include('class/Manage.php');
     $manage = new Manage();
+    
     include('parts/header.php'); 
 ?>
 <title>Dodaj produkt</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>
         
-<div class="m-3" style="display: flex; overflow-x: auto;">
+<div class="m-3 cate">
     <nav class="navbar-expand-lg">
         <div class="container" style="padding-right: 2px;">
             <button
@@ -18,7 +19,6 @@
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
-                style="border-radius: 10px; color: blueviolet; padding-right: 30px;"
             >
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -27,7 +27,7 @@
                 </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav flex-column me-auto" style="width: 250px;">
+                <ul class="navbar-nav flex-column me-auto">
                     <li class="nav-item dropdown cat_choice">
                         
                         <a class="nav-link dropdown-item" href="#">
@@ -80,26 +80,15 @@
         </div>
     </nav>
 
-    <!-- <ul class="navbar-nav col-md-2" style="min-width: 200px;">
-        <li class="nav-item cat_choice">Dyski twarde HDD i SSD</li>
-        <li class="nav-item cat_choice">Karty graficzne</li>
-        <li class="nav-item cat_choice">Procesory</li>
-        <li class="nav-item cat_choice">Płyty główne</li>
-        <li class="nav-item cat_choice">Obudowy komputera</li>
-        <li class="nav-item cat_choice">Pamięci RAM</li>
-        <li class="nav-item cat_choice">Zasilacze komputerowe</li>
-        <li class="nav-item cat_choice">Chłodzenie komputerowe</li>
-    </ul> -->
-    <div id="graphic" class="dis row mx-4"style="background-color: blueviolet; 
-                        border-radius: 20px 5px 20px 5px;">
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; display: flex">
+    <div id="graphic" class="dis row mx-4">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -108,14 +97,14 @@
                 <h6 class="m-2">1 599,00 zł</h6>
             </div>
         </div>
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; ">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -124,14 +113,14 @@
                 <h6 class="m-2">1 599,00 zł</h6>
             </div>
         </div>
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; ">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -140,14 +129,14 @@
                 <h6 class="m-2">1 599,00 zł</h6>
             </div>
         </div>
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; ">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -159,16 +148,15 @@
     </div>
 
 
-    <div id="" class="dis row mx-4" style="background-color: #121212; 
-                                     border-radius: 20px 5px 20px 5px;">
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; display: flex">
+    <div id="" class="dis row mx-4">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -177,14 +165,14 @@
                 <h6 class="m-2">1 599,00 zł</h6>
             </div>
         </div>
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; ">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -193,14 +181,14 @@
                 <h6 class="m-2">1 599,00 zł</h6>
             </div>
         </div>
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; ">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
@@ -209,14 +197,14 @@
                 <h6 class="m-2">1 599,00 zł</h6>
             </div>
         </div>
-        <div class="card my-2" style="width: 35rem; height: 12rem; flex-direction: row; ">
+        <div class="card my-2">
             <img
                 class="img-fluid"
                 src="https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/6/pr_2021_6_15_13_24_23_26_05.jpg" 
                 alt="..."
             />
             <div class="card-body" >
-                <h5 class="card-title"><a style="text-decoration: none; color: white" href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
+                <h5 class="card-title"><a href="#">Gigabyte GeForce RTX 3060 GAMING OC LHR 12GB GDDR6</a></h5>
                 <ul class="card-text navbar-nav">
                     <li class="nav-item">Układ: GeForce RTX 3060</li>
                     <li class="nav-item">Pamięć: 12GB</li>
