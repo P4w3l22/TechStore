@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label for="g_memory_capacity" class="form-label">Przepustowość pamięci</label>
+                        <label for="g_memory_capacity" class="form-label">Szyna danych</label>
                         <input
                             type="text"
                             class="form-control"

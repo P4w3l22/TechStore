@@ -53,58 +53,202 @@ INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_numb
                     ("Mikołaj", "Mikołajowy", "mikolaj@gmail.com", "Mikołajowa 99, Gdańsk", "888999777", TODAY());
 
 INSERT INTO Products(pr_title, pr_description, pr_category, pr_specification, pr_picture, pr_price, pr_amount)
-             VALUES ("Gigabyte GeForce RTX 3060 Ti EAGLE OC 8GB GDDR6X",
-                     '<h3>System chłodzenia WINDFORCE 3X</h3>
-                      System chłodzenia WINDFORCE 3X obejmuje trzy 80-milimetrowe unikalne wentylatory łopatkowe, obracające się naprzemiennie, 4 kompozytowe miedziane rurki cieplne, bezpośredni dotyk GPU, aktywny wentylator 3D i chłodzenie ekranu, które razem zapewniają wysoką wydajność rozpraszania ciepła.
-                      <br><br><br><h3>Płynny przepływ powietrza</h3>
-                      Alternatywne wirowanie może zmniejszyć turbulencje sąsiednich wentylatorów i zwiększyć ciśnienie powietrza. GIGABYTE obraca sąsiednie wentylatory w przeciwnym kierunku, dzięki czemu kierunek przepływu powietrza między dwoma wentylatorami jest taki sam, zmniejszając turbulencje i zwiększając ciśnienie przepływu powietrza. Aktywny wentylator 3D zapewnia półpasywne chłodzenie, a wentylatory pozostaną wyłączone, gdy GPU jest w trybie niskiego obciążenia lub niskiego poboru mocy. Strumień powietrza jest rozlewany przez trójkątną krawędź wentylatora i płynnie prowadzony przez krzywą paska 3D na powierzchni wentylatora. Nanosmar grafenowy może wydłużyć żywotność wentylatora łożyska ślizgowego 2,1 razy, blisko żywotności podwójnego łożyska kulkowego i jest cichszy.
-                      <br><br><br><h3>Przemyślana konstrukcja radiatora</h3>
-                      Rozszerzona konstrukcja radiatora umożliwia przepływ powietrza, zapewniając lepsze odprowadzanie ciepła. Kształt rurki cieplnej z czystej miedzi maksymalizuje powierzchnię bezpośredniego kontaktu z GPU. Rura cieplna obejmuje również pamięć VRAM przez duży styk metalowej płytki, aby zapewnić odpowiednie chłodzenie.
-                      <br><br><br><h3>Metalowy backplate</h3>
-                      Metalowa płyta tylna zapewnia nie tylko estetyczny kształt, ale także wzmacnia strukturę karty graficznej, zapewniając pełną ochronę.
-                      <br><br><br><h3>Wysokiej jakości komponenty</h3>
-                      Najwyższej jakości metalowe dławiki z certyfikatem Ultra Durable, kondensatory stałe o niższym ESR, miedziana płytka drukowana o pojemności 2 uncji i tranzystory MOSFET o niższym RDS(on), a także konstrukcja chroniąca przed przegrzaniem, zapewniająca doskonałą wydajność i dłuższą żywotność systemu.
-                      <br><br><br><h3>Przyjazny projekt PCB</h3>
-                      W pełni zautomatyzowany proces produkcyjny zapewnia najwyższą jakość płytek drukowanych i eliminuje ostre wystające złącza lutownicze widoczne na konwencjonalnej powierzchni PCB. Ta przyjazna konstrukcja zapobiega skaleczeniu dłoni lub przypadkowemu uszkodzeniu komponentów podczas tworzenia konstrukcji.
-                      Gigabyte Control Center
-                      Gigabyte Control Center (GCC) to ujednolicone oprogramowanie dla wszystkich obsługiwanych produktów GIGABYTE. Zapewnia intuicyjny interfejs, który pozwala użytkownikom dostosować częstotliwość zegara, napięcie, tryb wentylatora i docelową moc w czasie rzeczywistym.',
-                      "Karty gradiczne",
-                      '{"Pamięć":"8 GB", "Szyna pamięci":"256 bit", "Rodzaj pamięci":"GDDR6X", "Przepustowość pamięci":"608 GB/s"}',
-                      "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/3/pr_2023_3_31_14_15_20_474_00.jpg",
+             VALUES ("Karta graficzna Gigabyte GeForce RTX 3060 Ti Eagle OC 8GB GDDR6X (GV-N306TXEAGLE OC-8GD)",
+                     'Alternatywne wirowanie może zmniejszyć turbulencje sąsiednich wentylatorów i zwiększyć ciśnienie powietrza. 
+                      GIGABYTE obraca sąsiednie wentylatory w przeciwnym kierunku, dzięki czemu kierunek przepływu powietrza między dwoma wentylatorami jest taki sam, 
+                      zmniejszając turbulencje i zwiększając ciśnienie przepływu powietrza. Aktywny wentylator 3D zapewnia 
+                      półpasywne chłodzenie, a wentylatory pozostaną wyłączone, gdy GPU jest w trybie niskiego obciążenia 
+                      lub niskiego poboru mocy. Strumień powietrza jest rozlewany przez trójkątną krawędź wentylatora i 
+                      płynnie prowadzony przez krzywą paska 3D na powierzchni wentylatora. Nanosmar grafenowy może wydłużyć 
+                      żywotność wentylatora łożyska ślizgowego 2,1 razy, blisko żywotności podwójnego łożyska kulkowego i jest cichszy.',
+                      "Karty graficzne",
+                      '{"Pamięć":"8 GB", "Rodzaj pamięci":"GDDR6X", "Szyna danych":"256 bit"}',
+                      "https://images.morele.net/i1064/12819907_1_i1064.jpg",
                        1899.00, 
-                       36),
-                    ("Intel Core i9-14900K",
-                      '<h3>Intel Core i9-14900K</h3>
-                       Dzięki lepszemu zarządzaniu energią, wydajności wspomaganej sztuczną inteligencją i najlepszym specyfikacjom, procesory Intel Core 14. generacji pozwalają Ci skupić się na tym, co naprawdę ważne: na grze. 
-                       Doświadcz wciągającej rozgrywki z Intel Core i9-14900K dzięki taktowaniu sięgającemu nawet 6 GHz (Thermal Velocity Boost) oraz 24 rdzeniom: 8 rdzeniom Performance oraz 16 rdzeniom Efficient. Procesory Intel Core 14. generacji oferują wsparcie dla płyt głównych z chipsetem serii 600 lub 700, pamięci DDR4 i DDR5, komponentów w standardzie PCIe 5.0 oraz połączeń sieciowych aż do Wi-Fi 7.
-                       <br><br><br><h3>Moc hybrydowej architektury</h3>
-                       COMMENTUsprawniona architektura hybrydowa i wiodące w branży technologie pozwolą Ci wejść na wyższy poziom w grze oraz kreatywnych zastosowaniach. Rdzenie Performance-cores wyzwalają najwyższą wydajność, by zoptymalizować pracę najnowszych gier i gamingowego oprogramowania. Rdzenie Efficient-cores oferuje wielozadaniową moc do pracy, zabawy i wspólnej rozgrywki. Streamuj swoje ulubione gry oraz edytuj wideo, by stworzyć coś wyjątkowego. Technologia Intel Thread Director dynamicznie zarządza procesami, aby umożliwić Ci to wszystko bez spowalniania systemu. Hybrydowa architektura sprzyja też jednoczesnej rozgrywce i streamowaniu w tle, przeznaczając wyższy priorytet na płynną obsługę gry.
-                       <br><br><br><h3>Graj bez kompromisów</h3>
-                       Bądź kimkolwiek zechcesz, zarówno w grze, jak i poza nią. Dzięki zoptymalizowanej wydajności i nowym funkcjom, procesor Intel Core i9-14900K pozwoli Ci grać intensywniej i pracować mądrzej. Zwiększona pojemność pamięci L3 do 36 MB oraz technologia Intel Smart Cache zadbają o płynną rozgrywkę i wyższe, bardziej stabilne FPS-y. Dzięki odblokowanemu mnożnikowi i dedykowanemu oprogramowaniu Intel Extreme Tuning Utility, możesz łatwo spersonalizować wydajność procesora i precyzyjnie podkręcać jego możliwości. Zyskaj więcej niż wydajność z procesorami Intel Core 14. generacji.',
-                       "Procesory",
-                       '{"Rodzina procesorów":"Intel Core i9", "Seria procesora":"i9-14900K", 
-                         "Gniazdo procesora":"Socekt 1700", "Taktowanie rdzenia":"3.2 GHz (6.0 GHz w trybie turbo)", 
-                         "Liczba rdzeni":"24 rdzenie", "Liczba wątków":"32 wątki", "Pamięć podręczna":"36 MB"}',
-                       "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/10/pr_2023_10_12_8_43_7_810_00.jpg",
-                       3049.00,
-                       13),
-                    ("Samsung 2TB M.2 PCIe Gen4 NVMe 980 PRO",
-                     '<h3>Odkryj Samsung 980 PRO PCle 4.0 NVMe M.2 2TB w 360 stopniach</h3>
-                      Uwolnij moc dysku PCIe 4.0 NVMe SSD 980 PRO firmy Samsung, by cieszyć się nową jakością pracy komputera. Dzięki interfejsowi PCIe 4.0 dysk 980 PRO zapewnia dwukrotnie szybszy transfer danych niż PCIe 3.0. Oferuje przy tym wsteczną kompatybilność z tym standardem, co przekłada się na niezwykłą wszechstronność zastosowania.
-                      Zaprojektowany z myślą o zapalonych graczach i profesjonalnych użytkownikach, dysk 980 PRO oferuje dużą przepustowość i wysoką wydajność, potrzebną dla najbardziej wymagających gier, programów graficznych czy analiz danych.
-                      Sprawdź, jak Samsung 980 PRO PCle 4.0 NVMe M.2 2TB wygląda w rzeczywistości. Chwyć zdjęcie poniżej i przeciągnij je w lewo lub prawo, aby obrócić produkt lub skorzystaj z przycisków nawigacyjnych. Najedź kursorem na wyróżniony punkt, by uzyskać więcej informacji o danym elemencie.
-                      <br><br><br><h3>Nowy poziom wydajności SSD</h3>
-                      Napędzany opracowanym przez Samsung kontrolerem Elpis dla SSD PCIe 4.0, dysk 980 PRO zoptymalizowano pod kątem szybkości działania. Oferuje prędkość odczytu/zapisu na poziomie nawet 7000/5100 MB/s, jest zatem znacząco szybszy od dysków SSD PCIe 3.0 oraz SSD SATA.
-                      Samsung 980 PRO osiąga maksymalne prędkości w przypadku podłączenia do interfejsu PCIe 4.0. Posiada przy tym kompaktowy format M.2 2280, można go więc z łatwością podłączać do komputerów stacjonarnych i laptopów.
-                      <br><br><br><h3>Inteligentne rozwiązanie termiczne</h3>
-                      Wysokowydajne dyski SSD zwykle wymagają wysokowydajnej kontroli termicznej. Aby zapewnić najwyższą wydajność, w 980 PRO wykorzystano powłokę z niklu, które pomaga zarządzać poziomem nagrzania kontrolera. Z kolei dedykowana warstwa odprowadzająca ciepło zapewnia kontrolę termiczną chipów pamięci NAND.
-                      Za sprawą opracowanego przez Samsung, przełomowego algorytmu kontroli termicznej 980 PRO sam zarządza poziomem nagrzania, by zagwarantować trwałą, niezawodną jakość pracy. Aby zapobiec wahaniom wydajności dysku, technologia Dynamic Thermal Guard firmy Samsung utrzymuje jego temperaturę na optymalnym poziomie.',
-                      "Dyski twarde HDD i SDD",
-                      '{"Pojemność":"2000 GB", "Format":"M.2", "Interfejs":"PCIe NVMe 4.0 x4", "Prędkość odczytu (maksymalna)":"7000 MB/s",
-                        "Prędkość zapisu (maksymalna)":"5100 MB/s", "Rodzaj kości pamięci":"TLC"}',
-                      "https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/1/pr_2021_1_27_13_0_52_51_00.jpg",
-                      639.00,
-                      23);
+                       5),
+                    ("Karta graficzna Gigabyte GeForce RTX 4090 Gaming OC 24 GB GDDR6X (GV-N4090GAMING OC-24GD)",
+                      'Przejdź na najwyższej ligi wydajności wraz z kartą graficzną Gigabyte GeForce RTX® 4090 GAMING OC 24G. Przekonaj się sam, jak wiele mocy i wydajności można z niej wykrzesać – to GPU zostało stworzone w celu dostarczenia jak największych wrażeń, zarówno w rozgrywce, jak i wydajności w pracy twórczej. Poczuj i zobacz coś, co do tej pory było dla Ciebie nieznane.',
+                       "Karty graficzne",
+                       '{"Pamięć":"24 GB", "Rodzaj pamięci":"GDDR6X", "Szyna danych":"384 bit"}',
+                       "https://images.morele.net/i1064/11815306_0_i1064.jpg",
+                       9599.00,
+                       2),
+                    ("Karta graficzna MSI GeForce RTX 4060 Ti Gaming X Trio 8GB GDDR6",
+                      'Graj ze stylem! Konstrukcja kart graficznych z serii GAMING została w istotny sposób ulepszona. Sprzęt wyposażony jest teraz w system chłodzenia TRI FROZR 3, dzięki któremu może on zawsze pracować z najwyższą wydajnością, zarówno podczas grania, jak i tworzenia treści. Wzornictwo podkreślające prędkość, współgra z wysokimi oczekiwaniami graczy, którzy chcą iść na całość.',
+                       "Karty graficzne",
+                       '{"Pamięć":"8 GB", "Rodzaj pamięci":"GDDR6", "Szyna danych":"128 bit"}',
+                       "https://images.morele.net/i1064/12893766_0_i1064.jpg",
+                       2346.83,
+                       2),
+                    ("Samsung 1TB M.2 PCIe NVMe 980",
+                     'Dysk Samsung NVMe SSD 980 to pierwszy dysk konsumencki firmy Samsung bez pamięci DRAM. Wyjątkowe parametry urządzenia gwarantują niezwykłą wydajność i wielokrotnie wyższą prędkość niż oferują dyski SATA SSD, dostępną od teraz dla szerszego grona użytkowników. Łączy w sobie szybkość, energooszczędność i niezawodność, którą docenisz podczas codziennego użytkowania, dynamicznej rozgrywki na najwyższych parametrach oraz pracy przy dużych plikach.',
+                     'Dyski twarde HDD i SSD',
+                     '{"Pojemność":"1000 GB", "Prędkość odczytu":"3500 MB/s", "Prędkość zapisu":"3000 MB/s"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/3/pr_2021_3_19_14_10_58_225_00.jpg',
+                     279.00,
+                     5
+                    ),
+                    ("Lexar 2TB M.2 PCIe Gen4 NVMe NM790",
+                     'Poznaj dyski Lexar NM790, nowoczesne jednostki SSD wyposażone w interfejs PCIe Gen4 NVMe, dzięki którym osiągniesz najwyższą wydajność i szybkość. Zużywają one przy tym mniej energii niż wcześniejsze rozwiązania, pozwalając wydłużyć czas pracy na baterii Twojego laptopa. Każdy produkt Lexar przeszedł rygorystyczne testy jakości w laboratorium, aby zagwarantować wysoką jakość, kompatybilność i niezawodność. Ciesz się możliwościami swojego dysku Lexar NM790 w każdych okolicznościach.',
+                     'Dyski twarde HDD i SSD',
+                     '{"Pojemność":"2000 GB", "Prędkość odczytu":"7400 MB/s", "Prędkość zapisu":"6500 MB/s"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/5/pr_2023_5_24_11_14_29_662_00.jpg',
+                     469,
+                     6
+                    ),
+                    ("Samsung 1TB M.2 PCIe NVMe 970 EVO Plus",
+                     'Szybszy od swojego poprzednika, dysk 970 EVO Plus wykorzystuje najnowszą technologię V-NAND i zoptymalizowane oprogramowanie sprzętowe. Podzespół maksymalizuje potencjał przepustowości łącza NVMe, zapewniając komputerowi niezrównane działanie. Oferuje przy tym aż 1TB pojemności oraz sekwencyjną prędkość odczytu/zapisu wynoszącą odpowiednio nawet 3500/3300 MB/s.',
+                     'Dyski twarde HDD i SSD',
+                     '{"Pojemność":"1000 GB", "Prędkość odczytu":"3500 MB/s", "Prędkość zapisu":"3300 MB/s"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/3/pr_2022_3_18_10_10_56_741_00.jpg',
+                     372.30,
+                     1
+                    ),
+                    ("AMD Ryzen 7 5800X3D",
+                     'Gamingową jednostkę AMD Ryzen 7 5800X3D wyposażono w 8 rdzeni i 16 wątków, gotowych do pracy przy maksymalnym obciążeniu w grach i specjalistycznych aplikacjach. Pamięć cache tego procesora liczy łącznie aż 100 MB, a bazowe taktowanie rdzeni otwiera częstotliwość 3,4 GHz, mogąca sięgać aż do 4,5 GHz w trybie Boost. Wyjątkowe możliwości Ryzen 7 5800X3D zapewnia nowatorska, trójwymiarowa budowa chipletu z dodatkowym stosem pamięci 3D V-Cache wielkości 64 MB. Pozwala to na jeszcze szybszy gaming, nawet w porównaniu z teoretycznie wydajniejszymi jednostkami.',
+                     'Procesory',
+                     '{"Gniazdo procesora":"Socket AM4", "Taktowanie procesora":"3.4 GHz", "Liczba rdzeni":"8 rdzeni"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/4/pr_2022_4_5_15_32_46_110_00.jpg',
+                     1529,
+                     4
+                    ),
+                    ("Intel Core i7-13700KF",
+                     'Od wieloosobowych konfrontacji po epickie przygody — bądź bliżej akcji niż kiedykolwiek wcześniej dzięki innowacyjnej architekturze procesora Intel Core i7-13700KF. Zapewnia on nawet 5,4 GHz maksymalnego taktowania i 16 rdzeni: 8 Performance-cores oraz 8 Efficient-cores. Przy tym oferuje 24 wątki: 16 dla Performance-cores oraz 8 dla Efficient-cores. Ten odblokowany procesor Intel Core i7 trzynastej generacji do komputerów stacjonarnych jest też przygotowany do możliwości podkręcania. Zwiększ ustawienia w grze bez martwienia się o zadania w tle spowalniające działanie komputera.',
+                     'Procesory',
+                     '{"Gniazdo procesora":"Socket 1700", "Taktowanie procesora":"3.4 GHz", "Liczba rdzeni":"16 rdzeni"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/9/pr_2022_9_27_11_59_1_676_00.jpg',
+                     1966.21,
+                     3
+                    ),
+                    ("Intel Core i5-13400F",
+                     'Od wieloosobowych konfrontacji po epickie przygody — bądź bliżej akcji niż kiedykolwiek wcześniej dzięki innowacyjnej architekturze procesora Intel Core i5-13400F. Zapewnia on nawet 4,6 GHz maksymalnego taktowania i 10 rdzeni: 6 Performance-cores oraz 4 Efficient-cores. Przy tym oferuje 16 wątków oraz 20 MB pamięci Intel Smart Cache (L3).',
+                     'Procesory',
+                     '{"Gniazdo procesora":"Socket 1700", "Taktowanie procesora":"2.5 GHz", "Liczba rdzeni":"10 rdzeni"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/1/pr_2023_1_2_8_1_22_776_02.jpg',
+                     1029,
+                     3
+                    ),
+
+                    ("MSI MPG B550 GAMING PLUS",
+                     'Zwyciężaj ze stylem dzięki wyjątkowym możliwościom. MSI MPG B550 GAMING PLUS to płyta główna pozwalająca Ci okiełznać moc nowych procesorów AMD Ryzen 3. generacji. Oferuje ona wysoką wydajność, m.in. dzięki wsparciu dla obsługi pamięci RAM o taktowaniu nawet 4400 MHz (OC) czy nowemu złączu Lightning M.2 Gen4 do 64 Gb/s. A przy tym możesz stworzyć konfigurację dwóch kart graficznych AMD CrossFire.',
+                     'Płyty główne',
+                     '{"Obsługiwane rodziny procesorów":"AMD Ryzen™", "Gniazdo procesora":"Socket AM4", "Chipset":"AMD B550"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2020/6/pr_2020_6_12_9_3_57_498_00.jpg',
+                     539,
+                     7
+                    ),
+                    ("Gigabyte B550M DS3H",
+                     'Dzięki połączeniu procesorów AMD Ryzen 3. generacji oraz płyty głównej Gigabyte B550M DS3H zyskasz wydajną platformę do rozmaitych zastosowań. Podłączaj najszybsze dyski SSD, pamięci USB oraz moduły RAM DDR4 pracujące z taktowaniem nawet 4733 MHz (OC). Płyta pozwala też na skorzystanie z wbudowanych w CPU układów graficznych Vega, dzięki złączom wideo: DVI-D oraz HDMI.',
+                     'Płyty główne',
+                     '{"Obsługiwane rodziny procesorów":"AMD Ryzen™", "Gniazdo procesora":"Socket AM4", "Chipset":"AMD B550"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2020/6/pr_2020_6_16_8_57_58_874_04.jpg',
+                     459,
+                     4
+                    ),
+                    ("MSI MAG B760 TOMAHAWK WIFI DDR4",
+                     'Zapewnij sobie przewagę w grach z płytą główną MSI MAG B760 TOMAHAWK WIFI DDR4. Ta konstrukcja ATX z socketem LGA 1700 obsługuje procesory Intel Core 13. i 12. generacji oraz moduły RAM DDR4 o taktowaniu do 5333 MHz (OC). Podłącz wydajne GPU do slotu PCIe 5.0, a także korzystaj z szybkich pamięci SSD NVMe. Graj online bez lagów dzięki dwóm nowoczesnym opcjom łączności. Przy tym nie obawiaj się o stabilność, dzięki mocnej sekcji zasilania oraz wydajnemu chłodzenia. Zapewnij sobie przewagę wydajność na wirtualnym polu bitwy. A jeżeli zechcesz rozświetlić wnętrze obudowy, po prostu podłącz dwa paski LED ARGB oraz jeden RGB do przygotowanych portów i steruj nimi z MSI Mystic Light.',
+                     'Płyty główne',
+                     '{"Obsługiwane rodziny procesorów":"Intel Core i9, Intel Core i7, Intel Core i5, Intel Core i3, Intel Celeron, Intel Pentium", "Gniazdo procesora":"Socket 1700", "Chipset":"Intel B760"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/1/pr_2023_1_12_14_39_15_259_03.jpg',
+                     459,
+                     4
+                    ),
+                    ("ENDORFY Signum 300 ARGB",
+                     'ENDORFY Signum 300 ARGB to nie tylko pojemne wnętrze, ale również doskonały wygląd. Obudowa pozwoli Ci zmieścić wszystkie potrzebne podzespoły, a gdy potrzebujesz, zachwycisz wszystkich stylowym podświetleniem. Fabryczny system chłodzenia składa się ze skutecznej wentylacji oraz preinstalowanych wentylatorów, dzięki czemu nie musisz martwić się o wysokie temperatury.',
+                     'Obudowy komputera',
+                     '{"Typ obudowy":"Middle Tower", "Standard płyty głównej":"ATX, microATX, ITX", "Podświetlenie":"Podświetlane wentylatory"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/11/pr_2022_11_16_14_39_13_262_00.jpg',
+                     359,
+                     3
+                    ),
+                    ("be quiet! Pure Base 500 FX",
+                     'Obudowa be quiet! Pure Base 500 FX pozwoli Ci zbudować wydajny system dla gracza i doskonale zaprezentuje się na Twoim gamingowym stanowisku. Cztery preinstalowane wentylatory ARGB to gwarancja dobrego chłodzenia oraz oryginalnego wyglądu całej konstrukcji. Obudowa oferuje elastyczne opcje montażu podzespołów oraz rozbudowę systemu chłodzenia.',
+                     'Obudowy komputera',
+                     '{"Typ obudowy":"Middle Tower", "Standard płyty głównej":"ATX, m-ATX, Mini-ITX", "Podświetlenie":"ARGB"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/8/pr_2022_8_1_11_6_13_123_00.jpg',
+                     629,
+                     5
+                    ),
+                    ("Silver Monkey X Crate",
+                     'Obudowa Silver Monkey Crate to efektowna i efektywna konstrukcja, przeznaczona dla fanów kolorowego podświetlenia i najwyższej jakości. Przedni (wymienny) i boczny panel ze szkła hartowanego pozwolą Ci wyeksponować swoją gamingową konfigurację. Trzy wentylatory ARGB PWM zapewnią wydajne chłodzenie wszystkich podzespołów, a przy tym rozświetlą wnętrze obudowy stylowym blaskiem. Kolory i efekty możesz zmieniać według własnego gustu za sprawą kontrolera LED.',
+                     'Obudowy komputera',
+                     '{"Typ obudowy":"Middle Tower", "Standard płyty głównej":"ATX, m-ATX, Mini-ITX", "Podświetlenie":"Podświetlane wentylatory"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/6/pr_2023_6_23_9_35_20_331_00.jpg',
+                     449,
+                     4
+                    ),
+                    ("Lexar 32GB (2x16GB) 6000MHz CL30 Ares RGB",
+                     'Przygotuj się na niesamowite doznania w grach dzięki pamięci DDR5 Lexar ARES RGB. Ta wyjątkowa pamięć to wymarzony wybór dla zaawansowanych graczy i entuzjastów komputerów, którzy pragną osiągnąć najwyższą wydajność systemu. Wbudowany aluminiowy radiator nie tylko sprawia, że komputer prezentuje się stylowo, ale także utrzymuje odpowiednią temperaturę. Pozwala to zachować stabilność oraz niezawodność systemu podczas intensywnych sesji gamingowych.',
+                     'Pamięci RAM',
+                     '{"Seria":"Ares RGB", "Rodzaj pamięci":"DDR5", "Pojemność całkowita":"32 GB (2x16 GB)"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/8/pr_2023_8_3_13_7_52_603_00.jpg',
+                     519,
+                     12
+                    ),
+                    ("Patriot 16GB (2x8GB) 3200MHz CL16 Viper Steel",
+                     'Niezależnie od tego, czy korzystasz z platformy Intel lub AMD, Twoja konfiguracja potrzebuje najlepszej i najszybszej pamięci RAM. Stworzona z myślą o prawdziwej wydajności seria Viper Steel stawi czoło obciążeniom, jakimi będzie poddawana nawet w najbardziej wymagających środowiskach komputerowych. Drapieżny design doskonale odnajdzie się w Twojej obudowie, a taktowanie 3200 MHz oraz opóźnienia CL16 zapewnią płynną obsługę gier oraz rozmaitych aplikacji.',
+                     'Pamięci RAM',
+                     '{"Seria":"Viper Steel", "Rodzaj pamięci":"DDR4", "Pojemność całkowita":"16 GB (2x8 GB)"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/8/pr_2023_8_3_13_7_52_603_00.jpg',
+                     189,
+                     3
+                    ),
+                    ("Kingston FURY 16GB (2x8GB) 3600MHz CL16 Renegade Black",
+                     'Zmodernizuj swój system dzięki stylowej i niezwykle wydajnej pamięci RAM DDR4 Kingston FURY Renegade Black. Dwa moduły o łącznej pojemności 16 GB (2x8GB) oferują taktowanie 3600 MHz oraz opóźnienia na poziomie CL16. Dzięki tym parametrom pamięć zapewni Ci doskonałe osiągi w grach i profesjonalnych zastosowaniach. Ponadto moduły Kingston FURY Renegade Black wspierają obsługę profili XMP.',
+                     'Pamięci RAM',
+                     '{"Seria":"Renegade", "Rodzaj pamięci":"DDR4", "Pojemność całkowita":"16 GB (2x8 GB)"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/8/pr_2023_8_3_13_7_52_603_00.jpg',
+                     239,
+                     7
+                    ),
+                    ("be quiet! Pure Power 12 M 750W 80 Plus Gold ATX",
+                     'Pure Power 12 M 750W to zasilacz ATX 3.0. Ma natywną integracją złącza 12VHPWR dla kart graficznych PCIe 5.0 nowej generacji oraz złączami PCIe 6+2-pin do obsługi procesorów graficznych obecnej generacji. To sprawia, że jest on niezwykle wszechstronny i stanowi doskonały wybór dla obecnych i przyszłych konfiguracji high-end.',
+                     'Zasilacze komputerowe',
+                     '{"Moc maksymalna":"750 W", "Standard":"ATX 3.0", "Kolor":"Czarny"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2023/2/pr_2023_2_6_10_27_17_477_01.jpg',
+                     559,
+                     13
+                    ),
+                    ("FSP/Fortron HYDRO K PRO 600W 80 Plus Bronze",
+                     'Zasilacz do komputera Fortron HYDRO K PRO 600W jest w pełni zgodny ze standardem ATX12 v2.52 oraz przepisami bezpieczeństwa 62368. Dodatkowo został wykonany z wysokiej jakości komponentów i ma kable taśmowe, dzięki czemu Twój komputer będzie nie tylko bezpieczny, ale także uporządkowany.',
+                     'Zasilacze komputerowe',
+                     '{"Moc maksymalna":"600 W", "Standard":"ATX", "Kolor":"Czarny"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/11/pr_2021_11_19_9_16_18_124_00.jpg',
+                     249,
+                     11
+                    ),
+                    ("Corsair RM850x 850W 80 Plus Gold",
+                     'W pełni modularny zasilacz Corsair RM850x zbudowano z najlepszych komponentów, dzięki czemu działa z wysoką sprawnością klasy 80 PLUS Gold. Podłączaj tylko te przewody, których w danej chwili potrzebujesz, by zasilać komponenty komputera z wysokim budżetem 850 watów mocy. Niemal bezgłośnie chłodzenie zadba o optymalne temperatury i stabilną pracę zasilacza.',
+                     'Zasilacze komputerowe',
+                     '{"Moc maksymalna":"850 W", "Standard":"ATX", "Kolor":"Czarny"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2021/11/pr_2021_11_19_9_16_18_124_00.jpg',
+                     699,
+                     7
+                    ),
+                    ("Silver Monkey X SNOWY ARGB 240 2x120 mm",
+                     'Zapewnij swojemu procesorowi najwyższą wydajność chłodzenia wodnego z Silver Monkey X SNOWY ARGB 240 2x120 mm. Ten stylowo prezentujący się zestaw AIO (All-In-One) zapewni najlepsze warunki termiczne Twojemu CPU dzięki TDP na poziomie 250 W. Wbudowane w wentylatory i blokopompę adresowalne podświetlenie RGB pozwoli Ci rozświetlić wnętrze obudowy komputera bogactwem kolorów i efektów.',
+                     'Chłodzenie komputerowe',
+                     '{"Rodzaj chłodzenia":"Wodne", "Materiał radiatora":"Aluminium", "Podświetlenie":"ARGB"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/3/pr_2022_3_7_11_7_40_435_00.jpg',
+                     399,
+                     5
+                    ),
+                    ("ENDORFY Navis F360 ARGB 3x120mm",
+                     'ENDORFY Navis F360 ARGB to chłodnica dla Twojego procesora. Zapewnia optymalne temperatury pracy i wspaniały wygląd z podświetleniem ARGB. Sprzęt pozwala na pracę nawet z wysokoenergetycznymi procesorami. Wszystko to za sprawą cichej blokopompki z łożyskiem ceramicznym i sterowaniem PWM. Chłodnica jest kompatybilna ze wszystkimi popularnymi socketami, więc idealnie opasuje do Twojego procesora.',
+                     'Chłodzenie komputerowe',
+                     '{"Rodzaj chłodzenia":"Wodne", "Materiał radiatora":"Aluminium", "Podświetlenie":"ARGB"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/3/pr_2022_3_7_11_7_40_435_00.jpg',
+                     599,
+                     20
+                    ),
+                    ("MSI MAG Core Liquid 360R V2 3x120mm",
+                     'MAG Core Liquid 360R posiada wszystko czego potrzebujesz od zaawansowanego zestawu chłodzenia cieczą, od wysokiej jakości materiałów po efektywne technologie rozpraszania ciepła. Jednocześnie możesz cieszyć oczy wyjątkowym designem oraz wbudowanym podświetleniem ARGB.',
+                     'Chłodzenie komputerowe',
+                     '{"Rodzaj chłodzenia":"Wodne", "Materiał radiatora":"Aluminium", "Podświetlenie":"Kolorowe ARGB"}',
+                     'https://cdn.x-kom.pl/i/setup/images/prod/big/product-new-big,,2022/3/pr_2022_3_7_11_7_40_435_00.jpg',
+                     569,
+                     15
+                    );
 
 -- INSERT INTO Orders(cl_id, order_date)
 --              VALUES (0, NOW()),

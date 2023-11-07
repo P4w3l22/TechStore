@@ -75,7 +75,7 @@
         </div>
 
         <label></label>
-        <input class="submit_button" type="submit" value="Prześlij">
+        <input class="submit_button" style="margin-left: 10px" type="submit" value="Prześlij">
     </form>
 </div>
 <?php $manage -> Add('c'); ?>

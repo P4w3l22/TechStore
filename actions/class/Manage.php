@@ -1,6 +1,144 @@
 
 <?php
     require('Connect.php');
+
+    class Product extends dbConfig
+    {
+        protected $hostname;
+        protected $username;
+        protected $password;
+        protected $dbname;
+
+        private $productTable = "products";
+        private $connection = false;
+        private $avaible;
+        
+        private $user;
+        public $title;
+        public $description;
+        public $picture;
+        public $price;
+        public $amount;
+        public $specification;
+        public $opinions;
+
+        public function __construct($id)
+        {
+            
+            
+            if (!$this -> connection)
+            {
+                $database = new dbConfig();
+                $this -> hostname = $database -> hostname;
+                $this -> username = $database -> username;
+                $this -> password = $database -> password;
+                $this -> dbname = $database -> dbname;
+
+                $conn = mysqli_connect($this -> hostname, "root", $this -> password, "TechStore");
+                if ($conn -> connect_error)
+                {
+                    die ("Błąd łączenia z bazą danych" . $conn -> connect_error);
+                }
+                else
+                {
+                    $this -> connection = $conn;
+                }                
+            }
+
+            $sql = "SELECT * FROM Products WHERE pr_id = '" . $id . "';";
+
+            $result = mysqli_query($this -> connection, $sql);
+            $row = mysqli_fetch_assoc($result);
+
+            $this -> user = $row;
+
+            if (intval($this -> user['pr_amount']) > 0) {
+                $this -> avaible = true;
+            }
+
+        }
+
+        public function Title()
+        {
+            return $this -> user['pr_title'];
+        }
+
+        public function Picture()
+        {
+            if (substr($this -> user['pr_picture'], 0, 7) === "http://" || substr($this -> user['pr_picture'], 0, 8) === "https://")
+            {
+                return $this -> user['pr_picture'];
+            }
+            else 
+            {
+                return "https://t3.ftcdn.net/jpg/02/15/15/46/360_F_215154625_hJg9QkfWH9Cu6LCTUc8TiuV6jQSI0C5X.jpg";
+            }
+            
+        }
+
+        public function Price()
+        {
+            return $this -> user['pr_price'];
+        }
+
+        public function IfAvaible()
+        {
+            if($this -> avaible)
+            {
+                return '<svg class="m-2" style="color:rgb(43, 226, 116);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                      </svg>
+                  <p>Dostępny</p>';
+            }
+            else
+            {
+                return '<svg class="m-2" style="color:red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x" viewBox="0 0 16 16">
+                          <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z"/>
+                          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                      </svg>
+                  <p>Niedostępny</p>';
+            }
+        }
+
+        public function Amount()
+        {
+            $amount = $this -> user['pr_amount'];
+
+            if ($this -> avaible)
+            {
+                return '<svg class="m-2" style="color:rgb(43, 226, 116);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                      </svg>
+                      <p>' . $amount . ' dostępnych sztuk</p>';
+            }
+
+        }     
+        
+        public function Description()
+        {
+            return $this -> user['pr_description'];
+        }
+
+        public function Specification()
+        {
+            $decodeSpec = json_decode($this -> user['pr_specification'], true);
+            $result = "";
+
+            foreach ($decodeSpec as $key => $value)
+            {
+                $result .= '<li class="nav-item">'. $key .': '. $value .'</li>';
+            }
+            return $result;
+        }
+
+        public function Opinions()
+        {
+            return 'Opinie : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, laudantium ipsum. A velit ipsum earum laudantium architecto. Est, ut amet quidem, magni minus saepe accusamus numquam voluptatibus exercitationem, labore fugiat.';
+        }
+   
+    }
+
     class Manage extends dbConfig
     {
         protected $hostname;
@@ -142,7 +280,7 @@
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    echo '  <div>
+                    echo   '<div>
                                 <tr id="view_' . $row['cl_id'] . '">
                                     <th scope="row">' . $counter . '</th>
                                     <td>' . $row['cl_name'] . '</td>
@@ -259,133 +397,38 @@
             {
                 echo "Wystąpił błąd";
             }
-            
         }
 
+        public function Category($category)
+        {
+            $sql = "SELECT pr_id FROM Products WHERE pr_category='" . $category . "';";
+            $result = mysqli_query($this -> connection, $sql);
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $product = new Product($row['pr_id']);
+
+                    echo '<div class="card my-2" style="overflow:hidden" >
+                            <img
+                                class="img-fluid"
+                                src="' . $product -> Picture() . '" 
+                                alt="..."
+                                style="width: 200px;"
+                            />
+                            <div class="card-body" style="">
+                                <h5 class="card-title"><a href="#">' . $product -> Title() . '</a></h5>
+                                <h6 class="">'. $product -> Price() .' zł</h6>
+                                <ul class="card-text navbar-nav" style="padding-bottom: 14x;">
+                                    '. $product -> Specification() .'
+                                </ul>
+                            </div>
+                        </div>';
+                }
+            }
+        }
     }
 
     // PRODUCT CLASS
-    class Product extends dbConfig
-    {
-        protected $hostname;
-        protected $username;
-        protected $password;
-        protected $dbname;
-
-        private $productTable = "products";
-        private $connection = false;
-        private $avaible;
-        
-        private $user;
-        public $title;
-        public $description;
-        public $picture;
-        public $price;
-        public $amount;
-        public $specification;
-        public $opinions;
-
-        public function __construct($id)
-        {
-            $this -> avaible = true;
-            
-            if (!$this -> connection)
-            {
-                $database = new dbConfig();
-                $this -> hostname = $database -> hostname;
-                $this -> username = $database -> username;
-                $this -> password = $database -> password;
-                $this -> dbname = $database -> dbname;
-
-                $conn = mysqli_connect($this -> hostname, "root", $this -> password, "TechStore");
-                if ($conn -> connect_error)
-                {
-                    die ("Błąd łączenia z bazą danych" . $conn -> connect_error);
-                }
-                else
-                {
-                    $this -> connection = $conn;
-                }                
-            }
-
-            $sql = "SELECT * FROM Products WHERE pr_id = '" . $id . "';";
-
-            $result = mysqli_query($this -> connection, $sql);
-            $row = mysqli_fetch_assoc($result);
-
-            $this -> user = $row;
-
-        }
-
-        public function Title()
-        {
-            echo $this -> user['pr_title'];
-        }
-
-        public function Picture()
-        {
-            echo $this -> user['pr_picture'];
-        }
-
-        public function Price()
-        {
-            echo $this -> user['pr_price'];
-        }
-
-        public function IfAvaible()
-        {
-            if($this -> avaible)
-            {
-                echo '<svg class="m-2" style="color:rgb(43, 226, 116);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
-                          <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                      </svg>
-                  <p>Dostępny</p>';
-            }
-            else
-            {
-                echo '<svg class="m-2" style="color:red;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-x" viewBox="0 0 16 16">
-                          <path d="M7.354 5.646a.5.5 0 1 0-.708.708L7.793 7.5 6.646 8.646a.5.5 0 1 0 .708.708L8.5 8.207l1.146 1.147a.5.5 0 0 0 .708-.708L9.207 7.5l1.147-1.146a.5.5 0 0 0-.708-.708L8.5 6.793 7.354 5.646z"/>
-                          <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                      </svg>
-                  <p>Niedostępny</p>';
-            }
-        }
-
-        public function Amount()
-        {
-            $amount = $this -> user['pr_amount'];
-
-            if ($this -> avaible)
-            {
-                echo '<svg class="m-2" style="color:rgb(43, 226, 116);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                      </svg>
-                      <p>' . $amount . ' dostępnych sztuk</p>';
-            }
-
-        }     
-        
-        public function Description()
-        {
-            echo $this -> user['pr_description'];
-        }
-
-        public function Specification()
-        {
-            $decodeSpec = json_decode($this -> user['pr_specification'], true);
-
-            foreach ($decodeSpec as $key => $value)
-            {
-                echo $key . " : " . $value . '<br>';
-
-            }
-        }
-
-        public function Opinions()
-        {
-            echo 'Opinie : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, laudantium ipsum. A velit ipsum earum laudantium architecto. Est, ut amet quidem, magni minus saepe accusamus numquam voluptatibus exercitationem, labore fugiat.';
-        }
-   
-    }
+    
 ?>

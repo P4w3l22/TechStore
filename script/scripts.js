@@ -12,65 +12,74 @@ function addProd()
     
     if (select.value === 'drives')
     {
+        var choice = "Dyski twarde HDD i SSD";
         jsonFormat = `{"Pojemność":"${document.getElementById('d_capacity').value}",
-                            "Prędkość odczytu":"${document.getElementById('d_read_speed').value}",
-                            "Prędkość zapisu":"${document.getElementById('d_save_speed').value}"}`
+                        "Prędkość odczytu":"${document.getElementById('d_read_speed').value}",
+                        "Prędkość zapisu":"${document.getElementById('d_save_speed').value}"}`
         console.log(jsonFormat)
     }
 
     else if (select.value === 'graphics')
     {
+        var choice = "Karty graficzne";
         jsonFormat = `{"Pamięć":"${document.getElementById('g_memory').value}",
-                            "Rodzaj pamięci":"${document.getElementById('g_type').value}",
-                            "Przepustowość pamięci":"${document.getElementById('g_memory_capacity').value}"}`
+                        "Rodzaj pamięci":"${document.getElementById('g_type').value}",
+                        "Szyna danych":"${document.getElementById('g_memory_capacity').value}"}`
         console.log(jsonFormat)
     }
 
     else if (select.value === 'processors')
     {
+        var choice = "Procesory";
         jsonFormat = `{"Gniazdo procesora":"${document.getElementById('p_socket').value}",
-                    "Taktowanie procesora":"${document.getElementById('p_clock_speed').value}",
-                    "Liczba rdzeni":"${document.getElementById('p_cores').value}"}`
+                        "Taktowanie procesora":"${document.getElementById('p_clock_speed').value}",
+                        "Liczba rdzeni":"${document.getElementById('p_cores').value}"}`
         console.log(jsonFormat)
     }
 
     else if (select.value === 'motherboards')
     {
+        var choice = "Płyty główne";
         jsonFormat = `{"Obsługiwane rodziny procesorów":"${document.getElementById('m_fam').value}",
-                    "Gniazdo procesora":"${document.getElementById('m_socket').value}",
-                    "Chipset":"${document.getElementById('m_chipset').value}"}`
+                        "Gniazdo procesora":"${document.getElementById('m_socket').value}",
+                        "Chipset":"${document.getElementById('m_chipset').value}"}`
         console.log(jsonFormat)
     }
 
     else if (select.value === 'cases')
     {
+        var choice = "Obudowy komputera";
         jsonFormat = `{"Typ obudowy":"${document.getElementById('c_type').value}",
-                    "Standard płyty głównej":"${document.getElementById('c_standard').value}",
-                    "Podświetlenie":"${document.getElementById('c_backlight').value}"}`
+                        "Standard płyty głównej":"${document.getElementById('c_standard').value}",
+                        "Podświetlenie":"${document.getElementById('c_backlight').value}"}`
         console.log(jsonFormat)
     }
 
     else if (select.value === 'ram')
     {
+        var choice = "Pamięci RAM";
         jsonFormat = `{"Seria":"${document.getElementById('r_series').value}",
-                    "Rodzaj pamięci":"${document.getElementById('r_type').value}",
-                    "Pojemność całkowita":"${document.getElementById('r_capacity').value}"}`
+                        "Rodzaj pamięci":"${document.getElementById('r_type').value}",
+                        "Pojemność całkowita":"${document.getElementById('r_capacity').value}"}`
         console.log(jsonFormat)
     }
     
     else if (select.value === 'charger')
     {
+        var choice = "Zasilacze komputerowe";
         jsonFormat = `{"Moc maksymalna":"${document.getElementById('ch_power').value}",
-                    "Standard":"${document.getElementById('ch_standard').value}",
-                    "Kolor":"${document.getElementById('ch_color').value}"}`
+                        "Standard":"${document.getElementById('ch_standard').value}",
+                        "Kolor":"${document.getElementById('ch_color').value}"}`
         console.log(jsonFormat)
     }
 
     else if (select.value === 'cooling')
     {
+        var choice = "Chłodzenie komputerowe";
+
         jsonFormat = `{"Rodzaj chłodzenia":"${document.getElementById('co_type').value}",
-                    "Materiał radiatora":"${document.getElementById('co_material').value}",
-                    "Podświetlenie":"${document.getElementById('co_backlight').value}"}`
+                        "Materiał radiatora":"${document.getElementById('co_material').value}",
+                        "Podświetlenie":"${document.getElementById('co_backlight').value}"}`
         console.log(jsonFormat)
     }
 
@@ -84,13 +93,14 @@ function addProd()
         xhr.onreadystatechange = function () 
         {
             if (xhr.readyState == 4 && xhr.status == 200)
-            {            
+            {       
+                console.log(choice);
                 alert("Dodano!")
                 location.reload()
-
             }
         }
-        xhr.send("json="+jsonFormat + "&title="+title.value + "&select="+select.value + "&photo="+photo.value + "&price="+price.value + "&amount="+amount.value + "&description="+description.value)       
+        
+        xhr.send("json="+jsonFormat + "&title="+title.value + "&select="+choice + "&photo="+photo.value + "&price="+price.value + "&amount="+amount.value + "&description="+description.value)       
 }
 
 function edit(id)

@@ -23,12 +23,16 @@
 
             elements.forEach(function (element, id) {
                 element.addEventListener('click', function() {
+                    elements.forEach(function (el) {
+                        el.style.borderBottom = "none"
+                    })
                     contents.forEach(function (content) {
-                        content.style.display = 'none'
+                        content.style.display = 'none'  
                     })
                     contents[id].style.display = 'flex'
+                    element.style.borderBottom = "2px solid blueviolet"
                 })
-
+                
             })
         </script>
     </body>

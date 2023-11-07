@@ -19,6 +19,7 @@ body{
 .first_view .navbar {
     width: 78%; 
     box-shadow: 0px 0px 2px gray;
+    z-index: 1;
 }
 
 .first_view .d-flex .form-control {
@@ -140,11 +141,23 @@ body{
     margin-top: 20px;
 }
 
-.m-3 button {
-    background-color:blueviolet; 
+.m-3 .submit_button {
+    /* background-color:blueviolet; 
     border-radius: 8px;
     border: none; 
+    padding-bottom: 4px;
+    margin: 20px 10px;
     padding: 10px 20px;
+    color: white; */
+
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(138, 43, 226);
+    color: white;
+    font-weight: bold;
+    /* margin-left: 8px; */
 }
 
 .cate .navbar-expand-lg .container .navbar-toggler {
@@ -172,14 +185,18 @@ body{
     color: white;
 }
 
+.cate .dis .card .card-body {
+    padding: 15px;
+}
+
 .cat_choice {
     padding: 10px 0px 10px 10px;
 }
 
 .cat_choice:hover {
-    border-radius: 7px;
-    background-color: #121212;
+    /* border-radius: 7px; */
     transition: background-color 0.3s ease;
+    border-bottom: 2px solid blueviolet;
 }
 
 
@@ -244,9 +261,10 @@ body{
     height: auto; 
     overflow: hidden;
     color: white;
+    
 }
 
-.submit_button {
+/* .needs-validation .submit_button {
     height: 40px;
     width: 100px;
     border-radius: 8px;
@@ -254,7 +272,7 @@ body{
     background-color: rgb(138, 43, 226);
     color: white;
     font-weight: bold;
-}
+} */
 
 .table tbody tr th {
     background-color: inherit;
