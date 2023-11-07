@@ -1,0 +1,369 @@
+body{
+    margin: 10px 10px 0px 10px;
+}
+
+/* Main.html */
+.first_view {
+    background-image: url('../images/motherboard3.jpg');
+    background-size: cover;
+    filter: blur();
+    height: 800px;
+    margin-bottom: 10px;
+    border-radius: 15px 15px 0px 0px;
+    color: white;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+}
+
+.first_view .navbar {
+    width: 78%; 
+    box-shadow: 0px 0px 2px gray;
+    z-index: 1;
+}
+
+.first_view .d-flex .form-control {
+    border-radius: 14px 2px 2px 14px;
+}
+
+.first_view .d-flex .theme {
+    padding-left: 15px;
+}
+
+.first_view .d-flex .btn {
+    border-radius: 2px 14px 14px 2px;
+    border: none;
+    background-color: blueviolet;
+}
+
+.first_view .fade-el h1 {
+    color: #dbd5df; 
+    padding-top: 150px;
+    font-size: 70px; 
+    font-weight:400;
+}
+
+.first_view .fade-el h4 {
+    font-weight: lighter; 
+    width: 100%; 
+    size: 90px;
+}
+
+.second_view {
+    background-color: #303030;
+    padding-bottom: 40px;
+    margin-bottom: 10px;
+}
+
+.second_view h1 {
+    color: white; 
+    padding-top: 60px;
+}
+
+.third_view {
+    padding: 30px;
+    height: auto;
+    width: 90%;
+    padding-bottom: 200px;
+    display: block;
+    margin: auto;
+}
+
+.third_view nav {
+    /* border: 1px solid blueviolet; */
+    border-radius: 18px;
+    background-color: inherit;
+    width: auto;
+    height: 50px; 
+    margin-bottom: 30px;
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.third-view h1 {
+    padding-bottom: 30px;
+}
+
+.third_view .menu {
+    display: flex;
+    justify-content: center;
+    padding: 50px 10px;
+}
+
+.third_view .menu .nav {
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    margin: 8px;
+}
+
+.third_view .menu .nav .nav-item .nav-link {
+    border: 1px solid blueviolet;
+    background-color: inherit;
+    color: black;
+    box-shadow: 1px 1px 3px black;
+    margin: 5px;
+}
+
+.third_view .menu .nav .nav-item .nav-link:hover {
+    background-color: blueviolet;
+    color: white;
+}
+
+.fourth_view {
+    padding-top: 100px;
+    height: 500px;
+    border-radius: 15px 15px 0 0;
+    margin-bottom: none;
+    background-color: #303030;
+    color: white;
+}
+
+/* actions */
+.m-3 {
+    overflow-x: auto;
+}
+
+.cate {
+    display: flex; 
+}
+
+.m-3 h3 {
+    margin-top: 30px;
+}
+
+/* AddProduct.php */
+.m-3 .dropdown-content .row {
+    margin-left: 5%;
+}
+
+.m-3 .submit_button {
+    margin-top: 20px;
+}
+
+.m-3 .submit_button {
+    /* background-color:blueviolet; 
+    border-radius: 8px;
+    border: none; 
+    padding-bottom: 4px;
+    margin: 20px 10px;
+    padding: 10px 20px;
+    color: white; */
+
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(138, 43, 226);
+    color: white;
+    font-weight: bold;
+    /* margin-left: 8px; */
+}
+
+.cate .navbar-expand-lg .container .navbar-toggler {
+    border-radius: 10px; 
+    color: blueviolet; 
+    padding-right: 30px;
+}
+
+.cate .navbar-expand-lg .container .collapse .navbar-nav {
+    width: 250px;
+    /* position: relative;
+    z-index: 1; */
+}
+
+.cate .dis .card {
+    width: 35rem; 
+    height: 12rem; 
+    flex-direction: row; 
+    display: flex;
+}
+
+.m-3 .redirect_button a,
+.cate .dis .card .card-body .card-title a {
+    text-decoration: none; 
+    color: white;
+}
+
+.cate .dis .card .card-body {
+    padding: 15px;
+}
+
+.cat_choice {
+    padding: 10px 0px 10px 10px;
+}
+
+.cat_choice:hover {
+    /* border-radius: 7px; */
+    transition: background-color 0.3s ease;
+    border-bottom: 2px solid blueviolet;
+}
+
+
+
+
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+      /* transform: translateX(-100%); */
+    }
+    to {
+        opacity: 1;
+      /* transform: translateX(0); */
+    }
+  }
+
+.fade-el {
+    animation: slideIn 2s ease-in-out;
+    text-shadow: 2px 2px 5px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    color: #f2ebf7;
+    text-align: center;
+}
+
+.fade-el h4 {
+    padding-top: 30px;
+}
+
+.first_view nav {
+    position:fixed;
+    border-radius: 18px;
+    padding: 10px;
+    top: 20px;
+    margin: 0 10%;
+}
+
+.button-round {
+    border-radius: 2px 14px 14px 2px;
+}
+
+
+
+/* AddClient */
+.logo {
+    border-radius: 0 0 20px 0;
+    background-color: blueviolet;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+.addClientFirst {
+    background-color: #303030; 
+    border-radius: 10px; 
+    height: auto; 
+    overflow: hidden;
+    color: white;
+    
+}
+
+/* .needs-validation .submit_button {
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(138, 43, 226);
+    color: white;
+    font-weight: bold;
+} */
+
+.table tbody tr th {
+    background-color: inherit;
+    color: white;
+}
+
+.table tbody tr td {
+    background-color: inherit;
+    color: white;
+}
+
+.tab {
+    background-color: inherit;
+    color: white;
+}
+
+
+/* Carousel */
+.carousel {
+    margin: 50px 5%;
+    /* height: 250px; */
+}
+.cards-wrapper {
+    display: flex;
+    justify-content:center;
+    /* height: 250px; */
+  }
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    /* height: 50%; */
+}
+
+.card body {
+    height: 20%;
+}
+
+.card {
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 5px;
+    /* min-width: 150px;
+    width: 20%;
+    height: 100%;
+    height: 300px;
+    overflow: hidden; */
+}
+.carousel-inner {
+    padding: 1em;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #e1e1e1;
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#description {
+    height: 100px;
+}
+
+.dis {
+    display: none;
+}
+
+#dark-button {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    padding-bottom: 5px;
+    border: none;
+    /* display: none; */
+}
+
+.dark-button:active {
+    background-color: darkblue;
+}
+
+/* 
+.card img {
+    max-width: 25%;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 0.7em;
+  }
+
+  .card {
+    flex-direction: row;
+    max-width: 30em;
+  } */
