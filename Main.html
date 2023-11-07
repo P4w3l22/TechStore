@@ -51,7 +51,7 @@
                             >Produkt</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="actions/Product.php">Produkty</a></li>
-                                <li><a class="dropdown-item" href="actions/Category.php" target="_blank">Kategorie</a></li>
+                                <li><a class="dropdown-item" href="actions/Category.php">Kategorie</a></li> <!--  target="_blank" -->
                                 <li><a class="dropdown-item" href="actions/ProductSite.html">Wyszukaj produkt</a></li>
                             </ul>
                         </li>
@@ -737,14 +737,34 @@
     <script src="script/scripts.js"></script>
     <script>
         var stylesheet = document.getElementById('stylesheet_dark')
-        document.getElementById('theme').addEventListener('click', (e) => {
+        var currentTheme = localStorage.getItem('theme');
+        var button = document.getElementById('theme')
+
+        if (currentTheme === null) {
+            currentTheme = 'light'
+        }
+
+        if (currentTheme === 'light')
+        {
+            stylesheet.disabled = true
+        } else {
+            stylesheet.disabled = false
+            button.click()
+        }
+
+        button.addEventListener('click', (e) => {
             if (stylesheet.disabled) {
+                currentTheme = 'dark'
                 stylesheet.disabled = false
             }
             else {
+                currentTheme = 'light'
                 stylesheet.disabled = true
             }
+            localStorage.setItem('theme', currentTheme)
         })
+
+
     </script>
     
 

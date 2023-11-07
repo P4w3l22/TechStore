@@ -1,40 +1,40 @@
 <?php 
     include('class/Manage.php');
-    $manage = new Product();
+    $manage = new Product($_GET['id']);
     include('parts/header.php'); 
 ?>
-<title><?php $manage -> Title(); ?></title>
+<title><?php echo $manage -> Title(); ?></title>
 </head>
 <?php include('parts/contentBackground.php'); ?>
 <div class="m-5">
-    <h2><?php $manage -> Title(); ?></h2>
+    <h2><?php echo $manage -> Title(); ?></h2>
 </div>
 
 <div class="container">
     <div class="row" style="justify-content: space-around;">
         <div class="col-md-7">
             <img class="col-md-6" 
-                    src=<?php $manage -> Picture(); ?>  
+                    src=<?php echo $manage -> Picture(); ?>  
                     alt="" 
                     style="width: 100%;">
         </div>
         
         <div class="col-md-5 m-6" style="border: 1px solid gray; border-radius: 8px; width: 30%; min-width: 250px; text-align: right; margin-top:30px; margin-left: 20px;">
-            <h3 class="m-3"><?php $manage -> Price(); ?></h3>
-            <button class="submit_button m-3" style="width: 200px; border-radius: 50pc; background-color: rgb(12, 174, 77);">Dodaj do koszyka</button>
+            <h3 class="m-4"><?php echo $manage -> Price(); ?> zł</h3>
+            <button class="m-3" style="width: 200px; border-radius: 50pc; background-color: rgb(12, 174, 77); color: white; border: none; height: 40px">Dodaj do koszyka</button>
             <div style="display: flex;
                         text-align: left; 
                         padding: 20px; 
                         border-top: 1px solid gray; 
                         margin-left: none;">
-                <?php $manage -> IfAvaible(); ?>
+                <?php echo $manage -> IfAvaible(); ?>
             </div>
             <div style="display: flex;
                         text-align: left; 
                         padding: 20px; 
                         border-top: 1px solid gray; 
                         margin-left: none;">
-                <?php $manage -> Amount(); ?>
+                <?php echo $manage -> Amount(); ?>
             </div>
         </div>
     </div>
@@ -95,15 +95,16 @@
             role="tabpanel"
             aria-labelledby="pills-description-tab"
         >
-            <?php $manage -> Description(); ?>
+            <?php echo $manage -> Description(); ?>
         </div>
         <div
             class="tab-pane fade"
             id="pills-specification"
             role="tabpanel"
             aria-labelledby="pills-specification-tab"
+            style="text-align: left;"
         >
-            <?php $manage -> Specification(); ?>
+            <?php echo $manage -> Specification(); ?>
         </div>
         <div
             class="tab-pane fade"
@@ -111,7 +112,7 @@
             role="tabpanel"
             aria-labelledby="pills-opinions-tab"
         >
-            <?php $manage -> Opinions(); ?>
+            <?php echo $manage -> Opinions(); ?>
         </div>
     </div> 
 </div>

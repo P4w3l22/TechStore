@@ -237,7 +237,14 @@
                                     <td style="max-height: 50px;">' . $shortDescription . '</td>
                                     <td style="max-height: 50px;">' . $row['pr_category'] . '</td>                                
                                     <td style="max-height: 50px;">' . $row['pr_specification'] . '</td>
-                                    <td style="max-height: 50px;">' . $row['pr_picture'] . '</td>
+                                    <td style="max-height: 50px;">
+                                        <img
+                                            class="card-img-top"
+                                            src="' . $row['pr_picture'] . '"
+                                            alt=""
+                                        />
+                                        
+                                    </td>
                                     <td style="max-height: 50px;">' . $row['pr_price'] . '</td>
                                     <td style="max-height: 50px;">' . $row['pr_amount'] . '</td>
 
@@ -401,7 +408,7 @@
 
         public function Category($category)
         {
-            $sql = "SELECT pr_id FROM Products WHERE pr_category='" . $category . "';";
+            $sql = "SELECT pr_id FROM Products WHERE pr_category='" . $category . "' ORDER BY pr_price;";
             $result = mysqli_query($this -> connection, $sql);
             if (mysqli_num_rows($result) > 0)
             {
@@ -417,7 +424,7 @@
                                 style="width: 200px;"
                             />
                             <div class="card-body" style="">
-                                <h5 class="card-title"><a href="#">' . $product -> Title() . '</a></h5>
+                                <h5 class="card-title"><a href="ProductSite.php?id='. $row['pr_id'] .'">' . $product -> Title() . '</a></h5>
                                 <h6 class="">'. $product -> Price() .' zł</h6>
                                 <ul class="card-text navbar-nav" style="padding-bottom: 14x;">
                                     '. $product -> Specification() .'
