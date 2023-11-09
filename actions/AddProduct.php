@@ -412,7 +412,7 @@
         </div>
 
         <label></label>
-        <input class="submit_button" onclick="addProd()" type="submit" value="Prześlij">
+        <input onclick="addProd()" class="submit_button" type="submit" value="Prześlij">
        
 
     <!-- </form> -->

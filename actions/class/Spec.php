@@ -13,15 +13,6 @@
         $amount = $_POST['amount'];
         $description = $_POST['description'];
 
-        echo $title . " - ";
-        echo $select . " - ";
-        echo $message . " - ";
-        echo $photo . " - ";
-        echo $price . " - ";
-        echo $amount . " - ";
-        echo $description . " - ";
-
-
         $manager -> AddProd($title, $select, $message, $photo, $price, $amount, $description);
     }
 
