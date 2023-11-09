@@ -1,6 +1,12 @@
 <?php 
     include('class/Manage.php');
     $manage = new Manage();
+    $id = -1;
+    if (isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+        $product = new Product($id);
+    }
     include('parts/header.php'); 
 ?>
 <title>Dodaj produkt</title>
@@ -18,6 +24,7 @@
                 id="title"
                 name="title"
                 required
+                <?php if ($id != -1) { echo 'value="'. $product -> Title() .'"'; } ?>
             >
             <div id="title_error"></div>
         </div>
@@ -29,16 +36,106 @@
                 class="form-select"
                 id="category"
                 name="category"
-                required>
+                required
+                
+                >
                 <option>...</option>
-                <option value="drives">Dyski twarde HDD i SSD</option>
-                <option value="graphics">Karty graficzne</option>
-                <option value="processors">Procesory</option>
-                <option value="motherboards">Płyty główne</option>
-                <option value="cases">Obudowy komputera</option>
-                <option value="ram">Pamięci RAM</option>
-                <option value="charger">Zasilacze komputerowe</option>
-                <option value="cooling">Chłodzenie komputerowe</option>
+                <option value="drives" 
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Dyski twarde HDD i SSD")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Dyski twarde HDD i SSD
+                </option>
+                <option value="graphics"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Karty graficzne")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Karty graficzne
+                </option>
+                <option value="processors"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Procesory")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Procesory
+                </option>
+                <option value="motherboards"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Płyty główne")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Płyty główne
+                </option>
+                <option value="cases"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Obudowy komputera")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Obudowy komputera
+                </option>
+                <option value="ram"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Pamięci RAM")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Pamięci RAM
+                </option>
+                <option value="charger"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Zasilacze komputerowe")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Zasilacze komputerowe
+                </option>
+                <option value="cooling"
+                    <?php 
+                        if ($id != -1) 
+                        {
+                            if ($product -> Category() === "Chłodzenie komputerowe")
+                            {
+                                echo 'selected="selected"';
+                            }
+                        } 
+                    ?> >
+                    Chłodzenie komputerowe
+                </option>
             </select>
             <div id="category_error"></div>
         </div>
@@ -83,7 +180,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="row dis" id="graphics">
                 <form action="AddProduct.php" method="post">
                     <div class="col-md-4">
@@ -123,7 +219,6 @@
                     </div>
                 </form>
             </div>
-
             <div class="row dis" id="processors">
                 <form action="AddProduct.php" method="post">
                     <div class="col-md-4">
@@ -368,6 +463,7 @@
                     class="form-control"
                     id="photo"
                     name="photo"
+                    <?php if ($id != -1) { echo 'value="'. $product -> Picture() .'"'; } ?>
                 >
                 <div id="photo_error"></div>
             </div>
@@ -380,6 +476,8 @@
                     id="price"
                     name="price"
                     required
+                    <?php if ($id != -1) { echo 'value="'. $product -> Price() .'"'; } ?>
+
                 >
                 <div id="price_error"></div>
             </div>
@@ -392,6 +490,8 @@
                     id="amount"
                     name="amount"
                     required
+                    <?php if ($id != -1) { echo 'value="'. $product -> Amount() .'"'; } ?>
+
                 >
                 <div id="amount_error"></div>
             </div>
@@ -406,13 +506,16 @@
                 id="description"
                 name="description"
                 style="height: 200px;"
-                required
-            ></textarea>
+                required><?php if ($id != -1) { echo  $product -> Description(); } ?></textarea>
             <div id="description_error"></div>
         </div>
-
         <label></label>
-        <input onclick="addProd()" class="submit_button" type="submit" value="Prześlij">
+        <input 
+            onclick="addProd()" 
+            class="submit_button" 
+            type="submit" 
+            value="Prześlij"
+        >
        
 
     <!-- </form> -->

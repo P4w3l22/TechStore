@@ -4,19 +4,22 @@
         <script src="../script/cl_checker.js"></script>
         <script src="../script/scripts.js"></script>
         <script>
-            document.getElementById('category').addEventListener('change', function() {
+
+            function DisplayOption() 
+            {
                 var options = document.querySelectorAll('.dis')
                 options.forEach(function(option) {
-                    option.style.display = 'none';
+                    option.style.display = 'none'
                 })
-
-                var choice = this.value;
-
+                var choice = document.getElementById('category').value
                 document.getElementById(choice).style.display = 'block'
+            }
+            DisplayOption();
+            
 
-                
+            document.getElementById('category').addEventListener('change', DisplayOption())
 
-            })
+            
             
             // $('#category').on('change', function() {
             //     $('.dis').hide();
