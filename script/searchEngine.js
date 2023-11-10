@@ -1,22 +1,10 @@
-
 var data = []
 
 fetch('actions/class/GetData.php')
     .then(response => response.json())
     .then(receiveData => {
-        console.log(receiveData)
-        console.log(Object.entries(receiveData).filter(([key,value]) => key === '15')[0])
         data = Object.entries(receiveData)
     })
-
-// const data = [
-//     "lorem cos tam cos tam cos tam snagiubfsvyuibqswadi",
-//     "dwa",
-//     "trzy",
-//     "cztery",
-//     "pięć",
-//     "sześć"
-// ];
 
 document.getElementById("searchInput").addEventListener("input", function () {
     const query = this.value.toLowerCase();
@@ -27,7 +15,8 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
     if (results.length === 0) {
         resultsContainer.innerHTML = "Brak wyników.";
-    } else {
+    }
+    else {
         results.forEach(result => {
             const el = document.createElement('li')
             const resultElement = document.createElement('a')

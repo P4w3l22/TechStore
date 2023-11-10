@@ -4,6 +4,7 @@
         <script src="../script/cl_checker.js"></script>
         <script src="../script/scripts.js"></script>
         <script>
+            // CATEGORY
             document.getElementById('category').addEventListener('change', function() {
                 var options = document.querySelectorAll('.dis')
                 options.forEach(function(option) {
@@ -21,26 +22,11 @@
             document.getElementById(choice).style.display = 'block'
 
 
-            var labels = document.getElementById('graphics').querySelectorAll('div.dis label.form-label')
+            // ADDPRODUCT EDIT
             
-            labels.forEach(function(label) {
-                // if (label.textContent === 'Pamięć')
-                // {
-                var inpId = label.getAttribute('for')
-                var inp = document.getElementById(inpId)
-                if (inp)
-                {
-                    inp.value = "GÓWNO"
-                }
-                // }
-            })
 
-            // $('.form-label').each(function() {
-            //     if ($(this).val() === "Pamięć")
-            //     {
-            //         $(this)
-            //     }
-            // })
+            var cat = "<?php echo $cat; ?>"
+            console.log(cat)
             
             
             // $('#category').on('change', function() {

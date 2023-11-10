@@ -63,7 +63,7 @@ function prod_valid()
         
 }
 
-function addProd()
+function addProd(id=-1)
 {
 
     if (prod_valid()) {
@@ -88,6 +88,7 @@ function addProd()
             jsonFormat = `{"Pamięć":"${document.getElementById('g_memory').value}",
                             "Rodzaj pamięci":"${document.getElementById('g_type').value}",
                             "Szyna danych":"${document.getElementById('g_memory_capacity').value}"}`
+            console.log(jsonFormat)
         }
 
         else if (select.value === 'processors') {
@@ -95,6 +96,7 @@ function addProd()
             jsonFormat = `{"Gniazdo procesora":"${document.getElementById('p_socket').value}",
                             "Taktowanie procesora":"${document.getElementById('p_clock_speed').value}",
                             "Liczba rdzeni":"${document.getElementById('p_cores').value}"}`
+            
         }
 
         else if (select.value === 'motherboards') {
@@ -135,15 +137,23 @@ function addProd()
 
         if (select.value !== '...')
             var xhr = new XMLHttpRequest()
+
         var url = 'class/Spec.php'
+        
+        if (id !== -1)
+        {
+            var url = 'class/EditProduct.php?id=' + id.toString()
+        }
+         console.log(url)
 
         xhr.open("POST", url, true)
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
                 alert("Dodano!")
-                location.reload()
+                // location.reload()
             }
         }
             

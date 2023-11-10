@@ -122,11 +122,17 @@
             return $this -> user['pr_description'];
         }
 
-        public function Specification()
+        public function Specification($option=-1)
         {
             $decodeSpec = json_decode($this -> user['pr_specification'], true);
             $result = "";
+            $values = array_values($decodeSpec);
 
+            if ($option != -1)
+            {
+                return $values[$option-1];
+            }
+            
             foreach ($decodeSpec as $key => $value)
             {
                 $result .= '<li class="nav-item">'. $key .': '. $value .'</li>';
@@ -188,6 +194,27 @@
                 echo 'Przepraszamy, wystąpił błąd';
             }
         }
+
+        public function EditProd($id, $title, $select, $message, $photo, $price, $amount, $description)
+        {
+            $sql = 'UPDATE Products 
+                    SET pr_title = "' . $title . '", 
+                        pr_description = "' . $description . '", 
+                        pr_category = "' . $select . '", 
+                        pr_specification = "' . $message . '", 
+                        pr_picture = "' . $photo . '",
+                        pr_price = ' . $price . ',
+                        pr_amount = ' . $amount . '
+                    WHERE Products.pr_id = ' . $id . ';';
+            if ($this -> connection -> query($sql) === TRUE) {
+                echo "<meta http-equiv='refresh' content='0'>";
+            }
+            else
+            {
+                echo "Wystąpił błąd";
+            }
+        }
+        
 
         public function Add($pointer)
         {

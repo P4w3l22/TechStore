@@ -1,11 +1,13 @@
 <?php 
     include('class/Manage.php');
     $manage = new Manage();
+    
     $id = -1;
     if (isset($_GET['id']))
     {
         $id = $_GET['id'];
         $product = new Product($id);
+        $cat = $product -> Category();
     }
     include('parts/header.php'); 
 ?>
@@ -14,8 +16,9 @@
 <?php include('parts/contentBackground.php'); ?>
         
 <div class="m-3">
-    <h3>Podaj dane
-    </h3><br>
+    <?php echo $id; ?>
+    <h3>Podaj dane</h3>
+    <br>
         <div class="col-md-4">
             <label for="title" class="form-label">Tytuł</label>
             <input
@@ -37,7 +40,42 @@
                 id="category"
                 name="category"
                 required
-                
+                <?php 
+                    if ($id != -1) 
+                    { 
+                        echo 'value="'; 
+                        switch ($cat)
+                        {
+                            case "Dyski twarde HDD i SSD":
+                                echo 'drives"';
+                                break;
+                            case "Karty graficzne":
+                                echo 'graphics"';
+                                break;
+                            case "Procesory":
+                                echo 'processors"';
+                                break;
+                            case "Płyty główne":
+                                echo 'motherboards"';
+                                break;
+                            case "Obudowy komputera":
+                                echo 'cases"';
+                                break;
+                            case "Pamięci RAM":
+                                echo 'ram"';
+                                break;
+                            case "Zasilacze komputerowe":
+                                echo 'charger"';
+                                break;
+                            case "Chłodzenie komputerowe":
+                                echo 'cooling"';
+                                break;
+                            default:
+                                echo 'none"';
+                                break;
+                        }
+                    } 
+                ?>
                 >
                 <option>...</option>
                 <option value="drives" 
@@ -151,6 +189,7 @@
                             id="d_capacity"
                             name="d_capacity"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Dyski twarde HDD i SSD') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
                         >
                         <div id="d_capacity_error"></div>
                     </div>
@@ -163,6 +202,7 @@
                             id="d_read_speed"
                             name="d_read_speed"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Dyski twarde HDD i SSD') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
                         >
                         <div id="d_read_speed_error"></div>
                     </div>
@@ -175,6 +215,7 @@
                             id="d_save_speed"
                             name="d_save_speed"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Dyski twarde HDD i SSD') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
                         >
                         <div id="d_save_speed_error"></div>
                     </div>
@@ -189,8 +230,8 @@
                             class="form-control"
                             id="g_memory"
                             name="g_memory"
-                            <?php if ($id != -1 && $product -> Category() === "Karty graficzne") { echo 'value="bleble"'; }?>
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Karty graficzne') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>                            
                         >
                         <div id="g_memory_error"></div>
                     </div>
@@ -203,6 +244,8 @@
                             id="g_type"
                             name="g_type"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Karty graficzne') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
+                            
                         >
                         <div id="g_type_error"></div>
                     </div>
@@ -215,6 +258,8 @@
                             id="g_memory_capacity"
                             name="g_memory_capacity"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Karty graficzne') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
+
                         >
                         <div id="g_memory_capacity_error"></div>
                     </div>
@@ -230,6 +275,8 @@
                             id="p_socket"
                             name="p_socket"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Procesory') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
+
                         >
                         <div id="p_socket_error"></div>
                     </div>
@@ -242,6 +289,8 @@
                             id="p_clock_speed"
                             name="p_clock_speed"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Procesory') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
+
                         >
                         <div id="p_clock_speed_error"></div>
                     </div>
@@ -254,6 +303,8 @@
                             id="p_cores"
                             name="p_cores"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Procesory') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
+
                         >
                         <div id="p_cores_error"></div>
                     </div>
@@ -269,6 +320,8 @@
                             id="m_fam"
                             name="m_fam"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Płyty główne') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
+
                         >
                         <div id="m_fam_error"></div>
                     </div>
@@ -281,6 +334,8 @@
                             id="m_socket"
                             name="m_socket"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Płyty główne') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
+
                         >
                         <div id="m_socket_error"></div>
                     </div>
@@ -293,6 +348,8 @@
                             id="m_chipset"
                             name="m_chipset"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Płyty główne') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
+
                         >
                         <div id="m_chipset_error"></div>
                     </div>
@@ -308,6 +365,8 @@
                             id="c_type"
                             name="c_type"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Obudowy komputera') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
+
                         >
                         <div id="c_type_error"></div>
                     </div>
@@ -320,6 +379,8 @@
                             id="c_standard"
                             name="c_standard"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Obudowy komputera') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
+
                         >
                         <div id="c_standard_error"></div>
                     </div>
@@ -332,6 +393,7 @@
                             id="c_backlight"
                             name="c_backlight"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Obudowy komputera') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
                         >
                         <div id="c_backlight_error"></div>
                     </div>
@@ -347,6 +409,7 @@
                             id="r_series"
                             name="r_series"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Pamięci RAM') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
                         >
                         <div id="r_series_error"></div>
                     </div>
@@ -359,6 +422,7 @@
                             id="r_type"
                             name="r_type"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Pamięci RAM') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
                         >
                         <div id="r_type_error"></div>
                     </div>
@@ -371,6 +435,7 @@
                             id="r_capacity"
                             name="r_capacity"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Pamięci RAM') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
                         >
                         <div id="r_capacity_error"></div>
                     </div>
@@ -386,6 +451,7 @@
                             id="ch_power"
                             name="ch_power"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Zasilacze komputerowe') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>                            
                         >
                         <div id="ch_power_error"></div>
                     </div>
@@ -398,6 +464,7 @@
                             id="ch_standard"
                             name="ch_standard"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Zasilacze komputerowe') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
                         >
                         <div id="ch_standard_error"></div>
                     </div>
@@ -410,6 +477,7 @@
                             id="ch_color"
                             name="ch_color"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Zasilacze komputerowe') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>                            
                         >
                         <div id="ch_color_error"></div>
                     </div>
@@ -425,6 +493,7 @@
                             id="co_type"
                             name="co_type"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Chłodzenie komputerowe') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
                         >
                         <div id="co_type_error"></div>
                     </div>
@@ -437,6 +506,7 @@
                             id="co_material"
                             name="co_material"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Chłodzenie komputerowe') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
                         >
                         <div id="co_material_error"></div>
                     </div>
@@ -449,6 +519,7 @@
                             id="co_backlight"
                             name="co_backlight"
                             required
+                            <?php if (isset($_GET['id']) && $cat == 'Chłodzenie komputerowe') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
                         >
                         <div id="co_backlight_error"></div>
                     </div>
@@ -512,7 +583,12 @@
         </div>
         <label></label>
         <input 
-            onclick="addProd()" 
+            <?php if ($id != -1) 
+                { 
+                    echo 'onclick="addProd(' . $id . ')"'; 
+                } 
+            ?>
+            onclick="addProd()"
             class="submit_button" 
             type="submit" 
             value="Prześlij"
