@@ -189,6 +189,7 @@
                             class="form-control"
                             id="g_memory"
                             name="g_memory"
+                            <?php if ($id != -1 && $product -> Category() === "Karty graficzne") { echo 'value="bleble"'; }?>
                             required
                         >
                         <div id="g_memory_error"></div>

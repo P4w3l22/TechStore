@@ -213,6 +213,27 @@
             }
         }
 
+        public function GetData()
+        {
+            $sql = 'SELECT pr_id, pr_title FROM Products;';
+            $result = mysqli_query($this -> connection, $sql);
+
+            if ($result -> num_rows > 0)
+            {
+                $data = array();
+                while ($row = $result -> fetch_assoc())
+                {
+                    $data[$row['pr_id']] = $row['pr_title'];
+                }
+                header('Content-Type: application/json');
+                echo json_encode($data);
+            }
+            else
+            {
+                echo 'Brak wyników';
+            }
+        }
+
         public function Products()
         {
             $sql = "SELECT * FROM Products;";

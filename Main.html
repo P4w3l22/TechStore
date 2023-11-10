@@ -34,7 +34,7 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-item" href="actions/Client.php">Klient</a>
@@ -52,7 +52,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="actions/Product.php">Produkty</a></li>
                                 <li><a class="dropdown-item" href="actions/Category.php">Kategorie</a></li> <!--  target="_blank" -->
-                                <li><a class="dropdown-item" href="actions/ProductSite.html">Wyszukaj produkt</a></li>
+                                <!-- <li><a class="dropdown-item" href="actions/ProductSite.html">Wyszukaj produkt</a></li> -->
                             </ul>
                         </li>
 
@@ -75,46 +75,56 @@
                         </li>
                     </ul>
                     
-                    <form class="d-flex">
-                        <div class="d-flex">
-                            <input
-                                class="form-control me-2"
-                                type="search"
-                                placeholder="Search"
-                                aria-label="Search"
-                            />
-                            <button 
-                                class="btn btn-primary button-round" 
-                                type="submit">
-                                Search
-                            </button>
-                            <label for="theme" class="theme">
-                                <span class="theme__toggle-wrap">
-                                  <input
-                                    type="checkbox"
-                                    class="theme__toggle"
-                                    id="theme"
-                                    role="switch"
-                                    name="theme"
-                                    value="dark"
-                                  />
-                                  <span class="theme__fill"></span>
-                                  <span class="theme__icon">
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                    <span class="theme__icon-part"></span>
-                                  </span>
-                                </span>
-                            </label>
+                    <div style="display: flex; flex-direction: row;">
+                        <div style="display: flex; flex-direction: column;">
+                            <form id="searchForm" class="d-flex" >
+                                <input
+                                    class="form-control me-2"
+                                    type="text"
+                                    placeholder="Search"
+                                    id="searchInput"
+                                >
+                                <button 
+                                    class="btn btn-primary button-round"
+                                    type="submit">
+                                    Search
+                                </button>
+                            </form>
+                            <ul id="searchResults" 
+                                class="dropdown-menu"
+                                style="position: absolute; 
+                                       margin-top: 40px; 
+                                       width: 200px; 
+                                       overflow: hidden;
+                                       max-height: 300px;
+                                       overflow-y: scroll;"></ul>
+                        
                         </div>
-                    </form>
-                    </ul>
+                        <label for="theme" class="theme" style="width: 100px; z-index: 1;">
+                            <span class="theme__toggle-wrap">
+                                <input
+                                type="checkbox"
+                                class="theme__toggle"
+                                id="theme"
+                                role="switch"
+                                name="theme"
+                                value="dark"
+                                />
+                                <span class="theme__fill"></span>
+                                <span class="theme__icon">
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -728,9 +738,9 @@
     <div class="fourth_view">
         <h1>O nas</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore hic sunt delectus ipsum, modi, ut, pariatur corrupti expedita accusantium magni ipsam? Odio velit dignissimos ipsam, libero expedita officiis accusantium corrupti?</p>
-        
     </div>
-
+    
+    <script src="script/searchEngine.js"></script>
     <script src="script/barchart.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
@@ -763,8 +773,6 @@
             }
             localStorage.setItem('theme', currentTheme)
         })
-
-
     </script>
     
 

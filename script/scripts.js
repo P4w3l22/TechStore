@@ -34,6 +34,26 @@ function prod_valid()
         titleError.innerText = "Przekroczyłeś maksymalną ilość znaków!"
     }
 
+    if (description.value.length == 0) {
+        Valid = false
+        descriptionError.innerText = "Wypełnij to pole"
+    }
+
+    if (category.value == "...") {
+        Valid = false
+        categoryError.innerText = "Wybierz odpowiednią kategorię"
+    }
+
+    if (price.value.length == 0) {
+        Valid = false
+        priceError.innerText = "Wypełnij to pole"
+    }
+
+    if (amount.value.length == 0) {
+        Valid = false
+        amountError.innerText = "Wypełnij to pole"
+    }
+
     if (!Valid) {
         return false
     }

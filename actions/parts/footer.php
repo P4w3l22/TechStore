@@ -4,21 +4,43 @@
         <script src="../script/cl_checker.js"></script>
         <script src="../script/scripts.js"></script>
         <script>
-
-            function DisplayOption() 
-            {
+            document.getElementById('category').addEventListener('change', function() {
                 var options = document.querySelectorAll('.dis')
                 options.forEach(function(option) {
                     option.style.display = 'none'
                 })
                 var choice = document.getElementById('category').value
                 document.getElementById(choice).style.display = 'block'
-            }
-            DisplayOption();
+            })
+
+            var options = document.querySelectorAll('.dis')
+            options.forEach(function(option) {
+                option.style.display = 'none'
+            })
+            var choice = document.getElementById('category').value
+            document.getElementById(choice).style.display = 'block'
+
+
+            var labels = document.getElementById('graphics').querySelectorAll('div.dis label.form-label')
             
+            labels.forEach(function(label) {
+                // if (label.textContent === 'Pamięć')
+                // {
+                var inpId = label.getAttribute('for')
+                var inp = document.getElementById(inpId)
+                if (inp)
+                {
+                    inp.value = "GÓWNO"
+                }
+                // }
+            })
 
-            document.getElementById('category').addEventListener('change', DisplayOption())
-
+            // $('.form-label').each(function() {
+            //     if ($(this).val() === "Pamięć")
+            //     {
+            //         $(this)
+            //     }
+            // })
             
             
             // $('#category').on('change', function() {
