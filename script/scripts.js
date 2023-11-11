@@ -153,7 +153,7 @@ function addProd(id=-1)
             if (xhr.readyState == 4 && xhr.status == 200) {
                 console.log(xhr.responseText);
                 alert("Dodano!")
-                // location.reload()
+                location.reload()
             }
         }
             

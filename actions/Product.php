@@ -30,7 +30,7 @@
         </tbody>
     </table>
     <br>
-    <button style="background-color:blueviolet; border-radius: 8px; border: none; padding: 10px 20px;"><a href="AddProduct.php" style="color: white; text-decoration: none;">Dodaj nowy produkt</a></button>
+    <button style="background-color:blueviolet; border-radius: 8px; border: none; padding: 10px 20px; margin-bottom: 30px;"><a href="AddProduct.php" style="color: white; text-decoration: none;">Dodaj nowy produkt</a></button>
 </div>
 <?php 
     if ($_SERVER["REQUEST_METHOD"] == "POST")

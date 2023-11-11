@@ -16,7 +16,6 @@
 <?php include('parts/contentBackground.php'); ?>
         
 <div class="m-3">
-    <?php echo $id; ?>
     <h3>Podaj dane</h3>
     <br>
         <div class="col-md-4">

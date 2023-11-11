@@ -24,10 +24,6 @@
 
             // ADDPRODUCT EDIT
             
-
-            var cat = "<?php echo $cat; ?>"
-            console.log(cat)
-            
             
             // $('#category').on('change', function() {
             //     $('.dis').hide();

@@ -201,11 +201,15 @@
                     SET pr_title = "' . $title . '", 
                         pr_description = "' . $description . '", 
                         pr_category = "' . $select . '", 
-                        pr_specification = "' . $message . '", 
+                        pr_specification = \'' . $message . '\', 
                         pr_picture = "' . $photo . '",
                         pr_price = ' . $price . ',
                         pr_amount = ' . $amount . '
                     WHERE Products.pr_id = ' . $id . ';';
+
+            echo 'Funkcja EditProd : ' . $sql;
+            
+
             if ($this -> connection -> query($sql) === TRUE) {
                 echo "<meta http-equiv='refresh' content='0'>";
             }

@@ -120,7 +120,6 @@ body{
 
 /* actions */
 .m-3 {
-    overflow-x: auto;
 }
 
 .cate {
@@ -197,9 +196,6 @@ body{
     transition: background-color 0.3s ease;
     border-bottom: 2px solid blueviolet;
 }
-
-
-
 
 
 @keyframes slideIn {
@@ -354,15 +350,6 @@ body{
     background-color: darkblue;
 }
 
-/* 
-.card img {
-    max-width: 25%;
-    margin: auto;
-    padding: 0.5em;
-    border-radius: 0.7em;
-  }
-
-  .card {
-    flex-direction: row;
-    max-width: 30em;
-  } */
+/* .navbar-collapse {
+    position: absolute;
+} */

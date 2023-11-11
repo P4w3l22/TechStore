@@ -15,14 +15,12 @@
 
         echo 'przed' . ' - ';
         echo $_GET['id'] . ' - ';
-        echo $title . ' - ';
         echo $message . ' - ';
-        echo $photo . ' - ';
-        echo $price . ' - ';
-        echo $amount . ' - ';
-        echo $select . ' - ';
-        echo $description . ' - ';
         echo 'po';
+
+        $message = mb_convert_encoding($message, 'UTF-8', 'auto');
+
+        echo $message . " - ";
 
         if (!isset($_GET['id']))
         {
