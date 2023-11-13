@@ -490,6 +490,61 @@
                 }
             }
         }
+
+        public function GetCaroData($order)
+        {
+            // $order = "ORDER BY " . ;
+            $sql = "SELECT pr_id, pr_picture, pr_price, pr_title 
+                    FROM Products
+                    ORDER BY ". $order ." 
+                    LIMIT 12;";
+            $result = mysqli_query($this -> connection, $sql);
+            $counter = 0;
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    if ($counter%4 == 0)
+                    {
+                        if ($counter == 0)
+                        {
+                            echo '<div class="carousel-item active">';
+                            
+                        }
+                        else 
+                        {
+                            echo '<div class="carousel-item">';
+                        }
+                        echo '<div class="cards-wrapper">';
+                    }
+
+                    if ($counter%4 == 0)
+                    {
+                        echo '<div class="card">';
+                    }
+                    else
+                    {
+                        echo '<div class="card d-none d-md-block">';
+                    }
+                    echo   '<img
+                                class="card-img-top"
+                                src="'. $row['pr_picture'] .'"
+                                alt=""
+                            />';
+                    echo   '<div class="card-body">
+                                <h5 class="card-title">'. $row['pr_price'] .' zł</h5>
+                                <p class="card-text"><a class="a_view" href="actions/ProductSite.php?id='. $row['pr_id'] .'">'. $row['pr_title'] .'</a></p>
+                            </div></div>';
+                    
+                    if ($counter == 3 || $counter == 7 || $counter == 11)
+                    {
+                        echo '</div></div>';
+                    }
+
+                    $counter++;
+                }
+            }
+        }
     }
 
     // PRODUCT CLASS
