@@ -3,7 +3,10 @@
     $password = $_POST['password'];
     if ($username === 'admin' && $password === 'admin')
     {
-        header('Location: ../Main.html');
+        session_start();
+        $_SESSION['username'] = $username;
+
+        header('Location: ../Main.php');
         exit();
     }
     else 

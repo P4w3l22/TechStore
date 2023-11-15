@@ -80,7 +80,7 @@
             type="submit" 
             value="Prześlij"
             style="margin-left: 10px;"
-SW            >
+            >
     </form>
 </div>
 <?php $manage -> Add('c'); ?>
