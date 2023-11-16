@@ -257,7 +257,7 @@ body{
     height: auto; 
     overflow: hidden;
     color: white;
-    
+    min-height: 580px;
 }
 
 /* .needs-validation .submit_button {

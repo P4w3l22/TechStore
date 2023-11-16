@@ -407,7 +407,6 @@
             }
         }
 
-
         public function DeleteRow($table)
         {
             if ($table == "c")
@@ -470,25 +469,44 @@
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    $product = new Product($row['pr_id']);
-
-                    echo '<div class="card my-2" style="overflow:hidden" >
-                            <img
-                                class="img-fluid"
-                                src="' . $product -> Picture() . '" 
-                                alt="..."
-                                style="width: 200px;"
-                            />
-                            <div class="card-body" style="">
-                                <h5 class="card-title"><a href="ProductSite.php?id='. $row['pr_id'] .'">' . $product -> Title() . '</a></h5>
-                                <h6 class="">'. $product -> Price() .' zł</h6>
-                                <ul class="card-text navbar-nav" style="padding-bottom: 14x;">
-                                    '. $product -> Specification() .'
-                                </ul>
-                            </div>
-                        </div>';
+                    $this -> Card($row['pr_id']);
                 }
             }
+        }
+
+        public function Basket($idList)
+        {
+            if (count($idList) == 0)
+            {
+                echo "Brak produktów w koszyku";
+            }
+            else
+            {
+                for ($i = 0; $i < count($idList); $i++)
+                {
+                    $this -> Card($idList[$i]);
+                }
+            }
+        }
+
+        public function Card($id)
+        {
+            $product = new Product($id);
+            echo   '<div class="card my-2" style="overflow:hidden" >
+                        <img
+                            class="img-fluid"
+                            src="' . $product -> Picture() . '" 
+                            alt="..."
+                            style="width: 200px;"
+                        />
+                        <div class="card-body" style="height: 95%">
+                            <h5 class="card-title"><a href="ProductSite.php?id='. $id .'" style="text-decoration:none; color: white;">' . $product -> Title() . '</a></h5>
+                            <h6 class="">'. $product -> Price() .' zł</h6>
+                            <ul class="card-text navbar-nav" style="padding-bottom: 14x;">
+                                '. $product -> Specification() .'
+                            </ul>
+                        </div>
+                    </div>';
         }
 
         public function GetCaroData($order)

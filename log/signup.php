@@ -45,6 +45,14 @@
             include('../actions/class/Manage.php');
             $manage = new Manage();
             $manage -> Add('c');
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST")
+            {
+               session_start();
+                $_SESSION['username'] = "user";
+                header('Location: ../Main.php');
+                exit(); 
+            }
         ?>
         <script src="script/searchEngine.js"></script>
         <!-- <script src="script/barchart.js"></script> -->

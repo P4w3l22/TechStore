@@ -28,8 +28,10 @@ CREATE TABLE IF NOT EXISTS Products (
 );
 
 CREATE TABLE IF NOT EXISTS Orders (
+  
   order_id INT,
   cl_id INT PRIMARY KEY,
+  pr_id INT
   order_date DATE
 );
 
