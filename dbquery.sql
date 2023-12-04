@@ -12,7 +12,9 @@ CREATE TABLE IF NOT EXISTS Clients (
   cl_email VARCHAR(255),
   cl_address VARCHAR(255),
   cl_phone_number VARCHAR(255),
-  cl_create_date DATE
+  cl_create_date DATE,
+  cl_hash_pass VARCHAR(255)
+  -- cl_basket JSON
 );
 
 CREATE TABLE IF NOT EXISTS Products (

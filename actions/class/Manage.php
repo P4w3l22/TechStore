@@ -231,10 +231,12 @@
                     $Email = $_POST['email'];
                     $Adres =  $_POST['address'];
                     $Telefon = $_POST['number'];
+                    
+                    $Password = password_hash($_POST['password'], PASSWORD_BCRYPT);
                             
 
-                    $sql = "INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date)
-                    VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW())";
+                    $sql = "INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date, cl_hash_pass)
+                            VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW(), '$Password')";
 
                     if ($this -> connection -> query($sql) === FALSE) 
                     {
@@ -262,6 +264,43 @@
             else
             {
                 echo 'Brak wyników';
+            }
+        }
+
+        public function Orders()
+        {
+            $sql = "SELECT (SELECT CONCAT(cl_name, ' ', cl_second_name) 
+                            FROM Clients
+                            WHERE Clients.cl_id = Orders.cl_id) AS name,
+                           (SELECT pr_title
+                            FROM Products
+                            WHERE Products.pr_id = Orders.pr_id) AS prod,
+                           (SELECT SUM(pr_price)
+                            FROM Products
+                            WHERE Products.pr_id = Orders.pr_id) AS price_sum,
+                            order_date
+                    FROM Orders;";
+
+            $result = mysqli_query($this -> connection, $sql);
+            $counter = 1;
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    echo '  <div>
+                                <tr id="">
+                                    <th scope="row">' . $counter . '</th>
+                                    <td style="max-height: 50px;">' . $row['name'] . '</td>
+                                    <td style="max-height: 50px;">' . $row['prod'] . '</td>
+                                    <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
+                                    <td style="max-height: 50px;">' . $row['order_date'] . '</td>
+                                </tr>
+                            </div>';
+                }
+            }
+            else 
+            {
+                echo 'Brak zamówień';
             }
         }
 

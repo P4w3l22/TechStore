@@ -8,7 +8,7 @@
         <title>Rejestracja</title>
     </head>
     <body>
-        <div class="box box2" style="height: 700px;">
+        <div class="box box2" style="height: 750px;">
             <form id="login-form" action="signup.php" method="post">
                 <h2>Rejestracja</h2>
                 <div class="inputBox">
@@ -34,6 +34,11 @@
                 <div class="inputBox">
                     <input type="text" id="email" name="email" required="required">
                     <span>Email</span>
+                    <i></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" id="password" name="password" required="required">
+                    <span>Hasło</span>
                     <i></i>
                 </div>
 
