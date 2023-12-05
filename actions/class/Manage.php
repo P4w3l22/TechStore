@@ -243,6 +243,7 @@
                         echo 'Przepraszamy, wystąpił błąd';
                     }
                 }
+
             }
         }
 
@@ -546,6 +547,72 @@
                             </ul>
                         </div>
                     </div>';
+        }
+
+        public function DisplayClients()
+        {
+            $sql = "SELECT cl_id, 
+                           CONCAT(cl_name, ' ', cl_second_name) AS cl_full_name 
+                    FROM Clients;";
+
+            $result = mysqli_query($this -> connection, $sql);
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    echo '  <option value="'. $row['cl_id'] .'">
+                                '. $row['cl_full_name'] .'
+                            </option>';
+                }
+            }
+            else 
+            {
+                echo "Brak klientów";
+            }
+        }
+
+        public function DisplayProducts()
+        {
+            $sql = "SELECT pr_id,
+                           pr_title
+                    FROM Products;";
+            $result = mysqli_query($this -> connection, $sql);
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    echo '  <option value="'. $row['pr_id'] .'">
+                                '. $row['pr_title'] .'
+                            </option>
+                            ';
+                }
+            }
+            else
+            {
+                echo "Brak klientów";
+            }
+        }
+
+        public function AddOrder()
+        {
+            if ($_SERVER["REQUEST_METHOD"] == "POST")
+            {
+                $cl_id = $_POST['cl_choice'];
+                $pr_id = $_POST['pr_choice'];
+
+                $sql = "INSERT INTO Orders(cl_id, pr_id, order_date)
+                                    VALUES('$cl_id', '$pr_id', NOW());";
+                if ($this -> connection -> query($sql) === FALSE)
+                {
+                    echo 'Przepraszamy, wystąpił błąd łączenia z bazą danych';
+                }
+                else
+                {
+                    echo '  <script>
+                                alert("Dodano zamówienie!");
+                            </script>';
+                }
+            }
         }
 
         public function GetCaroData($order)
