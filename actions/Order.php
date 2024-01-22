@@ -12,9 +12,9 @@
         <thead class="dark">
             <th scope="col" class="dark-row">#</th>
             <th scope="col" class="dark-row">Klient</th>
-            <th scope="col" class="dark-row">Produkty</th>
+            <th scope="col" class="dark-row">Liczba produktów</th>
             <th scope="col" class="dark-row">Łączna cena</th>
-            <th scope="col" class="dark-row">Data zamówienia</th>
+            <!-- <th scope="col" class="dark-row">Zobacz produkty</th> -->
         </thead>
         <tbody>
             <?php $manage -> Orders(); ?>

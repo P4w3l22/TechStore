@@ -268,19 +268,40 @@
             }
         }
 
+        public function OrderElements($cl_id)
+        {
+            $sql = "SELECT pr_title
+                    FROM Products
+                    WHERE pr_id IN (SELECT pr_id
+                                    FROM Orders
+                                    WHERE cl_id = " . $cl_id . ");";
+            $result = mysqli_query($this -> connection, $sql);
+            $prod_list = array();
+            $output = "";
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    array_push($prod_list, $row['pr_title']);
+                }
+            }
+            foreach ($prod_list as $prod_id)
+            {
+                $output .= $prod_id . " - ";
+            }
+            return $output;
+        }
+
         public function Orders()
         {
-            $sql = "SELECT (SELECT CONCAT(cl_name, ' ', cl_second_name) 
-                            FROM Clients
-                            WHERE Clients.cl_id = Orders.cl_id) AS name,
-                           (SELECT pr_title
-                            FROM Products
-                            WHERE Products.pr_id = Orders.pr_id) AS prod,
-                           (SELECT SUM(pr_price)
-                            FROM Products
-                            WHERE Products.pr_id = Orders.pr_id) AS price_sum,
-                            order_date
-                    FROM Orders;";
+            $sql = "SELECT CONCAT(Clients.cl_name, ' ', Clients.cl_second_name) AS name,
+                           Orders.cl_id AS client_id,
+                           COUNT(*) AS prod_count,
+                           SUM(Products.pr_price) AS price_sum
+                    FROM Orders, Clients, Products
+                    WHERE Orders.cl_id = Clients.cl_id AND Orders.pr_id = Products.pr_id
+                    GROUP BY name, client_id
+                    ORDER BY price_sum;";
 
             $result = mysqli_query($this -> connection, $sql);
             $counter = 1;
@@ -292,11 +313,20 @@
                                 <tr id="">
                                     <th scope="row">' . $counter . '</th>
                                     <td style="max-height: 50px;">' . $row['name'] . '</td>
-                                    <td style="max-height: 50px;">' . $row['prod'] . '</td>
+                                    <td style="display:none; max-height: 50px;"><a href="../Main.php" title="Zobacz listę zamówień">' . $row['prod_count'] . '</a></td>
+                                    <td style=" max-height: 50px;">' . $this -> OrderElements($row['client_id']) . '</td>
                                     <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
-                                    <td style="max-height: 50px;">' . $row['order_date'] . '</td>
+                                </tr>
+                            </div>
+                            <div>
+                                <tr style="display: none;" id="show_'. $row['client_id'] .'">
+                                    <th scope="row">' . $counter . '</th>
+                                    <td style="max-height: 50px;">' . $row['name'] . '</td>
+                                    <td style="max-height: 50px;"><a href="../Main.php" title="Zobacz listę zamówień">' . $row['prod_count'] . '</a></td>
+                                    <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
                                 </tr>
                             </div>';
+                    $counter++;
                 }
             }
             else 
