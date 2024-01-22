@@ -58,21 +58,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="navbarDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >Zamówienia</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Wyświetl zamówienie</a></li>
-                                <li><a class="dropdown-item" href="#">Dodaj zamówienie</a></li>
-                                <li><a class="dropdown-item" href="#">Modyfikuj zamówienie</a></li>
-                                <li><a class="dropdown-item" href="#">Usuń zamówienie</a></li>
-                                <li><a class="dropdown-item" href="#">Wyszukaj zamówienie</a></li>
-                            </ul>
+                            <a class="nav-link dropdown-item" href="actions/Order.php">Zamówienia</a>
                         </li>
                     </ul>
                     

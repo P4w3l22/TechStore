@@ -19,8 +19,19 @@
         <tbody>
             <?php $manage -> Orders(); ?>
         </tbody>
-
     </table>
+    <button 
+        style="background-color:blueviolet; 
+               border-radius: 8px; 
+               border: none; 
+               padding: 10px 20px;
+               margin-top: 20px;
+               margin-bottom: 10px;"
+               >
+        <a href="AddOrder.php" style="color: white; text-decoration: none;">
+            Dodaj nowe zamówienie
+        </a>
+    </button>
 
 <div>
 <?php include('parts/footer.php'); ?>

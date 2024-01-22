@@ -595,7 +595,7 @@
 
         public function AddOrder()
         {
-            if ($_SERVER["REQUEST_METHOD"] == "POST")
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['cl_choice'] != '')
             {
                 $cl_id = $_POST['cl_choice'];
                 $pr_id = $_POST['pr_choice'];
@@ -612,6 +612,9 @@
                                 alert("Dodano zamówienie!");
                             </script>';
                 }
+                $_POST['cl_choice'] = "";
+                $_POST['pr_choice'] = "";
+
             }
         }
 
