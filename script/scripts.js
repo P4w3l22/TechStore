@@ -167,6 +167,60 @@ function edit(id)
     document.getElementById('edit_' + id).style.display = 'table-row'
 }
 
+function editOrder(id, displayToEdit)
+{
+    alert('działa')
+    if (displayToEdit)
+    {
+        document.getElementById('show_' + id).style.display = 'none'
+        document.getElementById('edit_' + id).style.display = 'table-row'
+    }
+    else
+    {
+        document.getElementById('show_' + id).style.display = 'table-row'
+        document.getElementById('edit_' + id).style.display = 'none'
+    }
+}
+
+function saveOrder(id, prev_id, if_save)
+{
+    const previous_id = prev_id
+    const present_id = document.getElementById("order_" + id + "_" + prev_id).value
+
+    // alert('czeklam')
+
+    var xhr = new XMLHttpRequest()
+    var url = 'class/EditOrder.php'
+
+    xhr.open("POST", url, true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    
+    xhr.onreadystatechange = function () 
+    {
+        if (xhr.readyState == 4 && xhr.status == 200)
+        {            
+            // console.log(xhr.responseText);
+            alert('zmieniono!')
+            location.reload()
+        }
+    }
+    if (if_save)
+    {
+        xhr.send("id="+id + "&previous_id="+previous_id + "&present_id="+present_id)
+    }
+    else
+    {
+        xhr.send("id="+id + "&previous_id="+previous_id)
+    }
+    
+
+}
+
+function deleteSingleOrder(cl_id, prod_id)
+{
+
+}
+
 function save(id)
 {
     const user_name = document.getElementById("name_"+id)

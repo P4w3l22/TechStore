@@ -12,9 +12,10 @@
         <thead class="dark">
             <th scope="col" class="dark-row">#</th>
             <th scope="col" class="dark-row">Klient</th>
-            <th scope="col" class="dark-row">Liczba produktów</th>
+            <th scope="col" class="dark-row">Produkty</th>
             <th scope="col" class="dark-row">Łączna cena</th>
-            <!-- <th scope="col" class="dark-row">Zobacz produkty</th> -->
+            <th scope="col" class="dark-row">Usuń zamówienie</th>
+            <th scope="col" class="dark-row">Modyfikuj zamówienie</th>
         </thead>
         <tbody>
             <?php $manage -> Orders(); ?>
@@ -32,6 +33,12 @@
             Dodaj nowe zamówienie
         </a>
     </button>
+<?php             
+    if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $manage -> DeleteRow("o");
+    }
+?>
 
 <div>
 <?php include('parts/footer.php'); ?>

@@ -34,7 +34,7 @@
                 name="pr_choice"
                 requierd
             >
-                <?php $manage -> DisplayProducts(); ?>
+                <?php echo $manage -> DisplayProducts(); ?>
             </select>
             <div id="pr_choice_error"></div>
         </div>
