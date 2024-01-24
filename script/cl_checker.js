@@ -3,6 +3,9 @@ const second_name = document.getElementById('second_name')
 const address = document.getElementById('address')
 const number = document.getElementById('number')
 const email = document.getElementById('email')
+const password1 = document.getElementById('password1')
+const password2 = document.getElementById('password2')
+
 
 const form = document.getElementById('form')
 const nameErrorElement = document.getElementById('name_error')
@@ -10,7 +13,7 @@ const secondNameErrorElement = document.getElementById('second_name_error')
 const addressErrorElement = document.getElementById('address_error')
 const numberErrorElement = document.getElementById('number_error')
 const emailErrorElement = document.getElementById('email_error')
-
+const password2ErrorElement = document.getElementById('password2_error')
 
 form.addEventListener('submit', (e) => {
     nameErrorElement.innerText = ""
@@ -55,6 +58,12 @@ form.addEventListener('submit', (e) => {
     if (!/^[\S]+@[\S]+.com$/.test(email.value)) {
         isValid = false
         emailErrorElement.innerText = "Podaj właściwy adres email"
+    }
+    
+    if (password1.value !== password2.value)
+    {
+        isValid = false
+        password2ErrorElement.innerText = "Podane hasła nie są identyczne!"
     }
 
     if (!isValid) {

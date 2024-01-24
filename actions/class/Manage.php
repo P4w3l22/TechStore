@@ -220,34 +220,30 @@
         }
         
 
-        public function Add($pointer)
+        public function AddClient()
         {
             if ($_SERVER["REQUEST_METHOD"] == "POST") 
             {
-                if ($pointer == 'c')
+                $Imie =  $_POST['name'];
+                $Nazwisko= $_POST['second_name'];
+                $Email = $_POST['email'];
+                $Adres =  $_POST['address'];
+                $Telefon = $_POST['number'];
+                
+                $Password = password_hash($_POST['password2'], PASSWORD_BCRYPT);
+                        
+
+                $sql = "INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date, cl_hash_pass)
+                        VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW(), '$Password')";
+
+                if ($this -> connection -> query($sql) === FALSE) 
                 {
-                    $Imie =  $_POST['name'];
-                    $Nazwisko= $_POST['second_name'];
-                    $Email = $_POST['email'];
-                    $Adres =  $_POST['address'];
-                    $Telefon = $_POST['number'];
-                    
-                    $Password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-                            
-
-                    $sql = "INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date, cl_hash_pass)
-                            VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW(), '$Password')";
-
-                    if ($this -> connection -> query($sql) === FALSE) 
-                    {
-                        echo 'Przepraszamy, wystąpił błąd';
-                    }
+                    echo 'Przepraszamy, wystąpił błąd';
                 }
-
             }
         }
 
-        public function GetData()
+        public function GetProdData()
         {
             $sql = 'SELECT pr_id, pr_title FROM Products;';
             $result = mysqli_query($this -> connection, $sql);
@@ -286,39 +282,39 @@
                             >
                                 '. $this -> DisplayProducts($product_id) .'
                             </select>
-                            <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń zamówienie" type="submit" onclick="return confirmDelete(); saveOrder('. $cl_id .', '. $product_id .', false)">
+                            <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń zamówienie" type="submit" onclick="saveOrder('. $cl_id .', '. $product_id .', 2); return confirmDelete(); ">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
                                 </svg>
                             </button>
-                            <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" onclick="saveOrder('. $cl_id .', '. $product_id .' true)">
+                            <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Kliknij by zapisać zmianę tego zamówienia" onclick="saveOrder('. $cl_id .', '. $product_id .', 1)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                                     <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
                                 </svg>
-                            </button><br>
+                            </button><br><br>
                             ';
             }
             return $result;
         }
 
+        public function CountOrderElements($cl_id, $pr_id)
+        {
+            $sql = "SELECT COUNT(*) AS amount
+                    FROM Orders
+                    WHERE cl_id = ". $cl_id . " AND pr_id = ". $pr_id;
+            $result = mysqli_query($this -> connection, $sql);
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                $row = mysqli_fetch_assoc($result);
+                return $row['amount'];
+            }
+        }
+
         public function OrderElements($cl_id, $toStringList)
         {
-
-            // SELECT pr_id,
-            //     COUNT(*) AS suma
-            // FROM `orders`
-            // WHERE cl_id = 18
-            // GROUP BY pr_id;
-
-            // $sql = "SELECT pr_id, pr_title
-            //         FROM Products
-            //         WHERE pr_id IN (SELECT pr_id
-            //                         FROM Orders
-            //                         WHERE cl_id = " . $cl_id . ");";
-
             $sql = "SELECT products.pr_id, 
-                           pr_title,
-                           COUNT(orders.pr_id) AS sum
+                           pr_title
                     FROM Products, Orders
                     WHERE products.pr_id = orders.pr_id
                       AND products.pr_id IN (SELECT pr_id
@@ -329,7 +325,6 @@
             $result = mysqli_query($this -> connection, $sql);
             $prod_list = array();
             $prod_id_list = array();
-            $prod_amount = array();
             $output = "";
             if (mysqli_num_rows($result) > 0)
             {
@@ -337,8 +332,6 @@
                 {
                     array_push($prod_list, $row['pr_title']);
                     array_push($prod_id_list, $row['pr_id']);
-                    array_push($prod_amount, $row['sum']);
-
                 }
             }
 
@@ -346,7 +339,7 @@
             {
                 for ($i = 0; $i < count($prod_list); $i++)
                 {
-                    $output .= '<p id="">' . $prod_list[$i] . " (" . $prod_amount[$i] .")</p>";
+                    $output .= '<p id="">' . $prod_list[$i] . " (" . $this -> CountOrderElements($cl_id, $prod_id_list[$i]) .")</p>";
                 }
             }
             else
@@ -837,8 +830,8 @@
                                 src="'. $row['pr_picture'] .'"
                                 alt=""
                             />';
-                    echo   '<div class="card-body">
-                                <h5 class="card-title">'. $row['pr_price'] .' zł</h5>
+                    echo   '<div class="card-body" style="background-color: #101010;">
+                                <h5 class="card-title" style="color: white">'. $row['pr_price'] .' zł</h5>
                                 <p class="card-text"><a class="a_view" href="actions/ProductSite.php?id='. $row['pr_id'] .'">'. $row['pr_title'] .'</a></p>
                             </div></div>';
                     

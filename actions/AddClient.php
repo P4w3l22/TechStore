@@ -74,6 +74,30 @@
             <div id="email_error"></div>
         </div>
 
+        <div class="col-md-4">
+            <label for="password1" class="form-label">Hasło</label>
+            <input
+                type="password"
+                class="form-control"
+                id="password1"
+                name="password1"
+                required
+            >
+            <div id="password1_error"></div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="password2" class="form-label">Powtórz hasło</label>
+            <input
+                type="password"
+                class="form-control"
+                id="password2"
+                name="password2"
+                required
+            >
+            <div id="password2_error"></div>
+        </div>
+
         <label></label>
         <input 
             class="submit_button" 
@@ -83,6 +107,6 @@
             >
     </form>
 </div>
-<?php $manage -> Add('c'); ?>
+<?php $manage -> AddClient(); ?>
 
 <?php include('parts/footer.php'); ?>

@@ -596,6 +596,5 @@
 
     <!-- </form> -->
 </div>
-<?php $manage -> Add('p'); ?>
 
 <?php include('parts/footer.php'); ?>

@@ -49,7 +49,7 @@
         <?php
             include('../actions/class/Manage.php');
             $manage = new Manage();
-            $manage -> Add('c');
+            $manage -> AddClient();
 
             if ($_SERVER["REQUEST_METHOD"] == "POST")
             {

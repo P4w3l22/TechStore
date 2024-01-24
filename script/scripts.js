@@ -169,7 +169,7 @@ function edit(id)
 
 function editOrder(id, displayToEdit)
 {
-    alert('działa')
+    // alert('działa')
     if (displayToEdit)
     {
         document.getElementById('show_' + id).style.display = 'none'
@@ -182,7 +182,7 @@ function editOrder(id, displayToEdit)
     }
 }
 
-function saveOrder(id, prev_id, if_save)
+function saveOrder(id, prev_id, edit_or_del)
 {
     const previous_id = prev_id
     const present_id = document.getElementById("order_" + id + "_" + prev_id).value
@@ -204,11 +204,12 @@ function saveOrder(id, prev_id, if_save)
             location.reload()
         }
     }
-    if (if_save)
+    
+    if (edit_or_del == 1)
     {
         xhr.send("id="+id + "&previous_id="+previous_id + "&present_id="+present_id)
     }
-    else
+    else if (edit_or_del == 2)
     {
         xhr.send("id="+id + "&previous_id="+previous_id)
     }

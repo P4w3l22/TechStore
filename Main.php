@@ -53,7 +53,6 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="actions/Product.php">Produkty</a></li>
                                 <li><a class="dropdown-item" href="actions/Category.php">Kategorie</a></li> <!--  target="_blank" -->
-                                <!-- <li><a class="dropdown-item" href="actions/ProductSite.html">Wyszukaj produkt</a></li> -->
                             </ul>
                         </li>
 
@@ -81,7 +80,7 @@
                                 class="dropdown-menu"
                                 style="position: absolute; 
                                        margin-top: 40px; 
-                                       width: 200px; 
+                                       width: 400px; 
                                        overflow: hidden;
                                        max-height: 300px;
                                        overflow-y: scroll;"></ul>
