@@ -1,6 +1,6 @@
 <?php 
     include('class/Manage.php');
-    $manage = new Manage();
+    $manage = new ManageOrder();
     include('parts/header.php'); 
 ?>
 <title>Dodaj klienta</title>
@@ -48,6 +48,6 @@
             >
     </form>
 </div>
-<?php $manage -> AddOrder(); ?>
+<?php $manage -> Add(); ?>
 
 <?php include('parts/footer.php'); ?>

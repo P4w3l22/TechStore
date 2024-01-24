@@ -70,11 +70,11 @@
                                     placeholder="Search"
                                     id="searchInput"
                                 >
-                                <button 
+                                <!-- <button 
                                     class="btn btn-primary button-round"
                                     type="submit">
                                     Search
-                                </button>
+                                </button> -->
                             </form>
                             <ul id="searchResults" 
                                 class="dropdown-menu"

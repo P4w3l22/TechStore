@@ -1,6 +1,6 @@
 <?php 
     include('class/Manage.php');
-    $manage = new Manage();
+    $manage = new ManageClient();
     include('parts/header.php'); 
 ?>
 <title>Dodaj klienta</title>
@@ -107,6 +107,6 @@
             >
     </form>
 </div>
-<?php $manage -> AddClient(); ?>
+<?php $manage -> Add(); ?>
 
 <?php include('parts/footer.php'); ?>

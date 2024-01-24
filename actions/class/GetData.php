@@ -1,7 +1,7 @@
 <?php
 
     include('Manage.php');
-    $manager = new Manage();
-    $manager -> GetProdData();
+    $manager = new ManageProduct();
+    $manager -> Get();
 
 ?>

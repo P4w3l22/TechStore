@@ -1,7 +1,7 @@
 <?php
 
     include('Manage.php');
-    $manager = new Manage();
+    $manager = new ManageProduct();
 
     if (isset($_POST['json']) && isset($_POST['title']) && isset($_POST['select']) && isset($_POST['photo']) && isset($_POST['price']) && isset($_POST['amount']) && isset($_POST['description']))
     {
@@ -24,11 +24,11 @@
 
         if (!isset($_GET['id']))
         {
-            $manager -> AddProd($title, $select, $message, $photo, $price, $amount, $description);
+            $manager -> Add($title, $select, $message, $photo, $price, $amount, $description);
         }
         else
         {
-            $manager -> EditProd(intval($_GET['id']), $title, $select, $message, $photo, $price, $amount, $description);
+            $manager -> Edit(intval($_GET['id']), $title, $select, $message, $photo, $price, $amount, $description);
 
         }
         

@@ -1,13 +1,28 @@
 <?php 
     include('class/Manage.php');
-    $manage = new Manage();
+    $manage = new ManageOrder();
     include('parts/header.php'); 
 ?>
 <title>Klienci</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>
 <div class="m-3" style="overflow-x: auto;">
-    <h3>Zamówienia</h3>
+    <div style="display: flex;">
+        <h3 style="margin-right: 20px">Zamówienia
+        </h3><br>
+        <input
+                class="prod_input form-control me-2"
+                type="text"
+                placeholder="Szukaj"
+                id="searchOrdInput"
+                style="max-width: 300px;
+                    max-height: 40px;
+                    margin-top: 30px;
+                    background-color: whitesmoke;
+                    color: #404040"
+            >
+    </div><br>
+
     <table class="table">
         <thead class="dark">
             <th scope="col" class="dark-row">#</th>
