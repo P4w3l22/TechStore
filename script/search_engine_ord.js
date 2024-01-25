@@ -21,7 +21,7 @@ document.getElementById("searchOrdInput").addEventListener("input", function () 
             const el = document.createElement('li')
             const resultElement = document.createElement('a')
             resultElement.textContent = result[1]
-            resultElement.href = "actions/ProductSite.php?id=" + result[0]
+            resultElement.href = "Order.php?id=" + result[0]
             resultElement.classList.add('dropdown-item')
             el.appendChild(resultElement)
 

@@ -14,7 +14,7 @@
             <input
                 class=" form-control me-2"
                 type="text"
-                placeholder="Szukaj"
+                placeholder="Podaj nazwę klienta.."
                 id="searchOrdInput"
                 style="max-width: 300px;
                         max-height: 40px;
@@ -43,7 +43,17 @@
             <th scope="col" class="dark-row">Modyfikuj zamówienie</th>
         </thead>
         <tbody>
-            <?php $manage -> Orders(); ?>
+            <?php 
+                if (isset($_GET['id']))
+                {
+                    $manage -> Orders($_GET['id']);
+                }
+                else
+                {
+                    $manage -> Orders(); 
+                }
+                
+            ?>
         </tbody>
     </table>
     <button 

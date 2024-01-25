@@ -250,7 +250,7 @@
             parent::__construct();
         }
 
-        public function Products()
+        public function Products($id = -1)
         {
             $sql = "SELECT * FROM Products;";
 
@@ -260,56 +260,59 @@
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    if (strlen($row['pr_description']) > 120)
+                    if (($id != -1 && $row['pr_id'] == $id) || $id == -1)
                     {
-                        $shortDescription = substr($row['pr_description'], 0, 120) . " ...";
-                    }
-                    else
-                    {
-                        $shortDescription = $row['pr_description'];
-                    }
+                        if (strlen($row['pr_description']) > 120)
+                        {
+                            $shortDescription = substr($row['pr_description'], 0, 120) . " ...";
+                        }
+                        else
+                        {
+                            $shortDescription = $row['pr_description'];
+                        }
 
-                    echo '  <div>
-                                <tr id="view_' . $row['pr_id'] . '">
-                                    <th scope="row">' . $counter . '</th>
-                                    <td style="max-height: 50px;">' . $row['pr_title'] . '</td>
-                                    <td style="max-height: 50px;">' . $shortDescription . '</td>
-                                    <td style="max-height: 50px;">' . $row['pr_category'] . '</td>                                
-                                    <td style="max-height: 50px;">' . $row['pr_specification'] . '</td>
-                                    <td style="max-height: 50px;">
-                                        <img
-                                            class="card-img-top"
-                                            src="' . $row['pr_picture'] . '"
-                                            alt=""
-                                        />
-                                        
-                                    </td>
-                                    <td style="max-height: 50px;">' . $row['pr_price'] . '</td>
-                                    <td style="max-height: 50px;">' . $row['pr_amount'] . '</td>
+                        echo '  <div>
+                                    <tr id="view_' . $row['pr_id'] . '">
+                                        <th scope="row">' . $counter . '</th>
+                                        <td style="max-height: 50px;">' . $row['pr_title'] . '</td>
+                                        <td style="max-height: 50px;">' . $shortDescription . '</td>
+                                        <td style="max-height: 50px;">' . $row['pr_category'] . '</td>                                
+                                        <td style="max-height: 50px;">' . $row['pr_specification'] . '</td>
+                                        <td style="max-height: 50px;">
+                                            <img
+                                                class="card-img-top"
+                                                src="' . $row['pr_picture'] . '"
+                                                alt=""
+                                            />
+                                            
+                                        </td>
+                                        <td style="max-height: 50px;">' . $row['pr_price'] . '</td>
+                                        <td style="max-height: 50px;">' . $row['pr_amount'] . '</td>
 
-                                    <td>
-                                        <form action="Product.php" method="post">
-                                            <input type="hidden" name="id" value="' . $row['pr_id'] . '">
-                                            <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń produkt" type="submit" onclick="return confirmDelete()">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                        <td>
+                                            <form action="Product.php" method="post">
+                                                <input type="hidden" name="id" value="' . $row['pr_id'] . '">
+                                                <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń produkt" type="submit" onclick="return confirmDelete()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <a href="AddProduct.php?id='. $row['pr_id'] .'">
+                                            <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                 </svg>
                                             </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <a href="AddProduct.php?id='. $row['pr_id'] .'">
-                                        <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                            </svg>
-                                        </button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </div>';
-                    $counter++;
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </div>';
+                        $counter++;
+                    }
                 }
             }
             else
@@ -401,7 +404,7 @@
             parent::__construct();
         }
 
-        public function Client() 
+        public function Client($id = -1) 
         {
             $sql = "SELECT * FROM Clients;";
 
@@ -411,62 +414,65 @@
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    echo   '<div>
-                                <tr id="view_' . $row['cl_id'] . '">
-                                    <th scope="row">' . $counter . '</th>
-                                    <td>' . $row['cl_name'] . '</td>
-                                    <td>' . $row['cl_second_name'] . '</td>
-                                    <td>' . $row['cl_email'] . '</td>                                
-                                    <td>' . $row['cl_address'] . '</td>
-                                    <td>' . $row['cl_phone_number'] . '</td>
-                                    <td>' . $row['cl_create_date'] . '</td>
-                                    <td>
-                                        <form action="Client.php" method="post">
-                                            <input type="hidden" name="id" value="' . $row['cl_id'] . '">
-                                            <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
+                    if (($id != -1 && $row['cl_id'] == $id) || $id == -1)
+                    {
+                        echo   '<div>
+                                    <tr id="view_' . $row['cl_id'] . '">
+                                        <th scope="row">' . $counter . '</th>
+                                        <td>' . $row['cl_name'] . '</td>
+                                        <td>' . $row['cl_second_name'] . '</td>
+                                        <td>' . $row['cl_email'] . '</td>                                
+                                        <td>' . $row['cl_address'] . '</td>
+                                        <td>' . $row['cl_phone_number'] . '</td>
+                                        <td>' . $row['cl_create_date'] . '</td>
+                                        <td>
+                                            <form action="Client.php" method="post">
+                                                <input type="hidden" name="id" value="' . $row['cl_id'] . '">
+                                                <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane" onclick="edit(' . $row['cl_id'] . ')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </div>
+
+                                <div>
+                                    <tr style="display: none;" id="edit_' . $row['cl_id'] . '">
+                                        <th >' . $counter . '</th>
+                                        <td><input class="form-control" id="name_' . $row['cl_id'] . '" type="text" value="' . $row['cl_name'] . '"></td>
+                                        <td><input class="form-control" id="second_name_' . $row['cl_id'] . '" type="text" value="' . $row['cl_second_name'] . '"></td>
+                                        <td><input class="form-control" id="email_' . $row['cl_id'] . '" type="text" value="' . $row['cl_email'] . '"></td>
+                                        <td><input class="form-control" id="address_' . $row['cl_id'] . '" type="text" value="' . $row['cl_address'] . '"></td>
+                                        <td><input class="form-control" id="phone_' . $row['cl_id'] . '" type="text" value="' . $row['cl_phone_number'] . '"></td>
+                                        <td>' . $row['cl_create_date'] . '</td>
+                                        <td>
+                                            <button disabled style="border-radius: 6px; background-color: gray; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
                                                 </svg>
                                             </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj dane" onclick="edit(' . $row['cl_id'] . ')">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </div>
-
-                            <div>
-                                <tr style="display: none;" id="edit_' . $row['cl_id'] . '">
-                                    <th >' . $counter . '</th>
-                                    <td><input class="form-control" id="name_' . $row['cl_id'] . '" type="text" value="' . $row['cl_name'] . '"></td>
-                                    <td><input class="form-control" id="second_name_' . $row['cl_id'] . '" type="text" value="' . $row['cl_second_name'] . '"></td>
-                                    <td><input class="form-control" id="email_' . $row['cl_id'] . '" type="text" value="' . $row['cl_email'] . '"></td>
-                                    <td><input class="form-control" id="address_' . $row['cl_id'] . '" type="text" value="' . $row['cl_address'] . '"></td>
-                                    <td><input class="form-control" id="phone_' . $row['cl_id'] . '" type="text" value="' . $row['cl_phone_number'] . '"></td>
-                                    <td>' . $row['cl_create_date'] . '</td>
-                                    <td>
-                                        <button disabled style="border-radius: 6px; background-color: gray; border: none; color: white;" title="Usuń klienta" type="submit" onclick="return confirmDelete()">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" onclick="save(' . $row['cl_id'] . ')">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </div>';
-                    $counter++;
+                                        </td>
+                                        <td>
+                                            <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" onclick="save(' . $row['cl_id'] . ')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </div>';
+                        $counter++;
+                    }
                 }
             }
             else
@@ -518,7 +524,7 @@
 
         public function Get()
         {
-            $sql = 'SELECT cl_id, CONCAT(cl_name, " ", cl_second_name) AS cl_name 
+            $sql = 'SELECT cl_id, CONCAT(cl_name, " - ", cl_second_name) AS cl_name 
                     FROM Clients;';
             $result = mysqli_query($this -> connection, $sql);
 
@@ -553,7 +559,7 @@
             parent::__construct();
         }
 
-        public function Orders()
+        public function Orders($id = -1)
         {
             $sql = "SELECT CONCAT(C.cl_name, ' ', C.cl_second_name) AS name,
                            O.cl_id AS client_id,
@@ -570,54 +576,57 @@
             {
                 while ($row = mysqli_fetch_assoc($result))
                 {
-                    $products_id = $this -> OrderElements($row['client_id'], false);
-                    echo '  <div>
-                                <tr id="show_'. $row['client_id'] .'">
-                                    <th scope="row">' . $counter . '</th>
-                                    <td style="max-height: 50px;">' . $row['name'] . '</td>
-                                    
-                                    <td style=" max-height: 50px;">' . $this -> OrderElements($row['client_id'], true) . '</td>
-                                    <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
-                                    <td style="max-height: 50px;">
-                                        <form action="Order.php" method="post">
-                                            <input type="hidden" name="id" value="'. $row['client_id'] .'">
-                                            <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń zamówienie" type="submit" onclick="return confirmDelete()">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    if (($id != -1 && $row['client_id'] == $id) || $id == -1)
+                    {
+                        $products_id = $this -> OrderElements($row['client_id'], false);
+                        echo '  <div>
+                                    <tr id="show_'. $row['client_id'] .'">
+                                        <th scope="row">' . $counter . '</th>
+                                        <td style="max-height: 50px;">' . $row['name'] . '</td>
+                                        
+                                        <td style=" max-height: 50px;">' . $this -> OrderElements($row['client_id'], true) . '</td>
+                                        <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
+                                        <td style="max-height: 50px;">
+                                            <form action="Order.php" method="post">
+                                                <input type="hidden" name="id" value="'. $row['client_id'] .'">
+                                                <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń zamówienie" type="submit" onclick="return confirmDelete()">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                                    </svg>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj" onclick="editOrder(' . $row['client_id'] . ', true)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                 </svg>
                                             </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <button class="edition" style="border-radius: 6px; background-color: orange; border: none; color: white;" title="Edytuj" onclick="editOrder(' . $row['client_id'] . ', true)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </div>
+                                        </td>
+                                    </tr>
+                                </div>
 
 
-                            <div>
-                                <tr style="display: none" id="edit_'. $row['client_id'] .'">
-                                    <th scope="row">' . $counter . '</th>
-                                    <td style="max-height: 50px;">' . $row['name'] . '</td>
-                                    <td style=" max-height: 50px;">' . $this -> EditOrderElements($row['client_id']) . '</td>
-                                    <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
-                                    <td style="max-height: 50px;"></td>
+                                <div>
+                                    <tr style="display: none" id="edit_'. $row['client_id'] .'">
+                                        <th scope="row">' . $counter . '</th>
+                                        <td style="max-height: 50px;">' . $row['name'] . '</td>
+                                        <td style=" max-height: 50px;">' . $this -> EditOrderElements($row['client_id']) . '</td>
+                                        <td style="max-height: 50px;">' . $row['price_sum'] . '</td>
+                                        <td style="max-height: 50px;"></td>
 
-                                    <td>
-                                        <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" onclick="editOrder(' . $row['client_id'] . ', false)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </div>';
-                    $counter++;
+                                        <td>
+                                            <button style="border-radius: 6px; background-color: green; border: none; color: white; height: 25px;" title="Edytuj dane" onclick="editOrder(' . $row['client_id'] . ', false)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                                    <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </div>';
+                        $counter++;
+                    }
                 }
             }
             else 

@@ -1,14 +1,14 @@
 var data = []
 
-fetch('class/GetClData.php')
+fetch('class/GetData.php')
     .then(response => response.json())
     .then(receiveData => {
         data = Object.entries(receiveData)
     })
 
-document.getElementById("searchClInput").addEventListener("input", function () {
+document.getElementById("searchInput").addEventListener("input", function () {
     const query = this.value.toLowerCase();
-    const resultsContainer = document.getElementById("searchClResults");
+    const resultsContainer = document.getElementById("searchResults");
     resultsContainer.innerHTML = "";
 
     const results = data.filter(([key, value]) => value.toLowerCase().includes(query));
@@ -21,7 +21,7 @@ document.getElementById("searchClInput").addEventListener("input", function () {
             const el = document.createElement('li')
             const resultElement = document.createElement('a')
             resultElement.textContent = result[1]
-            resultElement.href = "Client.php?id=" + result[0]
+            resultElement.href = "Product.php?id=" + result[0]
             resultElement.classList.add('dropdown-item')
             el.appendChild(resultElement)
 
@@ -30,14 +30,14 @@ document.getElementById("searchClInput").addEventListener("input", function () {
     }
 });
 document.addEventListener('click', function(event) {
-    const searchResults = document.getElementById('searchClResults');
-    const searchInput = document.getElementById('searchClInput');
+    const searchResults = document.getElementById('searchResults');
+    const searchInput = document.getElementById('searchInput');
     if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
         searchResults.style.display = 'none';
     }
 });
 
-document.getElementById('searchClInput').addEventListener('click', function() {
-    const searchResults = document.getElementById('searchClResults');
+document.getElementById('searchInput').addEventListener('click', function() {
+    const searchResults = document.getElementById('searchResults');
     searchResults.style.display = 'block';
 });

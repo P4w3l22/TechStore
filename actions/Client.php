@@ -17,7 +17,7 @@
             <input
                 class="prod_input form-control me-2"
                 type="text"
-                placeholder="Szukaj"
+                placeholder="Podaj nazwę klienta.."
                 id="searchClInput"
                 style="max-width: 300px;
                         max-height: 40px;
@@ -48,7 +48,17 @@
             <th scope="col" class="dark-row">Edytuj</th>
         </thead>
         <tbody>
-            <?php $manage -> Client(); ?>
+            <?php 
+                if (isset($_GET['id']))
+                {
+                    $manage -> Client($_GET['id']);
+                }
+                else
+                {
+                    $manage -> Client(); 
+                }
+            
+            ?>
         </tbody>
     </table>
     <br>
