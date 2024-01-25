@@ -60,13 +60,17 @@
                margin-bottom: 30px;"
                >
         <a href="AddClient.php" style="color: white; text-decoration: none;">Dodaj nowego klienta</a></button>
+    </div>
+
+    <?php             
+        if ($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            $manage -> DeleteRow("c");
+        }
+    ?>
+</div>
 </div>
 
-<?php             
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        $manage -> DeleteRow("c");
-    }
-?>
+<script src="../script/search_engine_cl.js"></script>
 
 <?php include('parts/footer.php'); ?>

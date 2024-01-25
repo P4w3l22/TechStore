@@ -213,13 +213,6 @@ function saveOrder(id, prev_id, edit_or_del)
     {
         xhr.send("id="+id + "&previous_id="+previous_id)
     }
-    
-
-}
-
-function deleteSingleOrder(cl_id, prod_id)
-{
-
 }
 
 function save(id)

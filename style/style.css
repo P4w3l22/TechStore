@@ -374,3 +374,7 @@ body{
 /* .prod_input::placeholder {
     color: white;
 } */
+
+.hiddenClass {
+    display: none;
+}

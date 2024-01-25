@@ -3,6 +3,7 @@
     $manage = new ManageClient();
     include('parts/header.php'); 
 ?>
+
 <title>Dodaj klienta</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>
@@ -108,5 +109,8 @@
     </form>
 </div>
 <?php $manage -> Add(); ?>
+</div>
+
+<script src="../script/cl_checker.js"></script>
 
 <?php include('parts/footer.php'); ?>

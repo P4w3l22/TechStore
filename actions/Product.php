@@ -64,4 +64,8 @@
     }
 ?>
 
+</div>
+
+<script src="../script/searchEngine.js"></script>
+
 <?php include('parts/footer.php'); ?>

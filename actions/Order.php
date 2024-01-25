@@ -66,7 +66,23 @@
     ?>
 
     <div>
-<!-- </div>
-<script src="../script/search_engine_ord.js"></script> -->
+</div>
+</div>
+<script src="../script/search_engine_ord.js"></script>
+<script>
+    var selects = document.querySelectorAll('select')
+
+    selects.forEach(function(select) {
+        select.addEventListener('change', function() {
+            if (select.value != select.id.split('_')[2]){
+                document.getElementById(select.id + "_btn").classList.remove('hiddenClass')
+            }
+            else {
+                document.getElementById(select.id + "_btn").classList.add('hiddenClass')
+            }
+        })
+    })
+
+</script>
 
 <?php include('parts/footer.php'); ?>
