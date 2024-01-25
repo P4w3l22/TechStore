@@ -516,7 +516,27 @@
             }
         }
 
-        
+        public function Get()
+        {
+            $sql = 'SELECT cl_id, CONCAT(cl_name, " ", cl_second_name) AS cl_name 
+                    FROM Clients;';
+            $result = mysqli_query($this -> connection, $sql);
+
+            if ($result -> num_rows > 0)
+            {
+                $data = array();
+                while ($row = $result -> fetch_assoc())
+                {
+                    $data[$row['cl_id']] = $row['cl_name'];
+                }
+                header('Content-Type: application/json');
+                echo json_encode($data);
+            }
+            else
+            {
+                echo 'Brak wyników';
+            }
+        }
 
         public function __destruct()
         {
@@ -647,6 +667,29 @@
             }
         }
 
+        public function Get()
+        {
+            $sql = 'SELECT Orders.cl_id AS cl_id, CONCAT(cl_name, "chuj") AS cl_name
+                    FROM Orders, Clients
+                     WHERE Orders.cl_id = Clients.cl_id;';
+            $result = mysqli_query($this -> connection, $sql);
+
+            if ($result -> num_rows > 0)
+            {
+                $data = array();
+                while ($row = $result -> fetch_assoc())
+                {
+                    $data[$row['cl_id']] = $row['cl_name'] . "ZAMÓWIENIA";
+                }
+                header('Content-Type: application/json');
+                echo json_encode($data);
+            }
+            else
+            {
+                echo 'Brak wyników';
+            }
+        }
+
         public function OrderElements($cl_id, $toStringList)
         {
             $sql = "SELECT Products.pr_id, 
@@ -685,56 +728,6 @@
             
             return $output;
         }
-
-        // public function DisplayProductsHeader($id = -1)
-        // {
-        //     $sql = "SELECT pr_id,
-        //                    pr_title
-        //             FROM ". $this -> productTable .";";
-        //     $output = "";
-        //     $result = mysqli_query($this -> connection, $sql);
-        //     if (mysqli_num_rows($result) > 0)
-        //     {
-        //         while ($row = mysqli_fetch_assoc($result))
-        //         {
-        //             $output .= '<option value="'. $row['pr_id'] .'" ';
-        //             if ($id != -1 && $id == $row['pr_id'])
-        //             {
-        //                 $output .= 'selected="selected"';
-        //             }
-        //             $output .= ' >
-        //                             '. $row['pr_title'] .'
-        //                         </option>';
-        //         }
-        //     }
-        //     else
-        //     {
-        //         return "Brak klientów";
-        //     }
-        //     return $output;
-        // }
-
-        // public function DisplayClientsHeader()
-        // {
-        //     $sql = "SELECT cl_id, 
-        //                    CONCAT(cl_name, ' ', cl_second_name) AS cl_full_name 
-        //             FROM ". $this -> clientTable .";";
-
-        //     $result = mysqli_query($this -> connection, $sql);
-        //     if (mysqli_num_rows($result) > 0)
-        //     {
-        //         while ($row = mysqli_fetch_assoc($result))
-        //         {
-        //             echo '  <option value="'. $row['cl_id'] .'">
-        //                         '. $row['cl_full_name'] .'
-        //                     </option>';
-        //         }
-        //     }
-        //     else 
-        //     {
-        //         echo "Brak klientów";
-        //     }
-        // }
 
         public function EditOrderElements($cl_id)
         {
@@ -926,6 +919,4 @@
 
     }
 
-    // PRODUCT CLASS
-    
 ?>

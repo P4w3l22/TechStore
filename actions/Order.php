@@ -10,17 +10,27 @@
     <div style="display: flex;">
         <h3 style="margin-right: 20px">Zamówienia
         </h3><br>
-        <input
-                class="prod_input form-control me-2"
+        <div style="display: flex; flex-direction: column;">
+            <input
+                class=" form-control me-2"
                 type="text"
                 placeholder="Szukaj"
                 id="searchOrdInput"
                 style="max-width: 300px;
-                    max-height: 40px;
-                    margin-top: 30px;
-                    background-color: whitesmoke;
-                    color: #404040"
+                        max-height: 40px;
+                        margin-top: 30px;
+                        background-color: whitesmoke;
+                        color: #404040"
             >
+            <ul id="searchOrdResults" 
+                class="dropdown-menu"
+                style="position: absolute; 
+                        margin-top: 70px; 
+                        width: 400px; 
+                        overflow: hidden;
+                        max-height: 300px;
+                        overflow-y: scroll;"></ul>
+        </div>
     </div><br>
 
     <table class="table">
@@ -48,12 +58,15 @@
             Dodaj nowe zamówienie
         </a>
     </button>
-<?php             
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        $manage -> DeleteRow("o");
-    }
-?>
+    <?php             
+        if ($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            $manage -> DeleteRow("o");
+        }
+    ?>
 
-<div>
+    <div>
+<!-- </div>
+<script src="../script/search_engine_ord.js"></script> -->
+
 <?php include('parts/footer.php'); ?>

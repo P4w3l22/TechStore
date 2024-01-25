@@ -48,8 +48,8 @@
         </div>
         <?php
             include('../actions/class/Manage.php');
-            $manage = new Manage();
-            $manage -> AddClient();
+            $manage = new ManageClient();
+            $manage -> Add();
 
             if ($_SERVER["REQUEST_METHOD"] == "POST")
             {

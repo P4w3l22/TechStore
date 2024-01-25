@@ -1,6 +1,9 @@
     </div>
         <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
         <script src="../bootstrap/js/bootstrap.js"></script>
+        <!-- <script src="../script/search_engine_cl.js"></script> -->
+        
+        <!-- <script src="../script/searchEngine.js"></script> -->
         <script src="../script/cl_checker.js"></script>
         <script src="../script/scripts.js"></script>
         <script>
