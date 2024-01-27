@@ -2,6 +2,7 @@
     include('class/Manage.php');
     $manage = new Manage();
     include('parts/header.php'); 
+    session_start();
 ?>
 <title>Koszyk</title>
 </head>
@@ -10,7 +11,7 @@
 <div class="m-3" style="overflow-x: auto;">
     <div class="row mx-4">
         <h3  style="margin-bottom: 30px">Twój koszyk</h3>
-        <?php $manage -> Basket(array(20, 21)); ?>
+        <?php $manage -> Basket($_SESSION["basket"][$_SESSION['username']]); ?>
     </div>
 </div>
 

@@ -21,7 +21,7 @@
         
         <div class="col-md-5 m-6" style="border: 1px solid gray; border-radius: 8px; width: 30%; min-width: 250px; text-align: right; margin-top:30px; margin-left: 20px;">
             <h3 class="m-4"><?php echo $manage -> Price(); ?> zł</h3>
-            <button class="m-3" style="width: 200px; border-radius: 50pc; background-color: rgb(12, 174, 77); color: white; border: none; height: 40px">Dodaj do koszyka</button>
+            <button class="m-3" style="width: 200px; border-radius: 50pc; background-color: rgb(12, 174, 77); color: white; border: none; height: 40px" onclick="addToBasket(<?php echo $_GET['id']; ?>)">Dodaj do koszyka</button>
             <div style="display: flex;
                         text-align: left; 
                         padding: 20px; 
@@ -123,5 +123,25 @@
 
 <div class="row-md-10 m-5">
 </div>
+
+<script> 
+    function addToBasket(id)
+    {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "class/ToBasket.php", true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+        xhr.onreadystatechange = function ()
+        {
+            if (xhr.readyState == 4 && xhr.status == 200)
+            {
+                alert("Dodano do koszyka")
+            }
+        }
+
+        xhr.send("id=" + id)
+
+    }
+</script>
 
 <?php include('parts/footer.php'); ?>

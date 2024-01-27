@@ -42,6 +42,23 @@
             }
         }
 
+        public function ReadFromJSON()
+        {
+            
+            $path = "../log/basket.json";
+            $basket_file = file_get_contents($path);
+            return json_decode($basket_file, true);
+        }
+
+        public function SaveToJSON($new_basket)
+        {
+            $path = "../../log/basket.json";
+            file_put_contents($path, json_encode($new_basket, JSON_PRETTY_PRINT));
+
+        }
+
+
+
         public function DeleteRow($table)
         {
             if ($table == "c")
