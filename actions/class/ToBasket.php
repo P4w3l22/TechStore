@@ -6,7 +6,7 @@
     if (isset($_POST['id']))
     {
         array_push($_SESSION["basket"][$_SESSION['username']], $_POST['id']);
-        $manage -> SaveToJSON($_SESSION["basket"]);
+        $manage -> SaveToJSON($_SESSION['basket']);
     }
 
 ?>

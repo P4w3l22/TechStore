@@ -215,6 +215,26 @@ function saveOrder(id, prev_id, edit_or_del)
     }
 }
 
+function deleteBasketProd(id)
+{
+    // return confirm("Czy na pewno chcesz usunąć?")
+
+    var xhr = new XMLHttpRequest()
+    var url = 'class/DeleteBasketProd.php'
+
+    xhr.open("POST", url, true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            // console.log(xhr.responseText);
+            // alert('Usunięto!')
+            location.reload()
+        }
+    }
+    xhr.send("id="+id)
+}
+
 function save(id)
 {
     const user_name = document.getElementById("name_"+id)
