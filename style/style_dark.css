@@ -11,7 +11,7 @@ body {
 }
 
 .collapse .d-flex .form-control {
-    border-radius: 14px 2px 2px 14px;
+    border-radius: 14px;
     background-color: #3C383F;
     color: #BABDC3;
     border: 1px solid #7E7F84;

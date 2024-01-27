@@ -1,0 +1,94 @@
+<?php 
+    include('../actions/class/Manage.php');
+    $manage = new ManageClient();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="../log/style_login.css">
+        <title>Rejestracja</title>
+    </head>
+    <body>
+        <div class="box box2" style="height: 780px;">
+            <form id="login" action="Signup.php" method="post">
+                <h2>Rejestracja</h2>
+                <div class="inputBox">
+                    <input type="text" id="name" name="name" required="required">
+                    <span>Imię</span>
+                    <i></i>
+                </div>
+                <div id="name_error"></div>
+
+                <div class="inputBox">
+                    <input type="text" id="second_name" name="second_name" required="required">
+                    <span>Nazwisko</span>
+                    <i></i>
+                </div>
+                <div id="second_name_error"></div>
+
+                <div class="inputBox">
+                    <input type="text" id="address" name="address" required="required">
+                    <span>Adres</span>
+                    <i></i>
+                </div>
+                <div id="address_error"></div>
+
+                <div class="inputBox">
+                    <input type="text" id="number" name="number" required="required">
+                    <span>Numer telefonu</span>
+                    <i></i>
+                </div>
+                <div id="number_error"></div>
+
+                <div class="inputBox">
+                    <input type="text" id="email" name="email" required="required">
+                    <span>Email</span>
+                    <i></i>
+                </div>
+                <div id="email_error" style="color: whitesmoke"></div>
+
+                <div class="inputBox">
+                    <input type="password" id="password1" name="password" required="required">
+                    <span>Hasło</span>
+                    <i></i>
+                </div>
+                <div id="password1_error"></div>
+
+                <div class="inputBox">
+                    <input type="password" id="password" name="password" required="required">
+                    <span>Powtórz hasło</span>
+                    <i></i>
+                </div>
+                <div id="password_error"></div>
+
+                <input type="submit" value="Zarejestruj się" style="margin-top: 30px; width: 150px;">
+                <a href="../Main.php">Wróć do strony</a>
+            </form>
+
+        
+
+        </div>
+        <?php
+            $manage -> Add();
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST")
+            {
+                session_start();
+                $_SESSION['username'] = "user";
+
+                // header('Location: ../Main.php');
+                // exit(); 
+            }
+        ?>
+        <!-- <script src="script/searchEngine.js"></script> -->
+        <!-- <script src="script/barchart.js"></script> -->
+        <script src="../script/cl_checker.js"></script>
+        <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.js"></script>
+        <script src="../script/scripts.js"></script>
+    </body>
+</html>

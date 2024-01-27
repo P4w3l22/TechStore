@@ -4,7 +4,7 @@ const address = document.getElementById('address')
 const number = document.getElementById('number')
 const email = document.getElementById('email')
 const password1 = document.getElementById('password1')
-const password2 = document.getElementById('password2')
+const password2 = document.getElementById('password')
 
 
 const form = document.getElementById('form')
@@ -13,7 +13,7 @@ const secondNameErrorElement = document.getElementById('second_name_error')
 const addressErrorElement = document.getElementById('address_error')
 const numberErrorElement = document.getElementById('number_error')
 const emailErrorElement = document.getElementById('email_error')
-const password2ErrorElement = document.getElementById('password2_error')
+const password2ErrorElement = document.getElementById('password_error')
 
 form.addEventListener('submit', (e) => {
     nameErrorElement.innerText = ""
@@ -22,6 +22,23 @@ form.addEventListener('submit', (e) => {
     numberErrorElement.innerText = ""
     emailErrorElement.innerText = ""
     var isValid = true
+
+    fetch('class/GetEmails.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'email=' + encodeURIComponent(email.value)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.result)
+            {
+                isValid = false
+                emailErrorElement.innerText = "Podany adres email jest już używany!"
+            }
+        })
+        .catch(error => console.error(error))
     
     if (name.value.length < 2) {
         isValid = false

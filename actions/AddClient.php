@@ -92,11 +92,11 @@
             <input
                 type="password"
                 class="form-control"
-                id="password2"
-                name="password2"
+                id="password"
+                name="password"
                 required
             >
-            <div id="password2_error"></div>
+            <div id="password_error"></div>
         </div>
 
         <label></label>

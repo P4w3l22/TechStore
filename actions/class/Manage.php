@@ -237,6 +237,40 @@
             }
         }
 
+        public function GetLoginPass()
+        {
+            $sql = "SELECT cl_email, cl_hash_pass
+                    FROM Clients;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['cl_email']] = $row['cl_hash_pass'];
+                }
+            }
+            return $output;
+        }
+
+        public function CheckEmail($email)
+        {
+            $sql = "SELECT cl_email FROM Clients";
+            $result = mysqli_query($this -> connection, $sql);
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    if ($row['cl_email'] === $email)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         public function __destruct()
         {
             $this -> connection -> close();
@@ -491,8 +525,7 @@
                 $Adres =  $_POST['address'];
                 $Telefon = $_POST['number'];
                 
-                $Password = password_hash($_POST['password2'], PASSWORD_BCRYPT);
-                        
+                $Password = password_hash($_POST['password'], PASSWORD_BCRYPT);                        
 
                 $sql = "INSERT INTO Clients (cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date, cl_hash_pass)
                         VALUES ('$Imie', '$Nazwisko', '$Email', '$Adres', '$Telefon', NOW(), '$Password')";
@@ -565,7 +598,7 @@
                            O.cl_id AS client_id,
                            SUM(P.pr_price) AS price_sum
                     FROM Orders AS O, Clients AS C, Products AS P
-                    WHERE O.cl_id = C.cl_id AND O.pr_id = P.pr_id
+                     WHERE O.cl_id = C.cl_id AND O.pr_id = P.pr_id
                     GROUP BY name, client_id
                     ORDER BY price_sum;";
 
@@ -709,8 +742,8 @@
                     FROM Products, Orders
                     WHERE Products.pr_id = Orders.pr_id
                       AND Products.pr_id IN (SELECT pr_id
-                                      FROM Orders
-                                      WHERE cl_id = " . $cl_id . ")
+                                             FROM Orders
+                                             WHERE cl_id = " . $cl_id . ")
                     GROUP BY Products.pr_id, pr_title;";
 
             $result = mysqli_query($this -> connection, $sql);
@@ -747,7 +780,6 @@
             $result = "";
             foreach ($product_list as $product_id)
             {
-                // $result .= '<input class="form-control" id="" type="text" value="' . $product . '"><br>';
                 $result .= '<select
                                 type="text"
                                 class="order_change form-select"

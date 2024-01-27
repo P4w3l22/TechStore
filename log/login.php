@@ -8,7 +8,7 @@
         <title>Document</title>
     </head>
     <body>
-        <?php if (isset($_GET['bool'])) { echo "<p style='color: white; 
+        <?php if (isset($_GET['bool']) && $_GET['bool'] === 1) { echo "<p style='color: white; 
                                                           position: absolute; 
                                                           z-index: 3; 
                                                           top: 0px; 
@@ -16,7 +16,20 @@
                                                           background-color: #C61F1F;
                                                           padding: 10px 20px;
                                                           border-radius: 0px 0px 20px 0px;
-                                                          '>Błędne dane logowania!</p>"; } ?>
+                                                          '>Błędne dane logowania!</p>"; } 
+            //   else if (isset($_GET['bool']))
+            //   {
+            //     echo "<p style='color: white; 
+            //             position: absolute; 
+            //             z-index: 3; 
+            //             top: 0px; 
+            //             left: 0px; 
+            //             background-color: #C61F1F;
+            //             padding: 10px 20px;
+            //             border-radius: 0px 0px 20px 0px;
+            //             '>". $_GET['bool'] ."</p>";
+            //   }?>
+            
         <div class="box">
             <form id="login-form" action="log.php" method="post">
                 <h2>Logowanie</h2>
@@ -38,9 +51,6 @@
 
             </form>
         </div>
-
-        <script src="script/searchEngine.js"></script>
-        <!-- <script src="script/barchart.js"></script> -->
         <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="script/scripts.js"></script>
