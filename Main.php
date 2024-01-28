@@ -263,19 +263,7 @@
                         role="tab"
                         aria-controls="pills-home"
                         aria-selected="true"
-                    >Ilość produktów</button>
-                </li>
-                <li class="nav-item">
-                    <button
-                        class="nav-link active dark_mode"
-                        id="pills-home-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-home"
-                        type="button"
-                        role="tab"
-                        aria-controls="pills-home"
-                        aria-selected="true"
-                    >Ilość klientów (ostatnie 7 dni)</button>
+                    >Liczebność kategorii</button>
                 </li>
                 <li class="nav-item">
                     <button
@@ -299,19 +287,7 @@
                         role="tab"
                         aria-controls="pills-home"
                         aria-selected="true"
-                    >Ostatnio dodane</button>
-                </li>
-                <li class="nav-item">
-                    <button
-                        class="nav-link active"
-                        id="pills-home-tab"
-                        data-bs-toggle="pill"
-                        data-bs-target="#pills-home"
-                        type="button"
-                        role="tab"
-                        aria-controls="pills-home"
-                        aria-selected="true"
-                    >Producenci</button>
+                    >Ilość produktów</button>
                 </li>
             </ul>
         </div>

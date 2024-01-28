@@ -43,6 +43,66 @@
             }
         }
 
+        public function CategoryAmount()
+        {
+            $sql = "SELECT pr_category,
+                           COUNT(*) AS cat_amount
+                    FROM Products
+                    GROUP BY pr_category
+                    ORDER BY cat_amount;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['pr_category']] = $row['cat_amount'];
+                }
+            }
+            return $output;
+        }
+
+        public function MostFrequentlyBought()
+        {
+            $sql = "SELECT pr_title, 
+                        COUNT(Orders.pr_id) AS amount
+                    FROM Orders, Products
+                     WHERE Products.pr_id = Orders.pr_id
+                    GROUP BY Orders.pr_id
+                    ORDER BY amount DESC;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['pr_title']] = $row['amount'];
+                }
+            }
+            return $output;
+        }
+
+        public function ProductsAmount()
+        {
+            $sql = "SELECT pr_title, pr_amount
+                    FROM Products
+                    ORDER BY pr_amount DESC;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['pr_title']] = $row['pr_amount'];
+                }
+            }
+            return $output;
+
+        }
+
         public function ReadFromJSON()
         {
             
@@ -730,28 +790,46 @@
             }
         }
 
-        public function Add()
+        public function Add($username = -1, $prod_id = array())
         {
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['cl_choice'] != '')
+            if (($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cl_choice']) && $_POST['cl_choice'] != '') || ($username != -1 && $prod_id != -1))
             {
-                $cl_id = $_POST['cl_choice'];
-                $pr_id = $_POST['pr_choice'];
-
-                $sql = "INSERT INTO Orders (cl_id, pr_id, order_date)
-                                    VALUES('$cl_id', '$pr_id', NOW());";
-                if ($this -> connection -> query($sql) === FALSE)
+                if ($username != -1)
                 {
-                    echo 'Przepraszamy, wystąpił błąd łączenia z bazą danych';
+                    $cl_id = $this -> GetId($username);
+                    $pr_id = $prod_id;
+                    
+                    foreach ($pr_id as $p_id)
+                    {
+                        $sql = "INSERT INTO Orders (cl_id, pr_id, order_date)
+                                       VALUES('$cl_id', $p_id, NOW())";
+                        echo $sql;
+                        if ($this -> connection -> query($sql) === FALSE)
+                        {
+                            echo 'Przepraszamy, wystąpił błąd łączenia z bazą danych';
+                        }
+                    }
                 }
                 else
                 {
-                    echo '  <script>
-                                alert("Dodano zamówienie!");
-                            </script>';
-                }
-                $_POST['cl_choice'] = "";
-                $_POST['pr_choice'] = "";
+                    $cl_id = $_POST['cl_choice'];
+                    $pr_id = $_POST['pr_choice'];
 
+                    $sql = "INSERT INTO Orders (cl_id, pr_id, order_date)
+                                        VALUES('$cl_id', '$pr_id', NOW());";
+                    if ($this -> connection -> query($sql) === FALSE)
+                    {
+                        echo 'Przepraszamy, wystąpił błąd łączenia z bazą danych';
+                    }
+                    else
+                    {
+                        echo '  <script>
+                                    alert("Dodano zamówienie!");
+                                </script>';
+                    }
+                    $_POST['cl_choice'] = "";
+                    $_POST['pr_choice'] = "";
+                }
             }
         }
 
@@ -895,6 +973,33 @@
                 echo "Wystąpił błąd";
             }
 
+        }
+
+        public function Update()
+        {
+            $sql = "DELETE 
+                    FROM Orders
+                    WHERE NOT cl_id IN (SELECT cl_id
+                                        FROM Clients);";
+            if ($this -> connection->query($sql) === FALSE)
+            {
+                echo "Wystąpił błąd";
+            }
+        }
+
+        public function GetId($email)
+        {
+            $sql = "SELECT cl_id
+                    FROM Clients
+                    WHERE cl_email = '$email'";
+            $result = mysqli_query($this -> connection, $sql);
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                $row = mysqli_fetch_assoc($result);
+                return $row['cl_id'];
+            }
+            
         }
 
         public function __destruct()

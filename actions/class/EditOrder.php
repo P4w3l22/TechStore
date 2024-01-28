@@ -16,6 +16,7 @@
         $previous_id = $_POST['previous_id'];
 
         $manager -> DeleteSignleOrder($id, $previous_id);
+
     }
 
 ?>
