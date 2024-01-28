@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/style_button.css">
-
     <link id="stylesheet_dark" rel="stylesheet" href="style/style_dark.css" disabled>
     <link rel="icon" href="images/cpu.svg">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>TechStore</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script>
+        firstChart()
+    </script> -->
 </head>
 <body style="text-align: center;">
     <!-- 1681 -->
@@ -253,46 +257,71 @@
         <h1>Statystyki</h1>
         <div class="menu">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
+                <li class="nav-item" role="presentation">
                     <button
                         class="nav-link active"
-                        id="pills-home-tab"
+                        id="pills-statistics1-tab"
                         data-bs-toggle="pill"
-                        data-bs-target="#pills-home"
+                        data-bs-target="#pills-statistics1"
                         type="button"
                         role="tab"
-                        aria-controls="pills-home"
+                        aria-controls="pills-statistics1"
                         aria-selected="true"
                     >Liczebność kategorii</button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" role="presentation">
                     <button
-                        class="nav-link active"
-                        id="pills-home-tab"
+                        class="nav-link"
+                        id="pills-statistics2-tab"
                         data-bs-toggle="pill"
-                        data-bs-target="#pills-home"
+                        data-bs-target="#pills-statistics2"
                         type="button"
                         role="tab"
-                        aria-controls="pills-home"
+                        aria-controls="pills-statistics2"
                         aria-selected="true"
                     >Najczęściej kupowane</button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" role="presentation">
                     <button
-                        class="nav-link active"
-                        id="pills-home-tab"
+                        class="nav-link"
+                        id="pills-statistics3-tab"
                         data-bs-toggle="pill"
-                        data-bs-target="#pills-home"
+                        data-bs-target="#pills-statistics3"
                         type="button"
                         role="tab"
-                        aria-controls="pills-home"
+                        aria-controls="pills-statistics3"
                         aria-selected="true"
                     >Ilość produktów</button>
                 </li>
             </ul>
         </div>
-        <div id="statistics">
-            <canvas id="myChart" width="300px" height="100%"></canvas>
+        <!-- <canvas id="myChart" width="200px" height="100%"></canvas> -->
+        <div class="tab-content" id="statistics1">
+            <div
+                class="tab-pane fade show active"
+                id="pills-statistics1"
+                role="tabpanel"
+                aria-labelledby="pills-statistics1-tab"
+                >
+                <canvas id="myChart1" width="200px" height="100%"></canvas>
+            </div>
+            <div
+                class="tab-pane fade"
+                id="pills-statistics2"
+                role="tabpanel"
+                aria-labelledby="pills-statistics2-tab"
+                >
+                <canvas id="myChart2" width="200px" height="100%"></canvas>
+            </div>
+            <div
+                class="tab-pane fade"
+                id="pills-statistics3"
+                role="tabpanel"
+                aria-labelledby="pills-statistics3-tab"
+                >
+                <canvas id="myChart3" width="200px" height="100%"></canvas>
+            </div>
+            
         </div>
     </div>
 
@@ -301,8 +330,8 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore hic sunt delectus ipsum, modi, ut, pariatur corrupti expedita accusantium magni ipsam? Odio velit dignissimos ipsam, libero expedita officiis accusantium corrupti?</p>
     </div>
     
-    <script src="script/searchEngine.js"></script>
     <script src="script/barchart.js"></script>
+    <script src="script/searchEngine.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="script/scripts.js"></script>
