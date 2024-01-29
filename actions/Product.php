@@ -75,7 +75,12 @@
 ?>
 
 </div>
-
-<script src="../script/search_engine_prod.js"></script>
+<script>
+    localStorage.setItem("searchEnginePath", "class/GetData.php")
+    localStorage.setItem("anchorHref", "Product.php?id=")
+    localStorage.setItem("sInput", "searchInput")
+    localStorage.setItem("sResult", "searchResults")
+</script>
+<script src="../script/search_engine.js"></script>
 
 <?php include('parts/footer.php'); ?>

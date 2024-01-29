@@ -82,7 +82,12 @@
     ?>
 </div>
 </div>
-
-<script src="../script/search_engine_cl.js"></script>
+<script>
+    localStorage.setItem("searchEnginePath", "class/GetClData.php")
+    localStorage.setItem("anchorHref", "Client.php?id=")
+    localStorage.setItem("sInput", "searchClInput")
+    localStorage.setItem("sResult", "searchClResults")
+</script>
+<script src="../script/search_engine.js"></script>
 
 <?php include('parts/footer.php'); ?>

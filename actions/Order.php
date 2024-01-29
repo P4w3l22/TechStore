@@ -78,7 +78,13 @@
     <div>
 </div>
 </div>
-<script src="../script/search_engine_ord.js"></script>
+<script>
+    localStorage.setItem("searchEnginePath", "class/GetOrdData.php")
+    localStorage.setItem("anchorHref", "Order.php?id=")
+    localStorage.setItem("sInput", "searchOrdInput")
+    localStorage.setItem("sResult", "searchOrdResults")
+</script>
+<script src="../script/search_engine.js"></script>
 <script>
     var selects = document.querySelectorAll('select')
 

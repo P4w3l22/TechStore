@@ -9,16 +9,10 @@
     <link rel="stylesheet" href="style/style_button.css">
     <link id="stylesheet_dark" rel="stylesheet" href="style/style_dark.css" disabled>
     <link rel="icon" href="images/cpu.svg">
-
     <title>TechStore</title>
-    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- <script>
-        firstChart()
-    </script> -->
 </head>
 <body style="text-align: center;">
-    <!-- 1681 -->
     <div class="first_view">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -74,11 +68,6 @@
                                     placeholder="Search"
                                     id="searchInput"
                                 >
-                                <!-- <button 
-                                    class="btn btn-primary button-round"
-                                    type="submit">
-                                    Search
-                                </button> -->
                             </form>
                             <ul id="searchResults" 
                                 class="dropdown-menu"
@@ -150,13 +139,11 @@
             </div>
         </nav>
         <div class="fade-el">
-            <!-- 400% -->
             <h1>Witamy w naszym sklepie!</h1> 
             <h4>Zajrzyj do naszej oferty i znajdź coś dla siebie - dobierz potrzebne komponenty i zbuduj komputer marzeń!</h4>
         </div>
     </div>
 
-    <!-- CAROUSEL VIEW -->
     <div class="second_view">
         <h1>Proponowane dla Ciebie</h1>
         <div
@@ -295,7 +282,6 @@
                 </li>
             </ul>
         </div>
-        <!-- <canvas id="myChart" width="200px" height="100%"></canvas> -->
         <div class="tab-content" id="statistics1">
             <div
                 class="tab-pane fade show active"
@@ -331,58 +317,71 @@
     </div>
     
     <script src="script/barchart.js"></script>
-    <script src="script/searchEngine.js"></script>
+    
     <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="script/scripts.js"></script>
     <script>
-        var stylesheet = document.getElementById('stylesheet_dark')
+        localStorage.setItem("searchEnginePath", "actions/class/GetData.php")
+        localStorage.setItem("anchorHref", "actions/ProductSite.php?id=")
+        localStorage.setItem("sInput", "searchInput")
+        localStorage.setItem("sResult", "searchResults")
+        
+    </script>
+    <script src="script/search_engine.js"></script>
+    <script>
+        var stylesheet = document.getElementById('stylesheet_dark');
         var currentTheme = localStorage.getItem('theme');
-        var button = document.getElementById('theme')
+        var button = document.getElementById('theme');
 
-        if (currentTheme === null) {
-            currentTheme = 'light'
+        if (currentTheme === null) 
+        {
+            currentTheme = 'light';
         }
 
         if (currentTheme === 'light')
         {
-            stylesheet.disabled = true
-        } else {
-            stylesheet.disabled = false
-            button.click()
+            stylesheet.disabled = true;
+        } 
+        else 
+        {
+            stylesheet.disabled = false;
+            button.click();
         }
 
         button.addEventListener('click', (e) => {
-            if (stylesheet.disabled) {
-                currentTheme = 'dark'
-                stylesheet.disabled = false
+            if (stylesheet.disabled) 
+            {
+                currentTheme = 'dark';
+                stylesheet.disabled = false;
             }
-            else {
-                currentTheme = 'light'
-                stylesheet.disabled = true
+            else 
+            {
+                currentTheme = 'light';
+                stylesheet.disabled = true;
             }
-            localStorage.setItem('theme', currentTheme)
+            localStorage.setItem('theme', currentTheme);
         })
     </script>
     <script>
         fetch('actions/class/GetCaroData.php?order=pr_price')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('cardProp').innerHTML = data
+                    document.getElementById('cardProp').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
         
         fetch('actions/class/GetCaroData.php?order=pr_amount')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('cardMost').innerHTML = data
+                    document.getElementById('cardMost').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
 
         fetch('actions/class/GetCaroData.php?order=pr_title')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('cardLast').innerHTML = data
+                    document.getElementById('cardLast').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
 

@@ -1,14 +1,20 @@
 var data = []
+var path = localStorage.getItem("searchEnginePath")
+var aHref = localStorage.getItem("anchorHref")
 
-fetch('class/GetClData.php')
+var sInput = localStorage.getItem("sInput")
+var sResult = localStorage.getItem("sResult")
+
+
+fetch(path)
     .then(response => response.json())
     .then(receiveData => {
         data = Object.entries(receiveData)
     })
 
-document.getElementById("searchClInput").addEventListener("input", function () {
+document.getElementById(sInput).addEventListener("input", function () {
     const query = this.value.toLowerCase();
-    const resultsContainer = document.getElementById("searchClResults");
+    const resultsContainer = document.getElementById(sResult);
     resultsContainer.innerHTML = "";
 
     const results = data.filter(([key, value]) => value.toLowerCase().includes(query));
@@ -21,7 +27,7 @@ document.getElementById("searchClInput").addEventListener("input", function () {
             const el = document.createElement('li')
             const resultElement = document.createElement('a')
             resultElement.textContent = result[1]
-            resultElement.href = "Client.php?id=" + result[0]
+            resultElement.href = aHref + result[0]
             resultElement.classList.add('dropdown-item')
             el.appendChild(resultElement)
 
@@ -30,14 +36,14 @@ document.getElementById("searchClInput").addEventListener("input", function () {
     }
 });
 document.addEventListener('click', function(event) {
-    const searchResults = document.getElementById('searchClResults');
-    const searchInput = document.getElementById('searchClInput');
+    const searchResults = document.getElementById(sResult);
+    const searchInput = document.getElementById(sInput);
     if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
         searchResults.style.display = 'none';
     }
 });
 
-document.getElementById('searchClInput').addEventListener('click', function() {
-    const searchResults = document.getElementById('searchClResults');
+document.getElementById(sInput).addEventListener('click', function() {
+    const searchResults = document.getElementById(sResult);
     searchResults.style.display = 'block';
 });

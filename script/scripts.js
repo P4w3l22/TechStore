@@ -187,32 +187,60 @@ function saveOrder(id, prev_id, edit_or_del)
     const previous_id = prev_id
     const present_id = document.getElementById("order_" + id + "_" + prev_id).value
 
-    // alert('czeklam')
+    destination_url = 'class/EditOrder.php'
+    alert_message = 'Essa!'
 
-    var xhr = new XMLHttpRequest()
-    var url = 'class/EditOrder.php'
 
-    xhr.open("POST", url, true)
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+    // var xhr = new XMLHttpRequest()
+    // var url = 'class/EditOrder.php'
+
+    // xhr.open("POST", url, true)
+    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
     
-    xhr.onreadystatechange = function () 
-    {
-        if (xhr.readyState == 4 && xhr.status == 200)
-        {            
-            // console.log(xhr.responseText);
-            alert('zmieniono!')
-            location.reload()
-        }
-    }
+    // xhr.onreadystatechange = function () 
+    // {
+    //     if (xhr.readyState == 4 && xhr.status == 200)
+    //     {            
+    //         // console.log(xhr.responseText);
+    //         alert('zmieniono!')
+    //         location.reload()
+    //     }
+    // }
     
     if (edit_or_del == 1)
     {
-        xhr.send("id="+id + "&previous_id="+previous_id + "&present_id="+present_id)
+        xhr_content = "id="+id + "&previous_id="+previous_id + "&present_id="+present_id
+        
+        // xhr.send("id="+id + "&previous_id="+previous_id + "&present_id="+present_id)
+        
     }
     else if (edit_or_del == 2)
     {
-        xhr.send("id="+id + "&previous_id="+previous_id)
+        xhr_content = "id="+id + "&previous_id="+previous_id
+
+        // xhr.send("id="+id + "&previous_id="+previous_id)
     }
+    xhrRequest(destination_url, alert_message, xhr_content)
+}
+
+function xhrRequest(destination_url, alert_message, xhr_content)
+{
+    var xhr = new XMLHttpRequest()
+
+    xhr.open("POST", destination_url, true)
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+    xhr.onreadystatechange = function ()
+    {
+        if (xhr.readyState == 4 && xhr.status == 200)
+        {
+            alert(alert_message)
+            location.reload()
+        }
+    }
+
+    xhr.send(xhr_content)
 }
 
 function deleteBasketProd(id)

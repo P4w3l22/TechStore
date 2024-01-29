@@ -303,7 +303,6 @@
 
         public function GetCaroData($order)
         {
-            // $order = "ORDER BY " . ;
             $sql = "SELECT pr_id, pr_picture, pr_price, pr_title 
                     FROM Products
                     ORDER BY ". $order ." 
