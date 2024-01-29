@@ -72,7 +72,7 @@ form.addEventListener('submit', (e) => {
         numberErrorElement.innerText = "Numer telefonu musi zawierać wyłącznie cyfry"
     }
 
-    if (!/^[\S]+@[\S]+.com$/.test(email.value)) {
+    if (!/^[\S]+@[\S]+.[\S]+$/.test(email.value)) {
         isValid = false
         emailErrorElement.innerText = "Podaj właściwy adres email"
     }

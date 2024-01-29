@@ -1,6 +1,6 @@
 <?php 
     include('class/Manage.php');
-    $manage = new Manage();
+    $manage = new Basket();
     include('parts/header.php'); 
     session_start();
 ?>

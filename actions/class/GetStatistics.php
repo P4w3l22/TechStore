@@ -1,6 +1,6 @@
 <?php
     include('Manage.php');
-    $manage = new Manage();
+    $manage = new Statistics();
 
     $json_to_send = array(
         1 => $manage -> CategoryAmount(),

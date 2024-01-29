@@ -1,7 +1,7 @@
 <?php
     include('Manage.php');
     $manager = new ManageOrder();
-    $manager2 = new Manage();
+    $manager2 = new Basket();
     session_start();
 
     // echo $_SESSION['basket'][$_SESSION['username']];

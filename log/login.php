@@ -8,27 +8,19 @@
         <title>Document</title>
     </head>
     <body>
-        <?php if (isset($_GET['bool']) && $_GET['bool'] === 1) { echo "<p style='color: white; 
-                                                          position: absolute; 
-                                                          z-index: 3; 
-                                                          top: 0px; 
-                                                          left: 0px; 
-                                                          background-color: #C61F1F;
-                                                          padding: 10px 20px;
-                                                          border-radius: 0px 0px 20px 0px;
-                                                          '>Błędne dane logowania!</p>"; } 
-            //   else if (isset($_GET['bool']))
-            //   {
-            //     echo "<p style='color: white; 
-            //             position: absolute; 
-            //             z-index: 3; 
-            //             top: 0px; 
-            //             left: 0px; 
-            //             background-color: #C61F1F;
-            //             padding: 10px 20px;
-            //             border-radius: 0px 0px 20px 0px;
-            //             '>". $_GET['bool'] ."</p>";
-            //   }?>
+        <?php if (isset($_GET['bool']) && $_GET['bool'] === 1) 
+                  { 
+                      echo "<p style='color: white; 
+                                      position: absolute; 
+                                      z-index: 3; 
+                                      top: 0px; 
+                                      left: 0px; 
+                                      background-color: #C61F1F;
+                                      padding: 10px 20px;
+                                      border-radius: 0px 0px 20px 0px;
+                                      '>Błędne dane logowania!</p>"; 
+                  } 
+        ?>
             
         <div class="box">
             <form id="login-form" action="log.php" method="post">

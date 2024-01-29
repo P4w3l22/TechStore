@@ -1,6 +1,5 @@
 
 <?php
-    // session_start();
     require('Connect.php');
     class Manage extends dbConfig
     {
@@ -12,8 +11,6 @@
         protected $clientTable;
         protected $productTable;
         protected $orderTable;
-        protected $orderElementTable = "OrderElements";
-        protected $opinionTable = "Opinions";
 
         protected $connection = false;
 
@@ -41,92 +38,6 @@
                     $this -> connection = $conn;
                 }
             }
-        }
-
-        public function CategoryAmount()
-        {
-            $sql = "SELECT pr_category,
-                           COUNT(*) AS cat_amount
-                    FROM Products
-                    GROUP BY pr_category
-                    ORDER BY cat_amount DESC;";
-            $result = mysqli_query($this -> connection, $sql);
-            $output = array();
-
-            if (mysqli_num_rows($result) > 0)
-            {
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    $output[$row['pr_category']] = $row['cat_amount'];
-                }
-            }
-            // header('Content-Type: application/json');
-            return $output;
-        }
-
-        public function MostFrequentlyBought()
-        {
-            $sql = "SELECT pr_title, 
-                        COUNT(Orders.pr_id) AS amount
-                    FROM Orders, Products
-                     WHERE Products.pr_id = Orders.pr_id
-                    GROUP BY Orders.pr_id
-                    ORDER BY amount DESC;";
-            $result = mysqli_query($this -> connection, $sql);
-            $output = array();
-
-            if (mysqli_num_rows($result) > 0)
-            {
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    $output[$row['pr_title']] = $row['amount'];
-                }
-            }
-            // header('Content-Type: application/json');
-            return $output;
-        }
-
-        public function ProductsAmount()
-        {
-            $sql = "SELECT pr_title, pr_amount
-                    FROM Products
-                    ORDER BY pr_amount DESC;";
-            $result = mysqli_query($this -> connection, $sql);
-            $output = array();
-
-            if (mysqli_num_rows($result) > 0)
-            {
-                while ($row = mysqli_fetch_assoc($result))
-                {
-                    $output[$row['pr_title']] = $row['pr_amount'];
-                }
-            }
-            return $output;
-
-        }
-
-        public function ReadFromJSON()
-        {
-            
-            $path = "../log/basket.json";
-            $basket_file = file_get_contents($path);
-            return json_decode($basket_file, true);
-        }
-
-        public function SaveToJSON($new_basket)
-        {
-            // session_start();
-            // $new_basket = $_SESSION['basket'];
-            $path = "../../log/basket.json";
-            file_put_contents($path, json_encode($new_basket, JSON_PRETTY_PRINT));
-
-        }
-
-        public function DeleteBasketProd($id)
-        {
-            session_start();
-            unset($_SESSION['basket'][$_SESSION['username']][$id]);
-            $this -> SaveToJSON($_SESSION['basket']);
         }
 
         public function DeleteRow($table)
@@ -232,51 +143,6 @@
             {
                 echo "Brak klientów";
             }
-        }
-
-        public function Basket($idList)
-        {
-            if (count($idList) == 0)
-            {
-                echo "Brak produktów w koszyku";
-            }
-            else
-            {
-                $counter = 0;
-                for ($i = 0; $i < count($idList); $i++)
-                {
-                    $this -> BasketRow($idList[$i], $counter);
-                    $counter++;
-                }
-            }
-        }
-
-        public function BasketRow($id, $counter)
-        {
-            $product = new Product($id);
-            echo '  <div>
-                        <tr id="view">
-                            <th scope="row">' . $counter+1 . '</th>
-                            <td>' . $product -> Title() . '</td>
-                            <td style="max-height: 50px;">
-                                <img
-                                    class="card-img-top"
-                                    src="' . $product -> Picture() . '"
-                                    alt=""
-                                    style="width: 150px; height: 150px"
-                                />
-                            </td>
-                            <td>' . $product -> Price() . '</td>
-                            <td>
-                                <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń" type="submit" onclick="deleteBasketProd('. $counter .'); return confirmDelete()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-                                    </svg>
-                                </button>
-                            </td>
-                        </tr>
-                    </div>';
-            $counter++; 
         }
 
         public function Card($id)
@@ -392,6 +258,159 @@
         public function __destruct()
         {
             $this -> connection -> close();
+        }
+    }
+
+    class Statistics extends Manage
+    {
+        public function __construct()
+        {
+            parent::__construct();
+        }
+
+        public function CategoryAmount()
+        {
+            $sql = "SELECT pr_category,
+                           COUNT(*) AS cat_amount
+                    FROM Products
+                    GROUP BY pr_category
+                    ORDER BY cat_amount DESC;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['pr_category']] = $row['cat_amount'];
+                }
+            }
+            return $output;
+        }
+
+        public function MostFrequentlyBought()
+        {
+            $sql = "SELECT pr_title, 
+                        COUNT(Orders.pr_id) AS amount
+                    FROM Orders, Products
+                     WHERE Products.pr_id = Orders.pr_id
+                    GROUP BY Orders.pr_id
+                    ORDER BY amount DESC;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['pr_title']] = $row['amount'];
+                }
+            }
+            return $output;
+        }
+        
+        public function ProductsAmount()
+        {
+            $sql = "SELECT pr_title, pr_amount
+                    FROM Products
+                    ORDER BY pr_amount DESC;";
+            $result = mysqli_query($this -> connection, $sql);
+            $output = array();
+
+            if (mysqli_num_rows($result) > 0)
+            {
+                while ($row = mysqli_fetch_assoc($result))
+                {
+                    $output[$row['pr_title']] = $row['pr_amount'];
+                }
+            }
+            return $output;
+        }
+
+        public function __destruct()
+        {
+            parent::__destruct();
+        }
+    }
+
+    class Basket extends Manage
+    {
+        public function __construct()
+        {
+            parent::__construct();
+        }
+
+        public function Basket($idList)
+        {
+            if (count($idList) == 0)
+            {
+                echo "Brak produktów w koszyku";
+            }
+            else
+            {
+                $counter = 0;
+                for ($i = 0; $i < count($idList); $i++)
+                {
+                    $this -> BasketRow($idList[$i], $counter);
+                    $counter++;
+                }
+            }
+        }
+
+        public function BasketRow($id, $counter)
+        {
+            $product = new Product($id);
+            echo '  <div>
+                        <tr id="view">
+                            <th scope="row">' . $counter+1 . '</th>
+                            <td>' . $product -> Title() . '</td>
+                            <td style="max-height: 50px;">
+                                <img
+                                    class="card-img-top"
+                                    src="' . $product -> Picture() . '"
+                                    alt=""
+                                    style="width: 150px; height: 150px"
+                                />
+                            </td>
+                            <td>' . $product -> Price() . '</td>
+                            <td>
+                                <button style="border-radius: 6px; background-color: red; border: none; color: white;" title="Usuń" type="submit" onclick="deleteBasketProd('. $counter .'); return confirmDelete()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </div>';
+            $counter++; 
+        }
+
+        public function DeleteBasketProd($id)
+        {
+            session_start();
+            print_r($_SESSION['basket']);
+
+            array_splice($_SESSION['basket'][$_SESSION['username']], $id, 1);
+            
+            print_r($_SESSION['basket']);
+            $this -> SaveToJSON($_SESSION['basket']);
+        }
+
+        public function ReadFromJSON($path = "../log/basket.json")
+        {
+            $basket_file = file_get_contents($path);
+            return json_decode($basket_file, true);
+        }
+
+        public function SaveToJSON($new_basket)
+        {
+            $path = "../../log/basket.json";
+            file_put_contents($path, json_encode($new_basket, JSON_PRETTY_PRINT));
+        }
+
+        public function __destruct()
+        {
+            parent::__destruct();
         }
     }
 

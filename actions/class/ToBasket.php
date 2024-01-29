@@ -1,6 +1,6 @@
 <?php
     include('Manage.php');
-    $manage = new Manage();
+    $manage = new Basket();
     session_start();
 
     if (isset($_POST['id']))

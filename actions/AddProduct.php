@@ -596,5 +596,25 @@
 
     <!-- </form> -->
 </div>
+<script src="../script/scripts.js"></script>
+<script>
+    // CATEGORY
+    document.getElementById('category').addEventListener('change', function() {
+        var options = document.querySelectorAll('.dis')
+        options.forEach(function(option) {
+            option.style.display = 'none'
+        })
+        var choice = document.getElementById('category').value
+        document.getElementById(choice).style.display = 'block'
+    })
+
+    var options = document.querySelectorAll('.dis')
+    options.forEach(function(option) {
+        option.style.display = 'none'
+    })
+    var choice = document.getElementById('category').value
+    document.getElementById(choice).style.display = 'block'
+
+</script>
 
 <?php include('parts/footer.php'); ?>

@@ -19,10 +19,10 @@ function prod_valid()
 
     var Valid = true
 
-    if (title.value.charAt(0) != title.value.charAt(0).toUpperCase()) {
-        Valid = false
-        titleError.innerText = 'Tytuł powinien zaczynać się z dużej litery'
-    }
+    // if (title.value.charAt(0) != title.value.charAt(0).toUpperCase()) {
+    //     Valid = false
+    //     titleError.innerText = 'Tytuł powinien zaczynać się z dużej litery'
+    // }
 
     if (title.value.length < 3) {
         Valid = false
@@ -54,19 +54,14 @@ function prod_valid()
         amountError.innerText = "Wypełnij to pole"
     }
 
-    if (!Valid) {
-        return false
-    }
-    else {
-        return true
-    }
+    return Valid
         
 }
 
 function addProd(id=-1)
 {
-
-    if (prod_valid()) {
+    if (prod_valid())
+    {
     
         const title = document.getElementById('title')
         const select = document.getElementById('category')
@@ -135,29 +130,17 @@ function addProd(id=-1)
                             "Podświetlenie":"${document.getElementById('co_backlight').value}"}`
         }
 
-        if (select.value !== '...')
-            var xhr = new XMLHttpRequest()
-
-        var url = 'class/Spec.php'
-        
-        if (id !== -1)
-        {
-            var url = 'class/EditProduct.php?id=' + id.toString()
-        }
-         console.log(url)
-
-        xhr.open("POST", url, true)
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                console.log(xhr.responseText);
-                alert("Dodano!")
-                location.reload()
+        if (select.value !== '...') {
+            destination_url = 'class/Spec.php'
+            alert_message = "Dodano!"
+            xhr_content = "json=" + jsonFormat + "&title=" + title.value + "&select=" + choice + "&photo=" + photo.value + "&price=" + price.value + "&amount=" + amount.value + "&description=" + description.value
+            if (id !== -1) {
+                destination_url = 'class/EditProduct.php?id=' + id.toString()
+                alert_message = "Zmieniono!"
             }
+
+            xhrRequest(destination_url, alert_message, xhr_content)
         }
-            
-        xhr.send("json=" + jsonFormat + "&title=" + title.value + "&select=" + choice + "&photo=" + photo.value + "&price=" + price.value + "&amount=" + amount.value + "&description=" + description.value)
     }
 }
 
@@ -169,7 +152,6 @@ function edit(id)
 
 function editOrder(id, displayToEdit)
 {
-    // alert('działa')
     if (displayToEdit)
     {
         document.getElementById('show_' + id).style.display = 'none'
@@ -188,39 +170,17 @@ function saveOrder(id, prev_id, edit_or_del)
     const present_id = document.getElementById("order_" + id + "_" + prev_id).value
 
     destination_url = 'class/EditOrder.php'
-    alert_message = 'Essa!'
-
-
-
-    // var xhr = new XMLHttpRequest()
-    // var url = 'class/EditOrder.php'
-
-    // xhr.open("POST", url, true)
-    // xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-    
-    // xhr.onreadystatechange = function () 
-    // {
-    //     if (xhr.readyState == 4 && xhr.status == 200)
-    //     {            
-    //         // console.log(xhr.responseText);
-    //         alert('zmieniono!')
-    //         location.reload()
-    //     }
-    // }
+    alert_message = 'Zmieniono!'
     
     if (edit_or_del == 1)
     {
-        xhr_content = "id="+id + "&previous_id="+previous_id + "&present_id="+present_id
-        
-        // xhr.send("id="+id + "&previous_id="+previous_id + "&present_id="+present_id)
-        
+        xhr_content = "id="+id + "&previous_id="+previous_id + "&present_id="+present_id                
     }
     else if (edit_or_del == 2)
     {
         xhr_content = "id="+id + "&previous_id="+previous_id
-
-        // xhr.send("id="+id + "&previous_id="+previous_id)
     }
+
     xhrRequest(destination_url, alert_message, xhr_content)
 }
 
@@ -246,21 +206,11 @@ function xhrRequest(destination_url, alert_message, xhr_content)
 function deleteBasketProd(id)
 {
     // return confirm("Czy na pewno chcesz usunąć?")
-
-    var xhr = new XMLHttpRequest()
-    var url = 'class/DeleteBasketProd.php'
-
-    xhr.open("POST", url, true)
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            // console.log(xhr.responseText);
-            // alert('Usunięto!')
-            location.reload()
-        }
-    }
-    xhr.send("id="+id)
+    destination_url = "class/DeleteBasketProd.php"
+    alert_message = "Usunięto"
+    xhr_content = "id=" + id
+    
+    xhrRequest(destination_url, alert_message, xhr_content)
 }
 
 function save(id)
@@ -269,22 +219,13 @@ function save(id)
     const user_second_name = document.getElementById("second_name_"+id)
     const user_email = document.getElementById("email_"+id)
     const user_address = document.getElementById("address_"+id)
-    const user_phone = document.getElementById("phone_"+id)
+    const user_phone = document.getElementById("phone_" + id)
 
-    var xhr = new XMLHttpRequest()
-    var url = 'class/Edit.php'
-
-    xhr.open("POST", url, true)
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    destination_url = "class/Edit.php"
+    alert_message = "Zmieniono"
+    xhr_content = "id="+id + "&name="+user_name.value + "&second_name="+user_second_name.value + "&email="+user_email.value + "&address="+user_address.value + "&phone="+user_phone.value
     
-    xhr.onreadystatechange = function () 
-    {
-        if (xhr.readyState == 4 && xhr.status == 200)
-        {            
-            location.reload()
-        }
-    }
-    xhr.send("id="+id + "&name="+user_name.value + "&second_name="+user_second_name.value + "&email="+user_email.value + "&address="+user_address.value + "&phone="+user_phone.value)
+    xhrRequest(destination_url, alert_message, xhr_content)
     
     document.getElementById('view_' + id).style.display = 'table-row'
     document.getElementById('edit_' + id).style.display = 'none'
