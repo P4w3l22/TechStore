@@ -1,5 +1,5 @@
 <?php 
-    include('class/Manage.php');
+    include('../class/Manage.php');
     $manage = new ManageClient();
     include('parts/header.php'); 
 ?>
@@ -83,7 +83,7 @@
 </div>
 </div>
 <script>
-    localStorage.setItem("searchEnginePath", "class/Get.php?m=c")
+    localStorage.setItem("searchEnginePath", "../actions_php/Get.php?m=c")
     localStorage.setItem("anchorHref", "Client.php?id=")
     localStorage.setItem("sInput", "searchClInput")
     localStorage.setItem("sResult", "searchClResults")

@@ -1,5 +1,5 @@
 <?php 
-    include('class/Manage.php');
+    include('../class/Manage.php');
     $manage = new Basket();
     include('parts/header.php'); 
     session_start();
@@ -46,7 +46,7 @@
     function addOrder()
     {
         var xhr = new XMLHttpRequest()
-        var url = 'class/Bas.php?m=s'
+        var url = '../actions_php/Bas.php?m=s'
 
         xhr.open("POST", url, true)
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")

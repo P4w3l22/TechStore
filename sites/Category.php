@@ -1,5 +1,5 @@
 <?php 
-    include('class/Manage.php');
+    include('../class/Manage.php');
     $manage = new ManageProduct();
     include('parts/header.php'); 
 ?>

@@ -1,5 +1,5 @@
 <?php 
-    include('class/Manage.php');
+    include('../class/Manage.php');
     $manage = new ManageOrder();
     include('parts/header.php'); 
 ?>
@@ -79,7 +79,7 @@
 </div>
 </div>
 <script>
-    localStorage.setItem("searchEnginePath", "class/Get.php?m=o")
+    localStorage.setItem("searchEnginePath", "../actions_php/Get.php?m=o")
     localStorage.setItem("anchorHref", "Order.php?id=")
     localStorage.setItem("sInput", "searchOrdInput")
     localStorage.setItem("sResult", "searchOrdResults")

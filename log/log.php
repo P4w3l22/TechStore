@@ -1,5 +1,5 @@
 <?php 
-    include('../actions/class/Manage.php');
+    include('../class/Manage.php');
     $manage = new Manage();
     $manageBasket = new Basket();
 

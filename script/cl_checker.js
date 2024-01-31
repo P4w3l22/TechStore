@@ -23,7 +23,7 @@ form.addEventListener('submit', (e) => {
     emailErrorElement.innerText = ""
     var isValid = true
 
-    fetch('class/GetEmails.php', {
+    fetch('../actions_php/Get.php?m=e', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'

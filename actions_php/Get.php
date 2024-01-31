@@ -1,6 +1,6 @@
 <?php
 
-    include('Manage.php');
+    include('../class/Manage.php');
 
     if ($_GET['m'] === "c")
     {

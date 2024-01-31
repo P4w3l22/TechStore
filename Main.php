@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-item" href="actions/Client.php">Klient</a>
+                            <a class="nav-link dropdown-item" href="sites/Client.php">Klient</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -49,13 +49,13 @@
                                 aria-expanded="false"
                             >Produkt</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="actions/Product.php">Produkty</a></li>
-                                <li><a class="dropdown-item" href="actions/Category.php">Kategorie</a></li> <!--  target="_blank" -->
+                                <li><a class="dropdown-item" href="sites/Product.php">Produkty</a></li>
+                                <li><a class="dropdown-item" href="sites/Category.php">Kategorie</a></li> <!--  target="_blank" -->
                             </ul>
                         </li>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-item" href="actions/Order.php">Zamówienia</a>
+                            <a class="nav-link dropdown-item" href="sites/Order.php">Zamówienia</a>
                         </li>
                     </ul>
                     
@@ -123,7 +123,7 @@
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><p class="dropdown-item"><?php echo $_SESSION['username']; ?></p></li>
                                     <li><a class="dropdown-item" href="log/sessionDestroy.php">Wyloguj</a></li>
-                                    <li><a class="dropdown-item" href="actions/Basket.php">Koszyk</a></li>
+                                    <li><a class="dropdown-item" href="sites/Basket.php">Koszyk</a></li>
                                 </ul>
                             </div>
                         <?php else : ?>
@@ -322,8 +322,8 @@
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="script/scripts.js"></script>
     <script>
-        localStorage.setItem("searchEnginePath", "actions/class/Get.php?m=p")
-        localStorage.setItem("anchorHref", "actions/ProductSite.php?id=")
+        localStorage.setItem("searchEnginePath", "actions_php/Get.php?m=p")
+        localStorage.setItem("anchorHref", "sites/ProductSite.php?id=")
         localStorage.setItem("sInput", "searchInput")
         localStorage.setItem("sResult", "searchResults")
         
@@ -364,21 +364,21 @@
         })
     </script>
     <script>
-        fetch('actions/class/Get.php?m=m&order=pr_price')
+        fetch('actions_php/Get.php?m=m&order=pr_price')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cardProp').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
         
-        fetch('actions/class/Get.php?m=m&order=pr_amount')
+        fetch('actions_php/Get.php?m=m&order=pr_amount')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cardMost').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
 
-        fetch('actions/class/Get.php?m=m&order=pr_title')
+        fetch('actions_php/Get.php?m=m&order=pr_title')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cardLast').innerHTML = data;

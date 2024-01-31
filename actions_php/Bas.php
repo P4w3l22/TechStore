@@ -1,7 +1,7 @@
 <?php
 
-    include('Manage.php');
-    session_start();
+include('../class/Manage.php');
+session_start();
 
     if ($_GET['m'] === 'd')
     {

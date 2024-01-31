@@ -1,5 +1,5 @@
 <?php 
-    include('class/Manage.php');
+    include('../class/Manage.php');
     // $manage = new Manage();
     $manage = new ManageProduct();
     include('parts/header.php'); 
@@ -76,7 +76,7 @@
 
 </div>
 <script>
-    localStorage.setItem("searchEnginePath", "class/Get.php?m=p")
+    localStorage.setItem("searchEnginePath", "../actions_php/Get.php?m=p")
     localStorage.setItem("anchorHref", "Product.php?id=")
     localStorage.setItem("sInput", "searchInput")
     localStorage.setItem("sResult", "searchResults")

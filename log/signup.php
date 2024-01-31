@@ -1,5 +1,5 @@
 <?php 
-    include('../actions/class/Manage.php');
+    include('../class/Manage.php');
     $manage = new ManageClient();
 ?>
 
@@ -101,7 +101,7 @@
                 var isValid = true
 
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "../actions/class/GetEmails.php", false);
+                xhr.open("POST", "../actions_php/GetEmails.php", false);
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
                 xhr.onreadystatechange = function() 
