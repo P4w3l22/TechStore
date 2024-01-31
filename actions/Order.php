@@ -79,7 +79,7 @@
 </div>
 </div>
 <script>
-    localStorage.setItem("searchEnginePath", "class/GetOrdData.php")
+    localStorage.setItem("searchEnginePath", "class/Get.php?m=o")
     localStorage.setItem("anchorHref", "Order.php?id=")
     localStorage.setItem("sInput", "searchOrdInput")
     localStorage.setItem("sResult", "searchOrdResults")

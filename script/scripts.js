@@ -131,11 +131,11 @@ function addProd(id=-1)
         }
 
         if (select.value !== '...') {
-            destination_url = 'class/Spec.php'
+            destination_url = 'class/Edit.php?m=p'
             alert_message = "Dodano!"
             xhr_content = "json=" + jsonFormat + "&title=" + title.value + "&select=" + choice + "&photo=" + photo.value + "&price=" + price.value + "&amount=" + amount.value + "&description=" + description.value
             if (id !== -1) {
-                destination_url = 'class/EditProduct.php?id=' + id.toString()
+                destination_url = 'class/Edit.php?id=' + id.toString() + "&m=p"
                 alert_message = "Zmieniono!"
             }
 
@@ -169,7 +169,7 @@ function saveOrder(id, prev_id, edit_or_del)
     const previous_id = prev_id
     const present_id = document.getElementById("order_" + id + "_" + prev_id).value
 
-    destination_url = 'class/EditOrder.php'
+    destination_url = 'class/Edit.php?m=o'
     alert_message = 'Zmieniono!'
     
     if (edit_or_del == 1)
@@ -206,7 +206,7 @@ function xhrRequest(destination_url, alert_message, xhr_content)
 function deleteBasketProd(id)
 {
     // return confirm("Czy na pewno chcesz usunąć?")
-    destination_url = "class/DeleteBasketProd.php"
+    destination_url = "class/Bas.php?m=d"
     alert_message = "Usunięto"
     xhr_content = "id=" + id
     
@@ -221,7 +221,7 @@ function save(id)
     const user_address = document.getElementById("address_"+id)
     const user_phone = document.getElementById("phone_" + id)
 
-    destination_url = "class/Edit.php"
+    destination_url = "class/Edit.php?m=c"
     alert_message = "Zmieniono"
     xhr_content = "id="+id + "&name="+user_name.value + "&second_name="+user_second_name.value + "&email="+user_email.value + "&address="+user_address.value + "&phone="+user_phone.value
     

@@ -46,7 +46,7 @@
     function addOrder()
     {
         var xhr = new XMLHttpRequest()
-        var url = 'class/NewOrder.php'
+        var url = 'class/Bas.php?m=s'
 
         xhr.open("POST", url, true)
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")

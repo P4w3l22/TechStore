@@ -83,7 +83,7 @@
 </div>
 </div>
 <script>
-    localStorage.setItem("searchEnginePath", "class/GetClData.php")
+    localStorage.setItem("searchEnginePath", "class/Get.php?m=c")
     localStorage.setItem("anchorHref", "Client.php?id=")
     localStorage.setItem("sInput", "searchClInput")
     localStorage.setItem("sResult", "searchClResults")

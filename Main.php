@@ -122,7 +122,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><p class="dropdown-item"><?php echo $_SESSION['username']; ?></p></li>
-                                    <li><a class="dropdown-item" href="actions/class/SessionDestroy.php">Wyloguj</a></li>
+                                    <li><a class="dropdown-item" href="log/sessionDestroy.php">Wyloguj</a></li>
                                     <li><a class="dropdown-item" href="actions/Basket.php">Koszyk</a></li>
                                 </ul>
                             </div>
@@ -322,7 +322,7 @@
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="script/scripts.js"></script>
     <script>
-        localStorage.setItem("searchEnginePath", "actions/class/GetData.php")
+        localStorage.setItem("searchEnginePath", "actions/class/Get.php?m=p")
         localStorage.setItem("anchorHref", "actions/ProductSite.php?id=")
         localStorage.setItem("sInput", "searchInput")
         localStorage.setItem("sResult", "searchResults")
@@ -364,21 +364,21 @@
         })
     </script>
     <script>
-        fetch('actions/class/GetCaroData.php?order=pr_price')
+        fetch('actions/class/Get.php?m=m&order=pr_price')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cardProp').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
         
-        fetch('actions/class/GetCaroData.php?order=pr_amount')
+        fetch('actions/class/Get.php?m=m&order=pr_amount')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cardMost').innerHTML = data;
                 })
                 .catch(error => console.error('Error: ', error))
 
-        fetch('actions/class/GetCaroData.php?order=pr_title')
+        fetch('actions/class/Get.php?m=m&order=pr_title')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('cardLast').innerHTML = data;

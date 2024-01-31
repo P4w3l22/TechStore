@@ -76,7 +76,7 @@
 
 </div>
 <script>
-    localStorage.setItem("searchEnginePath", "class/GetData.php")
+    localStorage.setItem("searchEnginePath", "class/Get.php?m=p")
     localStorage.setItem("anchorHref", "Product.php?id=")
     localStorage.setItem("sInput", "searchInput")
     localStorage.setItem("sResult", "searchResults")

@@ -21,7 +21,21 @@
         
         <div class="col-md-5 m-6" style="border: 1px solid gray; border-radius: 8px; width: 30%; min-width: 250px; text-align: right; margin-top:30px; margin-left: 20px;">
             <h3 class="m-4"><?php echo $manage -> Price(); ?> zł</h3>
-            <button class="m-3" style="width: 200px; border-radius: 50pc; background-color: rgb(12, 174, 77); color: white; border: none; height: 40px" onclick="addToBasket(<?php echo $_GET['id']; ?>)">Dodaj do koszyka</button>
+            <button class="m-3" style="width: 200px; border-radius: 50pc; background-color: rgb(12, 174, 77); color: white; border: none; height: 40px" 
+                    onclick="<?php 
+                                session_start();
+                                if (isset($_SESSION["username"]))
+                                {
+                                    echo "addToBasket(" . $_GET['id'] . ")";
+                                }
+                                else
+                                {
+                                    echo "goToLoginPage()";
+                                }
+
+                             ?>">Dodaj do koszyka</button>
+                    <!-- onclick="addToBasket(<?php echo $_GET['id']; ?>)">Dodaj do koszyka</button> -->
+            
             <div style="display: flex;
                         text-align: left; 
                         padding: 20px; 
@@ -127,20 +141,16 @@
 <script> 
     function addToBasket(id)
     {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "class/ToBasket.php", true);
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+        destination_url = "class/Bas.php?m=a"
+        alert_message = "Dodano do koszyka"
+        xhr_content = "id=" + id
+        
+        xhrRequest(destination_url, alert_message, xhr_content)
+    }
 
-        xhr.onreadystatechange = function ()
-        {
-            if (xhr.readyState == 4 && xhr.status == 200)
-            {
-                alert("Dodano do koszyka")
-            }
-        }
-
-        xhr.send("id=" + id)
-
+    function goToLoginPage()
+    {
+        window.location.href = "../log/login.php"
     }
 </script>
 

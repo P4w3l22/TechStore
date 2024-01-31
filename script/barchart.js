@@ -2,7 +2,7 @@ var labels = []
 var data = []
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "actions/class/GetStatistics.php", false);
+xhr.open("GET", "actions/class/Get.php?m=s", false);
 
 xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
