@@ -2,7 +2,7 @@ const name = document.getElementById('name')
 const second_name = document.getElementById('second_name')
 const address = document.getElementById('address')
 const number = document.getElementById('number')
-const email = document.getElementById('email')
+const email = document.getElementById('username')
 const password1 = document.getElementById('password1')
 const password2 = document.getElementById('password')
 
@@ -12,7 +12,7 @@ const nameErrorElement = document.getElementById('name_error')
 const secondNameErrorElement = document.getElementById('second_name_error')
 const addressErrorElement = document.getElementById('address_error')
 const numberErrorElement = document.getElementById('number_error')
-const emailErrorElement = document.getElementById('email_error')
+const emailErrorElement = document.getElementById('username_error')
 const password2ErrorElement = document.getElementById('password_error')
 
 form.addEventListener('submit', (e) => {
@@ -21,24 +21,45 @@ form.addEventListener('submit', (e) => {
     addressErrorElement.innerText = ""
     numberErrorElement.innerText = ""
     emailErrorElement.innerText = ""
+    password2ErrorElement.innerText = ""
     var isValid = true
 
-    fetch('../actions_php/Get.php?m=e', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: 'email=' + encodeURIComponent(email.value)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (!data.result)
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "../actions_php/Get.php?m=e", false);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+
+    xhr.onreadystatechange = function() 
+    {
+        if (xhr.readyState == 4 && xhr.status == 200) 
+        {
+            // var data = JSON.parse(xhr.responseText);
+            console.log(xhr.responseText)
+            if (xhr.responseText == "false")
             {
                 isValid = false
                 emailErrorElement.innerText = "Podany adres email jest już używany!"
             }
-        })
-        .catch(error => console.error(error))
+        }
+    };
+    
+    xhr.send("email="+email.value);
+
+    // fetch('../actions_php/Get.php?m=e', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/x-www-form-urlencoded'
+    //         },
+    //         body: 'email=' + encodeURIComponent(email.value)
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         if (!data.result)
+    //         {
+    //             isValid = false
+    //             emailErrorElement.innerText = "Podany adres email jest już używany!"
+    //         }
+    //     })
+    //     .catch(error => console.error(error))
     
     if (name.value.length < 2) {
         isValid = false

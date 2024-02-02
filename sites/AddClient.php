@@ -64,15 +64,15 @@
         </div>
 
         <div class="col-md-4">
-            <label for="email" class="form-label">Email</label>
+            <label for="username" class="form-label">Email</label>
             <input
                 type="text"
                 class="form-control"
-                id="email"
-                name="email"
+                id="username"
+                name="username"
                 required
             >
-            <div id="email_error"></div>
+            <div id="username_error"></div>
         </div>
 
         <div class="col-md-4">
@@ -88,7 +88,7 @@
         </div>
 
         <div class="col-md-4">
-            <label for="password2" class="form-label">Powtórz hasło</label>
+            <label for="password" class="form-label">Powtórz hasło</label>
             <input
                 type="password"
                 class="form-control"

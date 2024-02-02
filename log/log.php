@@ -9,9 +9,7 @@
 
     $baskets_content = $manageBasket -> ReadFromJSON('basket.json');
     
-    if (password_verify($password, $login_pass[$username]) || 
-        ($username == "admin" && $password == "admin") ||
-        ($username == "test" && $password == "test"))
+    if (password_verify($password, $login_pass[$username]))
     {
         session_start();
 

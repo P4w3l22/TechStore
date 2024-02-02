@@ -22,7 +22,7 @@
     
     if ($_GET['m'] === "m")
     {
-        $manager = new Manage();
+        $manager = new Card();
         $manager -> GetCaroData($_GET['order']);
     }
 
@@ -33,9 +33,10 @@
         {
             $result = $manage -> CheckEmail($_POST['email']);
 
-            $response = array('result' => $result);
-            header('Content-Type: application/json');
-            echo json_encode($response);
+            echo $result;
+            // $response = array('result' => $result);
+            // header('Content-Type: application/json');
+            // echo json_encode($response);
         }
     }
 

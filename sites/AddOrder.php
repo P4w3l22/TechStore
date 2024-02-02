@@ -1,6 +1,7 @@
 <?php 
     include('../class/Manage.php');
     $manage = new ManageOrder();
+    $manage2 = new SearchDisplay();
     include('parts/header.php'); 
 ?>
 <title>Dodaj klienta</title>
@@ -20,7 +21,7 @@
                 name="cl_choice"
                 requierd
             >
-                <?php $manage -> DisplayClients(); ?>
+                <?php $manage2 -> DisplayClients(); ?>
             </select>
             <div id="cl_choice_error"></div>
         </div>
@@ -34,7 +35,7 @@
                 name="pr_choice"
                 requierd
             >
-                <?php echo $manage -> DisplayProducts(); ?>
+                <?php echo $manage2 -> DisplayProducts(); ?>
             </select>
             <div id="pr_choice_error"></div>
         </div>

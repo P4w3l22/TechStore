@@ -45,11 +45,11 @@
                 <div id="number_error" style="color: whitesmoke"></div>
 
                 <div class="inputBox">
-                    <input type="text" id="email" name="email" required="required">
+                    <input type="text" id="username" name="username" required="required">
                     <span>Email</span>
                     <i></i>
                 </div>
-                <div id="email_error" style="color: whitesmoke"></div>
+                <div id="username_error" style="color: whitesmoke"></div>
 
                 <div class="inputBox">
                     <input type="password" id="password1" name="password" required="required">
@@ -72,24 +72,37 @@
 
         </div>
         <?php
-            $manage -> Add();
-
             if ($_SERVER["REQUEST_METHOD"] == "POST")
             {
+                $manage -> Add();
+
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+
+                $manageBasket = new Basket();
+                $baskets_content = $manageBasket -> ReadFromJSON('basket.json');
+
                 session_start();
-                $_SESSION['username'] = "user";
+
+                if (!isset($baskets_content[$username]))
+                {
+                    $baskets_content[$username] = array();
+                }
+
+                $_SESSION['basket'] = $baskets_content;
+                $_SESSION['username'] = $username;
 
                 header('Location: ../Main.php');
-                exit(); 
+                exit();
             }
         ?>
         <script>
-            const email = document.getElementById('email')
+            const email = document.getElementById('username')
             const number = document.getElementById('number')
             const password1 = document.getElementById('password1')
             const password2 = document.getElementById('password')
 
-            const emailErrorElement = document.getElementById('email_error')
+            const emailErrorElement = document.getElementById('username_error')
             const numberErrorElement = document.getElementById('number_error')
             const password2ErrorElement = document.getElementById('password_error')
 
@@ -101,15 +114,16 @@
                 var isValid = true
 
                 var xhr = new XMLHttpRequest();
-                xhr.open("POST", "../actions_php/GetEmails.php", false);
+                xhr.open("POST", "../actions_php/Get.php?m=e", false);
                 xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
 
                 xhr.onreadystatechange = function() 
                 {
                     if (xhr.readyState == 4 && xhr.status == 200) 
                     {
-                        var data = JSON.parse(xhr.responseText);
-                        if (!data.result)
+                        // var data = JSON.parse(xhr.responseText);
+                        console.log(xhr.responseText)
+                        if (xhr.responseText == "false")
                         {
                             isValid = false
                             emailErrorElement.innerText = "Podany adres email jest już używany!"

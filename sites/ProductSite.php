@@ -90,21 +90,7 @@
             Specyfikacja
             </button>
         </li>
-        <li class="nav-item" role="presentation">
-            <button
-                class="nav-link"
-                id="pills-opinions-tab"
-                data-bs-toggle="pill"
-                data-bs-target="#pills-opinions"
-                type="button"
-                role="tab"
-                aria-controls="pills-opinions"
-                aria-selected="false"
-                style="color: white;"
-            >
-                Opinie
-            </button>
-        </li>
+
     </ul>
     <div class="tab-content" id="pills-tabContent" style="text-align: center; margin: 80px 0px 120px 0px;">
         <div
@@ -124,14 +110,7 @@
         >
             <?php echo $manage -> Specification(); ?>
         </div>
-        <div
-            class="tab-pane fade"
-            id="pills-opinions"
-            role="tabpanel"
-            aria-labelledby="pills-opinions-tab"
-        >
-            <?php echo $manage -> Opinions(); ?>
-        </div>
+
     </div> 
 </div>
 
