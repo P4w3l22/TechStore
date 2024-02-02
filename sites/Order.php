@@ -3,6 +3,7 @@
     $manage = new ManageOrder();
     include('parts/header.php'); 
 ?>
+
 <title>Klienci</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>

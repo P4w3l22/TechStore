@@ -91,6 +91,7 @@
                                 />
                                 <span class="theme__fill"></span>
                                 <span class="theme__icon">
+                                <!-- <span class="theme__icon-part"></span>
                                 <span class="theme__icon-part"></span>
                                 <span class="theme__icon-part"></span>
                                 <span class="theme__icon-part"></span>
@@ -98,8 +99,7 @@
                                 <span class="theme__icon-part"></span>
                                 <span class="theme__icon-part"></span>
                                 <span class="theme__icon-part"></span>
-                                <span class="theme__icon-part"></span>
-                                <span class="theme__icon-part"></span>
+                                <span class="theme__icon-part"></span> -->
                                 </span>
                             </span>
                         </label>

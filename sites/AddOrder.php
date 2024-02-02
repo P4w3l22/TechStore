@@ -4,11 +4,24 @@
     $manage2 = new SearchDisplay();
     include('parts/header.php'); 
 ?>
+
 <title>Dodaj klienta</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>
         
 <div class="m-3">
+    <button 
+        style="background-color:blueviolet; 
+                border-radius: 8px; 
+                border: none; 
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-bottom: 10px;"
+                >
+        <a href="Order.php" style="color: white; text-decoration: none;">
+            Wróć do zamówień
+        </a>
+    </button>
     <h3>Podaj dane zamówienia
     </h3><br>
     <form class="row g-3 needs-validation" action="AddOrder.php" method="post" id="form">

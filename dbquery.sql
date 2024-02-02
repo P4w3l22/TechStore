@@ -50,10 +50,10 @@ CREATE TABLE IF NOT EXISTS Orders (
 
 
 -- INSERT EXAMPLE VALUE
-INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date)
-             VALUES ("Test", "Testowy", "test@gmail.com", "Testowa 99, Warszawa", "999888777", NOW()),
-                    ("Przyklad", "Przykladowy", "przyklad@gmail.com", "Przykladowa 99, Wrocław", "777888999", NOW()),
-                    ("Mikołaj", "Mikołajowy", "mikolaj@gmail.com", "Mikołajowa 99, Gdańsk", "888999777", NOW());
+INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date, cl_hash_pass)
+             VALUES ("Test", "Testowy", "test@gmail.com", "Testowa 99, Warszawa", "999888777", NOW(), '$2y$10$lvBM3ZJjqLHOxJo6POW.LOQiXK3aa/LQxHvXi8QY579hlMtREzGzK'),
+                    ("Przyklad", "Przykladowy", "przyklad@gmail.com", "Przykladowa 99, Wrocław", "777888999", NOW(), '$2y$10$9J1TkARfBHde/N5qdc3JY.2EaI7uPdtI2rAqQUCIa/Cju.kiZIRN.'),
+                    ("Mikołaj", "Mikołajowy", "mikolaj@gmail.com", "Mikołajowa 99, Gdańsk", "888999777", NOW(), '$2y$10$knKCrpSUlyvuz05W1Z.iWuNaCE9E.OnmS2YCYpDUAKI.92yonDkRa');
 
 INSERT INTO Products(pr_title, pr_description, pr_category, pr_specification, pr_picture, pr_price, pr_amount)
              VALUES ("Karta graficzna Gigabyte GeForce RTX 3060 Ti Eagle OC 8GB GDDR6X (GV-N306TXEAGLE OC-8GD)",

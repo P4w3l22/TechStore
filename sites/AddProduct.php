@@ -16,6 +16,18 @@
 <?php include('parts/contentBackground.php'); ?>
         
 <div class="m-3">
+    <button 
+        style="background-color:blueviolet; 
+                border-radius: 8px; 
+                border: none; 
+                padding: 10px 20px;
+                margin-top: 20px;
+                margin-bottom: 10px;"
+                >
+        <a href="Product.php" style="color: white; text-decoration: none;">
+            Wróć do produktów
+        </a>
+    </button>
     <h3>Podaj dane</h3>
     <br>
         <div class="col-md-4">
