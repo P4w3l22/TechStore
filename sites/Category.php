@@ -121,7 +121,6 @@
 </div>
 
 <script>
-    // CATEGORY
     document.getElementById('category').addEventListener('change', function() {
         var options = document.querySelectorAll('.dis')
         options.forEach(function(option) {
@@ -137,20 +136,10 @@
     })
     var choice = document.getElementById('category').value
     document.getElementById(choice).style.display = 'block'
-
-
-    // ADDPRODUCT EDIT
-    
-    
-    // $('#category').on('change', function() {
-    //     $('.dis').hide();
-    //     $('#' + $('#category').val()).show();
-    // });
 </script>
 <script>
     var elements = document.querySelectorAll('ul.navbar-nav li.cat_choice')
     var contents = document.querySelectorAll('.dis')
-    // var contents = $('.dis');
 
     elements.forEach(function (element, id) {
         element.addEventListener('click', function() {
@@ -164,14 +153,6 @@
             element.style.borderBottom = "2px solid blueviolet"
         })
     })
-
-    // $('li').find('cat_choice').on('click', function() {
-    //     $('li').find('cat_choice').css('border-bottom', 'none');
-    //     $('.dis').hide();
-
-    // });
-
 </script>
-
 
 <?php include('parts/footer.php'); ?>

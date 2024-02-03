@@ -1,6 +1,5 @@
 <?php 
     include('../class/Manage.php');
-    // $manage = new Manage();
     $manage = new ManageProduct();
     include('parts/header.php'); 
 ?>
@@ -60,7 +59,6 @@
                 {
                     $manage -> Products(); 
                 }
-                
             ?>
         </tbody>
     </table>

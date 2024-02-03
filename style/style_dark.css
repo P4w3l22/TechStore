@@ -1,9 +1,6 @@
-
-/* DARK MODE */
 body {
     background-color: #121212;
     color: white;
-    /* background-color: red; */
 }
 
 .first_view {
@@ -20,8 +17,6 @@ body {
 .d-flex input::placeholder {
     color: #BABDC3;
 }
-
-
 
 .card {
     background-color: #121212;

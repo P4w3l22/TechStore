@@ -1,5 +1,4 @@
 <?php
-
     include('../class/Manage.php');
 
     if ($_GET['m'] === "c")
@@ -32,11 +31,7 @@
         if (isset($_POST['email']))
         {
             $result = $manage -> CheckEmail($_POST['email']);
-
             echo $result;
-            // $response = array('result' => $result);
-            // header('Content-Type: application/json');
-            // echo json_encode($response);
         }
     }
 
@@ -53,7 +48,4 @@
         header('Content-Type: application/json');
         echo json_encode($json_to_send);
     }
-
-    
-
 ?>

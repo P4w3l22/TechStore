@@ -1,4 +1,4 @@
-body{
+body {
     margin: 10px 10px 0px 10px;
 }
 
@@ -23,7 +23,6 @@ body{
 }
 
 .first_view .d-flex .form-control {
-    /* border-radius: 14px 2px 2px 14px; */
     border-radius: 14px;
 
 }
@@ -120,10 +119,6 @@ body{
     color: white;
 }
 
-/* actions */
-.m-3 {
-}
-
 .cate {
     display: flex; 
 }
@@ -142,14 +137,6 @@ body{
 }
 
 .m-3 .submit_button {
-    /* background-color:blueviolet; 
-    border-radius: 8px;
-    border: none; 
-    padding-bottom: 4px;
-    margin: 20px 10px;
-    padding: 10px 20px;
-    color: white; */
-
     height: 40px;
     width: 100px;
     border-radius: 8px;
@@ -157,7 +144,6 @@ body{
     background-color: rgb(138, 43, 226);
     color: white;
     font-weight: bold;
-    /* margin-left: 8px; */
 }
 
 .cate .navbar-expand-lg .container .navbar-toggler {
@@ -168,8 +154,6 @@ body{
 
 .cate .navbar-expand-lg .container .collapse .navbar-nav {
     width: 250px;
-    /* position: relative;
-    z-index: 1; */
 }
 
 .cate .dis .card {
@@ -204,11 +188,9 @@ body{
 @keyframes slideIn {
     from {
         opacity: 0;
-      /* transform: translateX(-100%); */
     }
     to {
         opacity: 1;
-      /* transform: translateX(0); */
     }
   }
 
@@ -239,8 +221,6 @@ body{
     border-radius: 2px 14px 14px 2px;
 }
 
-
-
 /* AddClient */
 .logo {
     border-radius: 0 0 20px 0;
@@ -262,16 +242,6 @@ body{
     min-height: 580px;
 }
 
-/* .needs-validation .submit_button {
-    height: 40px;
-    width: 100px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgb(138, 43, 226);
-    color: white;
-    font-weight: bold;
-} */
-
 .table tbody tr th {
     background-color: inherit;
     color: white;
@@ -291,32 +261,23 @@ body{
 /* Carousel */
 .carousel {
     margin: 50px 5%;
-    /* height: 250px; */
 }
 .cards-wrapper {
     display: flex;
     justify-content:center;
-    /* height: 250px; */
   }
 .card img {
     max-width: 100%;
-    /* height: auto; */
     max-height: 100%;
-    /* height: 50%; */
 }
 
 .card-img-top{
     height: 50%;
-    /* width: 100%; */
 }
 .card-body {
     height: 50%;
     overflow: hidden;
 }
-
-/* .card body {
-    height: 20%;
-} */
 
 .card {
     margin: 0 0.5em;
@@ -325,13 +286,6 @@ body{
     border-radius: 5px;
     width: 200px;
     height: 350px;
-    /* max-height: 350px; */
-    /* max-height: 10%; */
-    /* min-width: 150px;
-    width: 20%;
-    height: 100%;
-    height: 300px;
-    overflow: hidden; */
 }
 .carousel-inner {
     padding: 1em;
@@ -360,20 +314,11 @@ body{
     height: 35px;
     padding-bottom: 5px;
     border: none;
-    /* display: none; */
 }
 
 .dark-button:active {
     background-color: darkblue;
 }
-
-/* .navbar-collapse {
-    position: absolute;
-} */
-
-/* .prod_input::placeholder {
-    color: white;
-} */
 
 .hiddenClass {
     display: none;

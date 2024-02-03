@@ -63,10 +63,7 @@
             else
             {
                 $manager -> Edit(intval($_GET['id']), $title, $select, $message, $photo, $price, $amount, $description);
-
             }
-            
         }
     }
-
 ?>

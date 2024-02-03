@@ -35,20 +35,6 @@ CREATE TABLE IF NOT EXISTS Orders (
   order_date DATE
 );
 
--- CREATE TABLE IF NOT EXISTS OrderElements (
---   order_id INT PRIMARY KEY,
---   pr_id INT,
---   amount INT
--- );
-
--- CREATE TABLE IF NOT EXISTS Opinions (
---   pr_id INT PRIMARY KEY,
---   cl_id INT,
---   opinion TEXT(255),
---   rate ENUM('1', '2', '3', '4', '5', '6')
--- );
-
-
 -- INSERT EXAMPLE VALUE
 INSERT INTO Clients(cl_name, cl_second_name, cl_email, cl_address, cl_phone_number, cl_create_date, cl_hash_pass)
              VALUES ("Test", "Testowy", "test@gmail.com", "Testowa 99, Warszawa", "999888777", NOW(), '$2y$10$lvBM3ZJjqLHOxJo6POW.LOQiXK3aa/LQxHvXi8QY579hlMtREzGzK'),
@@ -257,17 +243,3 @@ INSERT INTO Orders(cl_id, pr_id, order_date)
              VALUES (0, 0, NOW()),
                     (1, 1, NOW()),
                     (2, 2, NOW());
-
--- INSERT INTO OrderElements(order_id, pr_id, amount)
---              VALUES (0, 0, 2),
---                     (0, 1, 1),
---                     (1, 2, 3),
---                     (2, 2, 1),
---                     (2, 1, 1),
---                     (0, 2, 1);
-
--- INSERT INTO Opinions(cl_id, pr_id, opinion, rate)
---              VALUES (0, 2, "Testowa opinia dysku twardego", '6'),
---                     (2, 0, "Opinia karty graficznej", "3");
-
-

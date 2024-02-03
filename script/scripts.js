@@ -19,11 +19,6 @@ function prod_valid()
 
     var Valid = true
 
-    // if (title.value.charAt(0) != title.value.charAt(0).toUpperCase()) {
-    //     Valid = false
-    //     titleError.innerText = 'Tytuł powinien zaczynać się z dużej litery'
-    // }
-
     if (title.value.length < 3) {
         Valid = false
         titleError.innerText = "Za krótki tytuł"
@@ -62,7 +57,6 @@ function addProd(id=-1)
 {
     if (prod_valid())
     {
-    
         const title = document.getElementById('title')
         const select = document.getElementById('category')
         const photo = document.getElementById('photo')
@@ -205,7 +199,6 @@ function xhrRequest(destination_url, alert_message, xhr_content)
 
 function deleteBasketProd(id)
 {
-    // return confirm("Czy na pewno chcesz usunąć?")
     destination_url = "../actions_php/Bas.php?m=d"
     alert_message = "Usunięto"
     xhr_content = "id=" + id

@@ -68,8 +68,6 @@
                 <a href="../Main.php">Wróć do strony</a>
             </form>
 
-        
-
         </div>
         <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -121,7 +119,6 @@
                 {
                     if (xhr.readyState == 4 && xhr.status == 200) 
                     {
-                        // var data = JSON.parse(xhr.responseText);
                         console.log(xhr.responseText)
                         if (xhr.responseText == "false")
                         {

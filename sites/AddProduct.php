@@ -1,7 +1,6 @@
 <?php 
     include('../class/Manage.php');
     $manage = new Manage();
-    
     $id = -1;
     if (isset($_GET['id']))
     {
@@ -360,7 +359,6 @@
                             name="m_chipset"
                             required
                             <?php if (isset($_GET['id']) && $cat == 'Płyty główne') { echo 'value = "'. $product -> Specification(3) .'"'; } ?>
-
                         >
                         <div id="m_chipset_error"></div>
                     </div>
@@ -377,7 +375,6 @@
                             name="c_type"
                             required
                             <?php if (isset($_GET['id']) && $cat == 'Obudowy komputera') { echo 'value = "'. $product -> Specification(1) .'"'; } ?>
-
                         >
                         <div id="c_type_error"></div>
                     </div>
@@ -391,11 +388,10 @@
                             name="c_standard"
                             required
                             <?php if (isset($_GET['id']) && $cat == 'Obudowy komputera') { echo 'value = "'. $product -> Specification(2) .'"'; } ?>
-
                         >
                         <div id="c_standard_error"></div>
                     </div>
-
+                    
                     <div class="col-md-4">
                         <label for="c_backlight" class="form-label">Podświetlenie</label>
                         <input
@@ -574,13 +570,10 @@
                     name="amount"
                     required
                     <?php if ($id != -1) { echo 'value="'. $product -> Amount() .'"'; } ?>
-
                 >
                 <div id="amount_error"></div>
             </div>
         </div>
-        <!-- </div> -->
-
         <div class="col-md-4" style="width: 100%;">
             <label for="description" class="form-label">Opis</label>
             <textarea
@@ -604,9 +597,6 @@
             type="submit" 
             value="Prześlij"
         >
-       
-
-    <!-- </form> -->
 </div>
 <script src="../script/scripts.js"></script>
 <script>

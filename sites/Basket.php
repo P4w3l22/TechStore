@@ -23,7 +23,6 @@
         <tbody>
             <?php 
                 $manage -> Basket($_SESSION['basket'][$_SESSION['username']]);
-            
             ?>
         </tbody>
     </table>

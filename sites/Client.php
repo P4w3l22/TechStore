@@ -57,7 +57,6 @@
                 {
                     $manage -> Client(); 
                 }
-            
             ?>
         </tbody>
     </table>
@@ -76,8 +75,6 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST")
         {
             $manage -> DeleteRow("c");
-            // $manage2 = new ManageOrder();
-            // $manage2 -> Update();
         }
     ?>
 </div>

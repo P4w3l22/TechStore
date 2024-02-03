@@ -32,7 +32,6 @@ form.addEventListener('submit', (e) => {
     {
         if (xhr.readyState == 4 && xhr.status == 200) 
         {
-            // var data = JSON.parse(xhr.responseText);
             console.log(xhr.responseText)
             if (xhr.responseText == "false")
             {
@@ -43,23 +42,6 @@ form.addEventListener('submit', (e) => {
     };
     
     xhr.send("email="+email.value);
-
-    // fetch('../actions_php/Get.php?m=e', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/x-www-form-urlencoded'
-    //         },
-    //         body: 'email=' + encodeURIComponent(email.value)
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         if (!data.result)
-    //         {
-    //             isValid = false
-    //             emailErrorElement.innerText = "Podany adres email jest już używany!"
-    //         }
-    //     })
-    //     .catch(error => console.error(error))
     
     if (name.value.length < 2) {
         isValid = false
@@ -71,7 +53,6 @@ form.addEventListener('submit', (e) => {
         nameErrorElement.innerText = 'Twoje imię powinno zaczynać się od dużej litery'
     }
 
-
     if (second_name.value.charAt(0) !== second_name.value.charAt(0).toUpperCase()) {
         isValid = false
         secondNameErrorElement.innerText = 'Twoje nazwisko powinno zaczynać się od dużej litery'
@@ -81,7 +62,6 @@ form.addEventListener('submit', (e) => {
         isValid = false
         secondNameErrorElement.innerText = 'Za krótkie nazwisko'
     }
-
 
     if (number.value.length != 9) {
         isValid = false
@@ -111,5 +91,3 @@ form.addEventListener('submit', (e) => {
         alert('Dodano!')
     }
 })
-
-

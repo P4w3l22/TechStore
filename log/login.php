@@ -40,7 +40,6 @@
                     <a href="signup.php">Rejestracja</a>
                 </div>
                 <input type="submit" value="Zaloguj">
-
             </form>
         </div>
         <script src="https://unpkg.com/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>

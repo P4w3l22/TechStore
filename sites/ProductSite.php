@@ -33,9 +33,7 @@
                                     echo "goToLoginPage()";
                                 }
 
-                             ?>">Dodaj do koszyka</button>
-                    <!-- onclick="addToBasket(<?php echo $_GET['id']; ?>)">Dodaj do koszyka</button> -->
-            
+                             ?>">Dodaj do koszyka</button>            
             <div style="display: flex;
                         text-align: left; 
                         padding: 20px; 
@@ -85,12 +83,10 @@
             aria-controls="pills-specification"
             aria-selected="false"
             style="color: white;"
-
             >
             Specyfikacja
             </button>
         </li>
-
     </ul>
     <div class="tab-content" id="pills-tabContent" style="text-align: center; margin: 80px 0px 120px 0px;">
         <div

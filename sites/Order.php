@@ -53,7 +53,6 @@
                 {
                     $manage -> Orders(); 
                 }
-                
             ?>
         </tbody>
     </table>
@@ -99,7 +98,6 @@
             }
         })
     })
-
 </script>
 
 <?php include('parts/footer.php'); ?>
