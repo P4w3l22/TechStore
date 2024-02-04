@@ -2,7 +2,13 @@
     include('../class/Manage.php');
     $manage = new ManageOrder();
     $manage2 = new SearchDisplay();
-    include('parts/header.php'); 
+    include('parts/header.php');
+
+    if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
+    {
+        $forbidden = true;
+    }
+
 ?>
 
 <title>Dodaj klienta</title>
@@ -63,5 +69,7 @@
     </form>
 </div>
 <?php $manage -> Add(); ?>
+
+<script src="../script/forbidden.js"></script>
 
 <?php include('parts/footer.php'); ?>

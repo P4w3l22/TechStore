@@ -242,4 +242,5 @@ INSERT INTO Products(pr_title, pr_description, pr_category, pr_specification, pr
 INSERT INTO Orders(cl_id, pr_id, order_date)
              VALUES (0, 0, NOW()),
                     (1, 1, NOW()),
-                    (2, 2, NOW());
+                    (2, 2, NOW()),
+                    (2, 3, NOW());

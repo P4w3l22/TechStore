@@ -2,12 +2,18 @@
     include('../class/Manage.php');
     $manage = new ManageClient();
     include('parts/header.php'); 
+
+    $forbidden = false;
+
+    if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
+    {
+        $forbidden = true;
+    }
 ?>
 
 <title>Dodaj klienta</title>
 </head>
 <?php include('parts/contentBackground.php'); ?>
-        
 <div class="m-3">
     <button 
         style="background-color:blueviolet; 
@@ -124,5 +130,6 @@
 </div>
 
 <script src="../script/cl_checker.js"></script>
+<script src="../script/forbidden.js"></script>
 
 <?php include('parts/footer.php'); ?>

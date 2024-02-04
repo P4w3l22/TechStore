@@ -35,28 +35,53 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent" style="text-align: left;">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-item" href="sites/Client.php">Klient</a>
-                        </li>
 
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                id="navbarDropdown"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >Produkt</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="sites/Product.php">Produkty</a></li>
-                                <li><a class="dropdown-item" href="sites/Category.php">Kategorie</a></li> <!--  target="_blank" -->
-                            </ul>
-                        </li>
+                        <?php if (isset($_SESSION['username']) && $_SESSION['username'] == "admin@gmail.com") : ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-item" href="sites/Client.php">Klient</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >Produkt</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">                                
+                                    <li><a class="dropdown-item" href="sites/Product.php">Produkty</a></li>
+                                    <li><a class="dropdown-item" href="sites/Category.php">Kategorie</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-item" href="sites/Order.php">Zamówienia</a>
+                            </li>
+                        <?php else : ?>
+                            <li>
+                                <a class="nav-link dropdown-item" href="#">Dyski twarde HDD i SSD</a>
+                            </li><li>
+                                <a class="nav-link dropdown-item" href="#">Karty graficzne</a>
+                            </li><li>
+                                <a class="nav-link dropdown-item" href="#">Procesory</a>
+                            </li><li>
+                                <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   id="navbarDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-expanded="false"
+                                >Inne</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">                                
+                                    <li><a class="dropdown-item" href="#">Płyty główne</a></li>
+                                    <li><a class="dropdown-item" href="#">Obudowy komputera</a></li>
+                                    <li><a class="dropdown-item" href="#">Pamięci RAM</a></li>
+                                    <li><a class="dropdown-item" href="#">Zasilacze komputerowe</a></li>
+                                    <li><a class="dropdown-item" href="#">Chłodzenie komputerowe</a></li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-item" href="sites/Order.php">Zamówienia</a>
-                        </li>
+                                </ul>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                     
                     <div style="display: flex; flex-direction: row;">

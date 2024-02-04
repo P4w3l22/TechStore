@@ -28,15 +28,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav flex-column me-auto">
                     <li class="nav-item dropdown cat_choice">       
-                        <a class="nav-link dropdown-item" href="#">
-                            Dyski twarde HDD i SSD
-                        </a>
+                        <a class="nav-link dropdown-item" href="#">Dyski twarde HDD i SSD</a>
                     </li>
 
                     <li class="nav-item dropdown cat_choice">
-                        <a class="nav-link dropdown-item" href="#">
-                            Karty graficzne
-                        </a>
+                        <a class="nav-link dropdown-item" href="#">Karty graficzne</a>
                     </li>
 
                     <li class="nav-item dropdown cat_choice">

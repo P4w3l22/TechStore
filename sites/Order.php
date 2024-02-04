@@ -2,6 +2,12 @@
     include('../class/Manage.php');
     $manage = new ManageOrder();
     include('parts/header.php'); 
+
+    $forbidden = false;
+    if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
+    {
+        $forbidden = true;
+    }
 ?>
 
 <title>Klienci</title>
@@ -99,5 +105,6 @@
         })
     })
 </script>
+<script src="../script/forbidden.js"></script>
 
 <?php include('parts/footer.php'); ?>

@@ -8,7 +8,14 @@
         $product = new Product($id);
         $cat = $product -> Category();
     }
-    include('parts/header.php'); 
+    include('parts/header.php');
+
+    $forbidden = false;
+    if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
+    {
+        $forbidden = true;
+    }
+
 ?>
 <title>Dodaj produkt</title>
 </head>
@@ -618,5 +625,7 @@
     document.getElementById(choice).style.display = 'block'
 
 </script>
+
+<script src="../script/forbidden.js"></script>
 
 <?php include('parts/footer.php'); ?>
