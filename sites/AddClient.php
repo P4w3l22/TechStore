@@ -5,10 +5,10 @@
 
     $forbidden = false;
 
-    if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
-    {
-        $forbidden = true;
-    }
+    // if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
+    // {
+    //     $forbidden = true;
+    // }
 ?>
 
 <title>Dodaj klienta</title>
@@ -130,6 +130,6 @@
 </div>
 
 <script src="../script/cl_checker.js"></script>
-<script src="../script/forbidden.js"></script>
+<!-- <script src="../script/forbidden.js"></script> -->
 
 <?php include('parts/footer.php'); ?>

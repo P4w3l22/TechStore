@@ -58,28 +58,8 @@
                                 <a class="nav-link dropdown-item" href="sites/Order.php">Zamówienia</a>
                             </li>
                         <?php else : ?>
-                            <li>
-                                <a class="nav-link dropdown-item" href="#">Dyski twarde HDD i SSD</a>
-                            </li><li>
-                                <a class="nav-link dropdown-item" href="#">Karty graficzne</a>
-                            </li><li>
-                                <a class="nav-link dropdown-item" href="#">Procesory</a>
-                            </li><li>
-                                <a class="nav-link dropdown-toggle"
-                                   href="#"
-                                   id="navbarDropdown"
-                                   role="button"
-                                   data-bs-toggle="dropdown"
-                                   aria-expanded="false"
-                                >Inne</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">                                
-                                    <li><a class="dropdown-item" href="#">Płyty główne</a></li>
-                                    <li><a class="dropdown-item" href="#">Obudowy komputera</a></li>
-                                    <li><a class="dropdown-item" href="#">Pamięci RAM</a></li>
-                                    <li><a class="dropdown-item" href="#">Zasilacze komputerowe</a></li>
-                                    <li><a class="dropdown-item" href="#">Chłodzenie komputerowe</a></li>
-
-                                </ul>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-item" href="sites/Category.php">Kategorie</a>
                             </li>
                         <?php endif; ?>
                     </ul>

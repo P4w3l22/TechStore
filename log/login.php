@@ -27,12 +27,12 @@
                 <h2>Logowanie</h2>
                 <div class="inputBox">
                     <input type="text" name="username" required="required">
-                    <span>Login (np. test@gmail.com)</span>
+                    <span>Login (np. (test/admin)@gmail.com)</span>
                     <i></i>
                 </div>
                 <div class="inputBox">
                     <input type="password" name="password" required="required">
-                    <span>Hasło (np. test)</span>
+                    <span>Hasło (np. test / admin)</span>
                     <i></i>
                 </div>
                 <div class="links">

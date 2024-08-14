@@ -4,10 +4,10 @@
     include('parts/header.php'); 
 
     $forbidden = false;
-    if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
-    {
-        $forbidden = true;
-    }
+    // if (!isset($_SESSION['username']) || $_SESSION['username'] != "admin@gmail.com")
+    // {
+    //     $forbidden = true;
+    // }
 ?>
 <title>Klienci</title>
 </head>
@@ -92,6 +92,6 @@
     localStorage.setItem("sResult", "searchClResults")
 </script>
 <script src="../script/search_engine.js"></script>
-<script src="../script/forbidden.js"></script>
+<!-- <script src="../script/forbidden.js"></script> -->
 
 <?php include('parts/footer.php'); ?>
